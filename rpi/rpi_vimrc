@@ -1,0 +1,180 @@
+call plug#begin()
+"startup
+Plug 'mhinz/vim-startify'
+
+" Nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" splitting line
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Error highlighting
+Plug 'vim-syntastic/syntastic'
+
+" Status line
+Plug 'itchyny/lightline.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" parens
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'davidhalter/jedi-vim'
+
+" tmux 
+Plug 'christoomey/vim-tmux-navigator'
+
+" R
+Plug 'jalvesaq/Nvim-R'
+
+" Fuzzy finder
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+" Color schemes
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+
+" Writing mode
+Plug 'junegunn/goyo.vim'
+
+call plug#end()
+
+" new line without insert
+" nmap o o<Esc>
+" nmap O O<Esc>
+
+" set leader, indicator
+:let mapleader = ","
+set showcmd
+
+" clipboard
+set clipboard=unnamed
+
+" FZF configs
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
+noremap ff :FZF
+nmap <Leader>b :Buffers
+nmap <Leader>f :Files
+nmap <Leader>l :BLines
+nmap <Leader>ag :Ag
+
+" fugitive
+nmap <Leader>gc :tab :Gcommit -v %
+nmap <Leader>gp :Gpush
+
+" Nerdtree setup
+" autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd p
+
+" NERDTree to split model
+let NERDTreeHijackNetrw=1
+let NERDTreeQuitOnOpen=1
+
+" set working directory to buffer directory
+autocmd BufEnter * lcd %:p:h
+
+" toggle NERDtree
+nmap OP :NERDTreeToggle<CR> 
+
+" pane switching
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+
+" set line number
+set number
+" relative line numbers
+noremap lm :set relativenumber
+
+" syntax highlighting
+syntax on
+
+" search
+set incsearch
+set hlsearch
+
+" lightline setup
+set laststatus=2
+if !exists('g:fzf_layout')
+    autocmd! FileType fzf
+    autocmd FileType fzf set laststatus = 0 noshowmode noruler
+                \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
+
+" gruvbox 
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
+" lightline config 
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste', 'coc-status'],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ,
+      \             [ 'venv', 'wordcount'] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'LightlineFugitive',
+      \   'venv': 'virtualenv#statusline',
+      \   'modified': 'LightlineModified',
+      \   'wordcount': 'Get_wordcount'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '⟫', 'right': '⟪' }
+      \ }
+
+" show branch icon and name
+function! LightlineFugitive()
+		if exists('*FugitiveHead')
+			let branch = FugitiveHead()
+			return branch !=# '' ? ' '.branch : ''
+		endif
+		return ''
+	endfunction
+
+" show if file is modified
+function! LightlineModified()
+		return &modifiable && &modified ? '+' : ''
+	endfunction
+
+" show wordcount
+function! Get_wordcount()
+        let wordcount = wordcount().words
+        return wordcount . ' words'
+    endfunction
+
+" R setup
+let R_rconsole_height=4
+let R_objbr_w=35
+let g:rmd_fenced_languages = ['r', 'python']
+let g:markdown_fenced_languages = ['r', 'python']
+let R_save_win_pos=1
+
+"tabstop
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+
+" map jk to Esc  
+imap jk <Esc>
+
+" prose editing
+nnoremap <Leader>gy :Goyo 80
+nnoremap <Leader>one :colo onedark
+autocmd! User GoyoEnter
+" move by one line
+nnoremap j gj
+nnoremap k gk
+
+" linebreak at spaces
+set linebreak
+

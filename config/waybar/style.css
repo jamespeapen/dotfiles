@@ -1,0 +1,190 @@
+* {
+    border: none;
+    font-family: "Ubuntu Nerd Font";
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    /* background: transparent; */
+    background-color: rgba(40, 40, 40, 0.8);
+    color: #ebdbb2;
+}
+
+#custom-fedora {
+    /* color: #294172;  */
+    color: white; 
+    font-weight: bold;
+    font-size: 16px;
+    background: #294172;
+    border-radius: 40%;
+    margin: 4px;
+}
+
+#window {
+    font-weight: bold;
+    font-family: "Ubuntu Nerd Font Book";
+    font-size: 14px;
+    padding: 0 6px;
+}
+
+#workspaces {
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+
+#workspaces button {
+    padding: 0 6px;
+    background: transparent;
+    color: #928374;
+    border-top: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    color: #82c07c;
+    border-top: 3px solid #82c07c;
+    border-radius: 0px;
+    font-size: 17px;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    padding: 0 6px;
+}
+
+#idle_inhibitor {
+    padding: 0 6px;
+}
+
+#idle_inhibitor.deactivated {
+    color: #fabd2f;
+}
+
+@keyframes blink {
+    to {
+        background-color: red;
+        color: white;
+    }
+}
+
+#idle_inhibitor.activated {
+    color: #fe8019;
+    animation-name: blink;
+    animation-duration: 0.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#mpd {
+    padding: 0 6px;
+}
+
+#mpd.disconnected {
+    color: #cc241d;
+}
+
+#mpd.stopped {
+    color: #d65d0e;
+}
+
+#mpd.paused {
+    color: #fabd2f;
+}
+
+#mpd.playing {
+    color: #98971a;
+}
+
+#pulseaudio {
+    padding: 0 6px;
+}
+
+#pulseaudio.muted {
+    color: red;
+}
+
+#network {
+    padding: 0 6px;
+    color: #8ec07c;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+    border-top: 3px solid #ff5533;
+}
+
+#cpu {
+    padding: 0 6px;
+    color: #83a598;
+}
+
+#memory {
+    padding: 0 6px;
+    color: #b16286;
+}
+
+
+#temperature {
+    padding: 0 6px;
+    color: #fe8019;
+
+}
+
+#temperature.critical {
+    color: #9d0006;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#backlight {
+    padding: 0 5px;
+    color: #fabd2f;
+}
+
+#battery {
+    padding-right: 20px;
+    padding-left: 5px;
+    color: #98971a;
+}
+
+#battery icon {
+    color: #fabd2f;
+}
+
+#battery.charging {
+    color: #b8bb26;
+}
+
+#battery.warning:not(.charging) {
+    color: #cc241d;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    color: #cc241d;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#tray {
+    padding: 0 5px;
+}
+
+#custom-spotify {
+    color: rgb(102, 220, 105);
+}
