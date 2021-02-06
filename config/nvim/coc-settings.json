@@ -1,0 +1,33 @@
+{
+    "coc.preferences.colorSupport": true,
+    "coc.preferences.snippets.enable": true,
+    "coc.preferences.formatOnType": true,
+
+    // suggestions
+    "suggest.noselect": true,
+    "suggest.autoTrigger": "always",
+    "suggest.floatEnable": true,
+    "suggest.minTriggerInputLength": 2,
+    "list.indicator": ">",
+
+    // snippets
+    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
+
+    // solargraph
+    "solargraph.completion": true,
+    "solargraph.references": true,
+
+    // R
+    "r.lsp.debug": false,
+    "r.lsp.diagnostics": false,
+
+    // bash
+    "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
+    }
+}
