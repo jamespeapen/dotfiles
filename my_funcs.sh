@@ -1,26 +1,63 @@
 #--------------------Configs, sync package lists------------------------------------------------- 
 # list all installed_packages
 function get-installed-packages() {
-    apt list --installed | sed 's/\/.*//' | sort | uniq | tee installed_packages
+    apt list --installed | sed 's/\/.*//' | sort | uniq | tee Documents/LINUX_SOFTWARE/installed_packages
 }
 
 #sync dotfiles and return in dotfiles dir
 function sync-dots() {
-    cp ~/.zshrc $DOTFILES/zshrc
-    cp ~/.vimrc $DOTFILES/vimrc
-    cp ~/.vim/plugins.vim $DOTFILES/vim
-    cp ~/.vim/lightline.vim $DOTFILES/vim
-    cp ~/.vim/mappings.vim $DOTFILES/vim
-    cp ~/.vim/settings.vim $DOTFILES/vim
-    cp ~/.vim/ui.vim $DOTFILES/vim
-    cp ~/.tmux.conf $DOTFILES/tmux.conf
-    cp ~/.my_funcs.sh $DOTFILES/my_funcs.sh
-    cp -r ~/.config/sway/* $DOTFILES/config/sway/
-    cp -r ~/.config/waybar/* $DOTFILES/config/waybar/
-    cd $DOTFILES
+    cp ~/.zshrc ~/Documents/MY_DOCS/dotfiles/zshrc
+
+    cp ~/.vimrc ~/Documents/MY_DOCS/dotfiles/vimrc
+
+    cp ~/.config/nvim/init.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/plugins.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/lightline.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/mappings.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/settings.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/ui.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/coc-settings.json ~/Documents/MY_DOCS/dotfiles/config/nvim/
+
+    cp ~/.tmux.conf ~/Documents/MY_DOCS/dotfiles/tmux.conf
+    cp ~/.my_funcs.sh ~/Documents/MY_DOCS/dotfiles/my_funcs.sh
+
+    cp -r ~/.config/sway/* ~/Documents/MY_DOCS/dotfiles/config/sway/
+    cp -r ~/.config/waybar/* ~/Documents/MY_DOCS/dotfiles/config/waybar/
+
+    cd ~/Documents/MY_DOCS/dotfiles
     git status
 }
 
+# kitty dark mode
+function dark-mode() {
+   sed -i 's/foreground #282828/foreground #fbf1c7/' ~/.config/kitty/kitty.conf
+   sed -i 's/background #fbf1c7/background #1d2021/' ~/.config/kitty/kitty.conf
+   sed -i 's/background=light/background=dark/' ~/.vim/ui.vim
+   sed -i 's/colorscheme PaperColor/colorscheme gruvbox/' ~/.vim/ui.vim
+   sed -i 's/PaperColor/gruvbox/' ~/.vim/lightline.vim
+}
+
+# kitty light mode
+function light-mode() {
+   sed -i 's/foreground #fbf1c7/foreground #282828/' ~/.config/kitty/kitty.conf
+   sed -i 's/background #1d2021/background #fbf1c7/' ~/.config/kitty/kitty.conf
+   sed -i 's/background=dark/background=light/' ~/.vim/ui.vim
+   sed -i 's/colorscheme gruvbox/colorscheme PaperColor/' ~/.vim/ui.vim
+   sed -i 's/gruvbox/PaperColor/' ~/.vim/lightline.vim
+}
+
+function ergo() {
+    sed -i 's/xkb_variant/#xkb_variant/' ~/.config/sway/config
+    sed -i 's/xkb_options/#xkb_options/' ~/.config/sway/config
+    swaymsg reload
+}
+
+function lap() {
+    sed -i 's/#xkb_variant/xkb_variant/' ~/.config/sway/config
+    sed -i 's/#xkb_options/xkb_options/' ~/.config/sway/config
+    swaymsg reload
+}
+    
 #--------------------Logs------------------------------------------------- 
 
 # get ssh logs with date and time
@@ -40,7 +77,7 @@ function ssh-invalid() {
 
 # get sudo commands
 function sudo-log() {
-    ##Ubuntu logs
+    ##non-systemd logs
     #grep -a sudo /var/log/auth.log | grep COMMAND| sed -r -e 's/^(.*)\s.*(sudo).*COMMAND=\/.*bin\/(.*$)/\1 \2 \3/'
 
     #systemd
@@ -72,6 +109,7 @@ rgf() {
     else
         echo "Enter a search string"
     fi
+    return 0
 }
 
 agstring() {
@@ -82,6 +120,7 @@ agstring() {
     else
         echo "Enter a search string"
     fi
+    return 0
 }
 
 # get number of non-empty lines from a folder and a file type
@@ -110,4 +149,29 @@ gco () {
     files=$(git ls-files -m | fzf --preview='git diff --color=always {}')
         [[ -n "$files" ]] && git commit -v "${files[@]}"
     fi
+}
+
+#--------------------Websites------------------------------------------------- 
+# random site in private mode
+function fox() {
+    firefox -private-window $1 &
+}
+
+# search with DDG, search string must have '+' as delimiter
+function duck() {
+    search_url="https://duckduckgo.com/?q=${1}&t=canonical&ia=web"
+    firefox -private-window $search_url &
+}
+
+# cmdline stopwatch, increments in 5 seconds
+function stopwatch() {
+    date1=`date +%s`; while true; do 
+       echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+       sleep 5
+    done
+}
+
+# youtube-dl from url
+function ydl() {
+    youtube-dl --get-url --format m4a $1 | cvlc -
 }
