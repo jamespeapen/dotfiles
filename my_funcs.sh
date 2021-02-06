@@ -9,6 +9,8 @@ function sync-dots() {
     cp ~/.zshrc ~/Documents/MY_DOCS/dotfiles/zshrc
 
     cp ~/.vimrc ~/Documents/MY_DOCS/dotfiles/vimrc
+    
+    cp ~/.config/kitty/kitty.conf ~/Documents/MY_DOCS/dotfiles/config/kitty/
 
     cp ~/.config/nvim/init.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
     cp ~/.config/nvim/plugins.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
