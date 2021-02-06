@@ -1,31 +1,25 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# p10k prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    ]]; then 
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" 
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# PATH
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export JDK_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Colors
-export TERM='xterm-256color'
 # man pages
 #export PAGER='most'
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+# Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_TMUX_AUTOSTART='true'
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# ZSH_TMUX_AUTOSTART='true'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,19 +65,19 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
+# Plugins
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(sudo cargo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
+
+# custom files
 source ~/.my_funcs.sh
 source $ZSH/oh-my-zsh.sh
+
+# completion accept
 bindkey '^ ' autosuggest-accept
-# User configuration
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -91,44 +85,61 @@ bindkey '^ ' autosuggest-accept
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='nvim'
  else
-   export EDITOR='vim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 
 # aliases
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
-alias tmuxconfig="vim ~/.tmux.conf"
-alias swayconfig="vim ~/.config/sway/config"
+# config editing
+alias vim="nvim"
+alias zshconfig="nvim ~/.zshrc"
+alias nvimconfig="nvim ~/.config/nvim"
+alias tmuxconfig="nvim ~/.tmux.conf"
+alias swayconfig="nvim ~/.config/sway/config"
 
+# git
 alias fcho="git for-each-ref --format='%(refname:short)' refs/heads |fzf|xargs git checkout"
 alias gcommit="git commit -v "
 
 alias sed="sed -E "
+
+# dnf
 alias suinstall="sudo dnf install"
+
+# session
 alias quit="gnome-session-quit"
 alias :q="exit"
+
+# file explorer
 alias rr="ranger"
 
+# system sensors
+alias temps='watch -n 1 sensors'
+
+# protonvpn
 alias pvpnc="sudo protonvpn c -f"
 alias pvpns="sudo protonvpn s"
 alias pvpnd="sudo protonvpn d"
 
+# radio
 alias wblv="cvlc https://wblv.streamguys1.com/live"
 alias miradio="cvlc http://17003.live.streamtheworld.com:80/WUOMFM_SC"
+alias wyce="cvlc http://ice24.securenetsystems.net/WYCE"
+alias npr="cvlc https://npr-ice.streamguys1.com/live.mp3"
 
+# fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200' --preview-window=right:40%"
+export FZF_DEFAULT_OPTS='--color fg+:italic,hl:-1:underline,hl+:-1:reverse:underline'
+
+# Colors
+export TERM='xterm-256color'
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
@@ -155,5 +166,10 @@ if [[ "$(tput colors)" == "256" ]]; then
     ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=136
     ZSH_HIGHLIGHT_STYLES[assign]=fg=037
 fi
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
