@@ -1,6 +1,6 @@
 # dotfiles
 
-## Window managers
+### Window managers
 
 - [sway](https://github.com/swaywm/sway)
     - [waybar](https://github.com/Alexays/Waybar)
@@ -12,7 +12,7 @@
 - [vim](https://github.com/vim/vim) >= 8.2
 - [neovim](https://github.com/neovim/neovim)
 
-## Shell
+### Shell
 
 - [zsh](https://www.zsh.org/)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/)
