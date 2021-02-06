@@ -25,7 +25,7 @@ set $term kitty
 set $menu "rofi -combi-modi window,drun,ssh,run -show combi -show-icons"
 
 bindsym Mod1+Shift+f exec firefox --private
-bindsym Mod1+Shift+g exec google-chrome -incognito
+bindsym Mod1+Shift+g exec chromium-browser-privacy -incognito
 
 ### Output configuration
 
@@ -33,6 +33,22 @@ bindsym Mod1+Shift+g exec google-chrome -incognito
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+focus output eDP-1
+
+output DP-2 pos 0 0
+output eDP-1 pos 1440 0
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output DP-1
+workspace 8 output DP-1
+workspace 9 output DP-1
+workspace 10 output DP-1
 
 ### Idle configuration
 # Example configuration:
@@ -50,7 +66,9 @@ exec swayidle -w \
 
 ### Input configuration
 input "type:keyboard" {
-    xkb_options ctrl:swap_lalt_lctl
+    xkb_layout "us"
+        xkb_variant "colemak"
+        xkb_options ctrl:swap_lalt_lctl
 }
 
 input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
@@ -97,7 +115,7 @@ bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -161,9 +179,9 @@ bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    #bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+s layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -222,5 +240,4 @@ bar {
     swaybar_command waybar
 }
 ## Themes
-include ./config/sway/themes/gruvbox
 include ~/.config/sway/themes/gruvbox
