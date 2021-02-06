@@ -5,7 +5,7 @@
      "width": 1280, // Waybar width
 
      // Choose the order of the modules
-    "modules-left": ["custom/fedora", "sway/workspaces", "sway/mode", "custom/media", "mpd"],
+    "modules-left": ["custom/fedora", "sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["clock"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "temperature#2", "backlight", "battery", "tray"],
 
@@ -21,14 +21,14 @@
          "all-outputs": true,
          "format": "{icon}",
          "format-icons": {
-             "1:term": "",
-             "2:web": "爵",
-             "3:code": "",
-             "4:music": "",
-             "5:work": "",
-//             "urgent": "",
-//             "focused": "",
-             "default": ""
+             "1:term": "1",
+             "2:web": "2",
+             "3:code": "3",
+             "4:music": "4",
+             "5:work": "5",
+//             "urgent": "6",
+//             "focused": "7",
+             "default": "8"
          }
      },
     "sway/mode": {
