@@ -1,5 +1,7 @@
 # dotfiles
 
+## Configs
+
 ### Window managers
 
 - [sway](https://github.com/swaywm/sway)
