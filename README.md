@@ -14,14 +14,14 @@
 - [vim](https://github.com/vim/vim) >= 8.2
 - [neovim](https://github.com/neovim/neovim)
 
+### Terminal emulator
+
+- [kitty](https://github.com/kovidgoyal/kitty)
+
 ### Shell
 
 - [zsh](https://www.zsh.org/)
   - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/)
-
-### Terminal emulator
-
-- [kitty](https://github.com/kovidgoyal/kitty)
 
 ### Shell utilities
 
