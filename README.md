@@ -3,7 +3,9 @@
 ## Window managers
 
 - [sway](https://github.com/swaywm/sway)
+    - [waybar](https://github.com/Alexays/Waybar)
 - [i3](https://github.com/i3/i3)
+    - [polybar](https://github.com/polybar/polybar)
 
 ### Editors
 
