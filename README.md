@@ -4,8 +4,8 @@
 
 ### Window managers
 
-- [sway](https://github.com/swaywm/sway)
-    - [waybar](https://github.com/Alexays/Waybar)
+- [sway](https://github.com/swaywm/sway): wayland window manager
+    - [waybar](https://github.com/Alexays/Waybar): status bar
 - [i3](https://github.com/i3/i3)
     - [polybar](https://github.com/polybar/polybar)
 
@@ -25,11 +25,13 @@
 
 ### Shell utilities
 
-- [forgit](https://github.com/wfxr/forgit)
-- [fzf](https://github.com/junegunn/fzf)
-- [fzf-tab](https://github.com/Aloxaf/fzf-tab)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [silversearcher](https://github.com/ggreer/the_silver_searcher)
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [forgit](https://github.com/wfxr/forgit): git tools with fuzzy searching
+- [fzf](https://github.com/junegunn/fzf): command line fuzzy finder
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab): fuzzy tab-completion
+- [ripgrep](https://github.com/BurntSushi/ripgrep): search tool
+- [silversearcher](https://github.com/ggreer/the_silver_searcher): search tool
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions):
+    shell command autosuggestions
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting):
+shell syntax highlighting
 
