@@ -21,7 +21,8 @@
 ### Shell
 
 - [zsh](https://www.zsh.org/)
-  - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/)
+  - [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/): zsh config management
+  - [powerlevel10k](https://github.com/romkatv/powerlevel10k): zsh prompt theme
 
 ### Shell utilities
 
