@@ -101,6 +101,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim"
 alias tmuxconfig="nvim ~/.tmux.conf"
 alias swayconfig="nvim ~/.config/sway/config"
+alias gitconfig="nvim ~/.gitconfig"
 
 # git
 alias fcho="git for-each-ref --format='%(refname:short)' refs/heads |fzf|xargs git checkout"
