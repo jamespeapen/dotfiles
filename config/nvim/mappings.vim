@@ -63,12 +63,15 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
+" wayland clipboard support
+xnoremap <Leader>y y:call system("wl-copy", @")<cr>
+
+nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+
+nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
