@@ -14,6 +14,9 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
 Plug 'sheerun/vim-polyglot'
 
+" Autopairs
+Plug 'jiangmiao/auto-pairs'
+
 " i3/sway syntax
 Plug 'jamespeapen/sway-config.vim'
 
