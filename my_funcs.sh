@@ -6,27 +6,27 @@ function get-installed-packages() {
 
 #sync dotfiles and return in dotfiles dir
 function sync-dots() {
-    cp ~/.zshrc ~/Documents/MY_DOCS/dotfiles/zshrc
+    cp ~/.zshrc ~/Documents/dotfiles/zshrc
 
-    cp ~/.vimrc ~/Documents/MY_DOCS/dotfiles/vimrc
+    cp ~/.vimrc ~/Documents/dotfiles/vimrc
     
-    cp ~/.config/kitty/kitty.conf ~/Documents/MY_DOCS/dotfiles/config/kitty/
+    cp ~/.config/kitty/kitty.conf ~/Documents/dotfiles/config/kitty/
 
-    cp ~/.config/nvim/init.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/plugins.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/lightline.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/mappings.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/settings.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/ui.vim ~/Documents/MY_DOCS/dotfiles/config/nvim/
-    cp ~/.config/nvim/coc-settings.json ~/Documents/MY_DOCS/dotfiles/config/nvim/
+    cp ~/.config/nvim/init.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/plugins.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/lightline.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/mappings.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/settings.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/ui.vim ~/Documents/dotfiles/config/nvim/
+    cp ~/.config/nvim/coc-settings.json ~/Documents/dotfiles/config/nvim/
 
-    cp ~/.tmux.conf ~/Documents/MY_DOCS/dotfiles/tmux.conf
-    cp ~/.my_funcs.sh ~/Documents/MY_DOCS/dotfiles/my_funcs.sh
+    cp ~/.tmux.conf ~/Documents/dotfiles/tmux.conf
+    cp ~/.my_funcs.sh ~/Documents/dotfiles/my_funcs.sh
 
-    cp -r ~/.config/sway/* ~/Documents/MY_DOCS/dotfiles/config/sway/
-    cp -r ~/.config/waybar/* ~/Documents/MY_DOCS/dotfiles/config/waybar/
+    cp -r ~/.config/sway/* ~/Documents/dotfiles/config/sway/
+    cp -r ~/.config/waybar/* ~/Documents/dotfiles/config/waybar/
 
-    cd ~/Documents/MY_DOCS/dotfiles
+    cd ~/Documents/dotfiles
     git status
 }
 
@@ -59,6 +59,18 @@ function lap() {
     sed -i 's/#xkb_options/xkb_options/' ~/.config/sway/config
     swaymsg reload
 }
+
+function gitpuller { 
+    for f in *;  do 
+        if [ -d $f  -a ! -h $f ];  
+        then  
+            cd -- "$f";  
+            git pull
+
+            cd ..; 
+        fi;  
+    done;  
+};
     
 #--------------------Logs------------------------------------------------- 
 
@@ -144,12 +156,16 @@ gco () {
 
     local files
 
-    files=($(git ls-files -m))
+    # get added and modified filenames
+    files=($(git status --short | grep "^A\|\sM" | cut -c 4-))
+
     if [[ -z "$files" ]]; then
         echo "nothing to commit, working directory clean"
     else
-    files=$(git ls-files -m | fzf --preview='git diff --color=always {}')
-        [[ -n "$files" ]] && git commit -v "${files[@]}"
+    # select file to commit through fzf and preview window with diff
+    files=$(git status --short | grep "^A\|\sM" | cut -c 4- | \
+        fzf --preview='git diff HEAD --color=always {}')
+        git commit -v "$files"
     fi
 }
 
@@ -175,5 +191,20 @@ function stopwatch() {
 
 # youtube-dl from url
 function ydl() {
-    youtube-dl --get-url --format m4a $1 | cvlc -
+    url=$(wl-paste)
+    echo "$url"
+    urls=$(youtube-dl --get-url --format m4a "$url")
+    for url in "$urls"
+    do
+        echo "$url"
+        echo "$url" | cvlc -
+    done
+    return 0
 }
+
+function exiting() {
+    exit
+}
+
+zle -N exiter exiting
+bindkey ',q'  exiter
