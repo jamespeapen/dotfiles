@@ -22,10 +22,24 @@ nnoremap <Leader>vs :vsplit<CR>
 
 " prose editing
 set spelllang=en
-nnoremap <Leader>gy :Goyo 80<CR> :colo onedark<CR> :set spell<CR>
+function! Gy()
+    :Goyo 100
+    :set relativenumber
+    :set number
+endfunction
 
-" formatting
-nnoremap <Leader>ff gggqGgg
+function! Prose()
+    :Goyo 90
+    :set spell
+    :colo onedark
+endfunction
+
+nnoremap <silent><Leader>pr :call Prose()<CR>
+nnoremap <silent><Leader>gy :call Gy()<CR>
+
+" formatting document
+nnoremap <Leader>fd gggqGgg
+" format paragraph
 nnoremap <Leader>fp gq{
 
 " get wordcount
@@ -55,7 +69,7 @@ nmap OP :NERDTreeToggle<CR>
 " Tagbar toggle
 nmap TB :TagbarToggle <CR>
 " switch focus to tagbar - assuming its the rightmost file
-nmap KL :9 wincmd l <CR>
+nmap EI :9 wincmd l <CR>
 
 " coc mappings
 " map <CR> to select suggestion
