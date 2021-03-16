@@ -10,6 +10,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "Tagbar
 Plug 'majutsushi/tagbar'
 
+" Indent line
+Plug 'Yggdroot/indentLine'
+
 " Syntax highlighting
 Plug 'vim-syntastic/syntastic'
 Plug 'sheerun/vim-polyglot'
@@ -26,6 +29,9 @@ Plug 'itchyny/lightline.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" parens
+Plug 'tpope/vim-surround'
+
 " autocompletions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
@@ -39,6 +45,9 @@ Plug 'vimwiki/vimwiki'
 
 " Latex
 Plug 'lervag/vimtex'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " Fuzzy finder
 Plug 'junegunn/fzf'
