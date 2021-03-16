@@ -10,6 +10,8 @@ set colorcolumn=80
 " indent
 set smartindent
 set autoindent
+let g:indentLine_concealcursor=""
+let g:indentLine_conceallevel=2
 
 "tabstop
 filetype plugin indent on
@@ -65,3 +67,5 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Coc
+autocmd FileType * let b:coc_additional_keywords = ["-"]
