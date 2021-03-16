@@ -6,6 +6,8 @@
 " map jk to Esc  
 imap ,m <Esc>
 vmap ,m <Esc>
+
+" nvim write and quit shortcuts
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>11 :q!<CR>
 nnoremap <Leader>wq :wq<CR>
@@ -17,21 +19,23 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+" tabs
+nmap <leader>l gt
+nmap <leader>h gT
+
 " splits
 nnoremap <Leader>vs :vsplit<CR>
 
 " prose editing
-set spelllang=en
-function! Gy()
-    :Goyo 100
-    :set relativenumber
-    :set number
-endfunction
-
 function! Prose()
     :Goyo 90
     :set spell
-    :colo onedark
+endfunction
+
+function! Gy()
+    :Goyo 90
+    :set relativenumber
+    :set number
 endfunction
 
 nnoremap <silent><Leader>pr :call Prose()<CR>
@@ -60,8 +64,8 @@ nmap <Leader>ff :Files<CR>
 nmap <Leader>fh :Files~<CR>
 
 " fugitive
-nmap <Leader>gc :w<CR> :tab :Gcommit -v % <CR>
-nmap <Leader>gp :Gpush <CR>
+nmap <Leader>gc :w<CR> :tab :Git commit -v % <CR>
+nmap <Leader>gp :Git push <CR>
 
 " toggle NERDtree
 nmap OP :NERDTreeToggle<CR> 
