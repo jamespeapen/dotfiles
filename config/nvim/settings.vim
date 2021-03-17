@@ -34,6 +34,10 @@ syntax on
 " search
 set incsearch
 set hlsearch
+set inccommand=nosplit
+
+" folding
+let g:vim_markdown_folding_disabled = 1
 
 " fzf settings
 let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }

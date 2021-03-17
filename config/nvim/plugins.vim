@@ -10,15 +10,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "Tagbar
 Plug 'majutsushi/tagbar'
 
-" Indent line
-Plug 'Yggdroot/indentLine'
-
 " Syntax highlighting
 Plug 'vim-syntastic/syntastic'
 Plug 'sheerun/vim-polyglot'
-
-" Autopairs
-Plug 'jiangmiao/auto-pairs'
 
 " i3/sway syntax
 Plug 'jamespeapen/sway-config.vim'
@@ -39,6 +33,9 @@ Plug 'honza/vim-snippets'
 
 " R
 Plug 'jalvesaq/Nvim-R'
+
+" markdown
+"Plug 'plasticboy/vim-markdown'
 
 " VimWiki
 Plug 'vimwiki/vimwiki'
@@ -67,7 +64,7 @@ Plug 'junegunn/goyo.vim'
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
-"game
-Plug 'vim/killersheep'
+" Indents
+Plug 'Yggdroot/indentLine'
 call plug#end()
 

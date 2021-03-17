@@ -1,11 +1,14 @@
 " Mappings
 
-" set leader, indicator
+" set leader
 :let mapleader = ","
 
-" map jk to Esc  
+" map ,m to Esc 
 imap ,m <Esc>
 vmap ,m <Esc>
+
+" map C-space to nothing to prevent C-@ from being called
+imap <C-space> <Nop>
 
 " nvim write and quit shortcuts
 nnoremap <Leader>q :q<CR>
@@ -41,15 +44,15 @@ endfunction
 nnoremap <silent><Leader>pr :call Prose()<CR>
 nnoremap <silent><Leader>gy :call Gy()<CR>
 
-" formatting document
+" format full document
 nnoremap <Leader>fd gggqGgg
 " format paragraph
-nnoremap <Leader>fp gq{
+nnoremap <Leader>fp gq}
 
 " get wordcount
 nnoremap <Leader>wc :echo wordcount().words . " words"<CR>
 
-" move by one line
+" move by one line not sentence
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -57,15 +60,14 @@ vnoremap k gk
 
 " FZF configs
 nmap <Leader>b :Buffers<CR>
-nmap <Leader>gf :GitFiles <CR>
-nmap <Leader>l :BLines<CR>
+nmap <Leader>gf :GitFiles<CR>
 nmap <Leader>ag :Ag<CR>
 nmap <Leader>ff :Files<CR>
 nmap <Leader>fh :Files~<CR>
 
 " fugitive
-nmap <Leader>gc :w<CR> :tab :Git commit -v % <CR>
-nmap <Leader>gp :Git push <CR>
+nmap <Leader>gc :w<CR> :tab :Git commit -v %<CR>
+nmap <Leader>gp :Git push
 
 " toggle NERDtree
 nmap OP :NERDTreeToggle<CR> 
