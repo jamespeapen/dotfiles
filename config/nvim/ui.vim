@@ -10,6 +10,3 @@ set background=dark
 
 " Indent line
 let g:indentLine_setColors = 0
-
-let g:vim_markdown_conceal_code_blocks = 0
-"let g:vim_markdown_conceal = 0

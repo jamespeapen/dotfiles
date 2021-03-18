@@ -34,9 +34,6 @@ Plug 'honza/vim-snippets'
 " R
 Plug 'jalvesaq/Nvim-R'
 
-" markdown
-"Plug 'plasticboy/vim-markdown'
-
 " VimWiki
 Plug 'vimwiki/vimwiki'
 
