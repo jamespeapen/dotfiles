@@ -116,7 +116,10 @@ rgf() {
     if [ "$1" != "" ]; then
         rg -i --line-number "$1" -g '!R' > /tmp/rgsearch
         if [ $? -eq 0 ]; then
-            cat /tmp/rgsearch | fzf --delimiter : --preview="$preview_cmd" --preview-window +{2}-20 --bind="enter:execute(less {1})"
+            cat /tmp/rgsearch | \
+                fzf --delimiter : --preview="$preview_cmd" \
+                --preview-window +{2}-20 \
+                --bind="enter:execute(less +{2} {1})"
         else
             echo "No results found for $1"
         fi
