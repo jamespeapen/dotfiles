@@ -12,6 +12,7 @@ Plug 'majutsushi/tagbar'
 
 " Syntax highlighting
 Plug 'vim-syntastic/syntastic'
+let g:polyglot_disabled = ['md', 'markdown']
 Plug 'sheerun/vim-polyglot'
 
 " i3/sway syntax

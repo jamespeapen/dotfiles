@@ -56,11 +56,13 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'index': 'SUMMARY',
 let g:vimwiki_global_ext=0
 let g:vimwiki_table_mappings = 0
 
+" Markdown
+let g:markdown_fenced_languages = ['r', 'python', 'bash=sh', 'rust', 'vim', 'awk', 'sed']
+
 " R setup
 let R_rconsole_height=4
 let R_objbr_w=35
 let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed']
-let g:markdown_fenced_languages = ['r', 'python', 'bash=sh', 'rust', 'vim', 'awk', 'sed']
 let R_save_win_pos=1
 
 " Ultisnips
