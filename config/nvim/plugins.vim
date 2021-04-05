@@ -26,6 +26,7 @@ Plug 'tpope/vim-fugitive'
 
 " parens
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " autocompletions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
