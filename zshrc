@@ -136,8 +136,12 @@ alias npr="cvlc https://npr-ice.streamguys1.com/live.mp3"
 # fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200' --preview-window=right:40%"
-export FZF_DEFAULT_OPTS='--color fg+:italic,hl:-1:underline,hl+:-1:reverse:underline'
+export FZF_DEFAULT_COMMAND='fd --type f --exclude Library'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || exa --tree --color --icons {}) 2> /dev/null | head -200' --preview-window=right:40%"
+export FZF_ALT_C_COMMAND="fd -t d --exclude=Library --exclude=go"
+export FZF_ALT_C_OPTS="--preview 'exa --tree --icons {} | head -200'"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#ebdbb2,bg:-1,hl:#689d6a --color=fg+:#fbf1c7,bg+:#3c3836,hl+:#8ec07c --color=info:#98971a,prompt:#cc241d,pointer:#d3869b --color=marker:#b8bb26,spinner:#b16286,header:#83a598'
 
 # Colors
 export TERM='xterm-256color'
