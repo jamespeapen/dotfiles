@@ -24,8 +24,8 @@ set expandtab
 set clipboard=unnamed
 
 " set line number with absolute number for current line
-set relativenumber
 set number
+set relativenumber
 set cursorline
 
 " syntax highlighting
@@ -57,7 +57,7 @@ let g:vimwiki_global_ext=0
 let g:vimwiki_table_mappings = 0
 
 " Markdown
-let g:markdown_fenced_languages = ['r', 'python', 'bash=sh', 'rust', 'vim', 'awk', 'sed']
+let g:markdown_fenced_languages = ['r', 'python', 'sh', 'bash=sh', 'rust', 'vim', 'awk', 'sed', 'tex', 'applescript']
 
 " R setup
 let R_rconsole_height=4
