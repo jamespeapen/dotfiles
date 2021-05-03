@@ -235,13 +235,15 @@ compdef _radio radio
  
 # youtube-dl from url
 function ydl() {
-    url=$(wl-paste)
-    echo "$url"
-    urls=$(youtube-dl --get-url --format m4a "$url")
+    local url=$(wl-paste)
+    echo "Playing:"
+    youtube-dl --get-title "$url"
+    local urls=$(youtube-dl --get-url --format m4a "$url")
+
     for url in "$urls"
     do
         echo "$url"
-        cvlc -Vdummy "$url"
+        cvlc -Vdummy --play-and-exit -q "$url" > /dev/null 2>&1
     done
     return 0
 }
