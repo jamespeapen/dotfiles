@@ -200,7 +200,7 @@ function ydl() {
     for url in "$urls"
     do
         echo "$url"
-        echo "$url" | cvlc -
+        cvlc -Vdummy "$url"
     done
     return 0
 }
