@@ -1,0 +1,16 @@
+// Ergonomic layout on the US colemak layout
+// Author: James Eapen <jamespeapen@gmail.com>
+// Map Ctrl to the left Alt key, Alt to the left Ctrl key,
+// Caps to the left Ctrl key, Super to right Alt
+partial modifier_keys
+xkb_symbols "jpe_colemak_ergo" {
+    include "us(colemak)"
+    replace key <LALT> { [ Control_L, Control_L ] };
+    replace key <CAPS> { [ Alt_L, Meta_L ] };
+    replace key <LCTL> { [ Caps_Lock ] };
+    replace key <RALT> { [ Shift_R, Shift_R ] };
+    modifier_map Mod1    { <CAPS> };
+    modifier_map Lock    { <LCTL> };
+    modifier_map Control { <LALT> };
+    modifier_map Shift    { <RALT>, <RSH> };
+};
