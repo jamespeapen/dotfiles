@@ -192,6 +192,47 @@ function stopwatch() {
     done
 }
 
+#--------------------Media------------------------------------------------- 
+
+# radio
+function radio() {
+    declare -A urls
+    urls[wblv]="https://wblv.streamguys1.com/live"
+    urls[miradio]="http://17003.live.streamtheworld.com:80/WUOMFM_SC"
+    urls[wyce]="http://ice24.securenetsystems.net/WYCE"
+    urls[npr]="https://npr-ice.streamguys1.com/live.mp3"
+    
+    local command="$1"
+
+    local -a stations
+
+    stations=("wblv" "wyce" "miradio" "npr")
+
+    if (( CURRENT == 2 )); then
+        _describe 'command' stations
+    fi
+    
+    if [[ "$platform" == "Darwin" ]]; then
+        vlc -I http "$urls[$1]"
+    else
+        cvlc -Vdummy --play-and-exit -q "$urls[$1]" > /dev/null 2>&1
+    fi
+}
+
+function _radio() {
+    local command="$1"
+
+    local -a stations
+
+    stations=("wblv" "wyce" "miradio" "npr")
+
+    if (( CURRENT == 2 )); then
+        _describe 'command' stations
+    fi
+}
+
+compdef _radio radio
+ 
 # youtube-dl from url
 function ydl() {
     url=$(wl-paste)
@@ -204,6 +245,8 @@ function ydl() {
     done
     return 0
 }
+
+#--------------------zsh------------------------------------------------- 
 
 function exiting() {
     exit
