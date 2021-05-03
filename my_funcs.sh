@@ -153,7 +153,7 @@ in-git () {
 }
 
 # fuzzy search for modified files
-gco () {
+gcom () {
     # check if git repo
     in-git || return 1
 
