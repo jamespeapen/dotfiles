@@ -4,8 +4,8 @@ set showcmd
 " linebreak at spaces
 set linebreak
 
-set textwidth=80
 set colorcolumn=80
+au BufEnter *.md set textwidth=80
 
 " indent
 set smartindent
