@@ -4,11 +4,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" 
 fi
 
+# platform
+platform=$(uname)
+
 # PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export JDK_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64
-
+export XDG_DATA_HOME=~/.local/share
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -96,6 +99,7 @@ bindkey '^ ' autosuggest-accept
 
 # aliases
 # config editing
+alias ls="exa --git"
 alias vim="nvim"
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim"
@@ -136,12 +140,18 @@ alias npr="cvlc https://npr-ice.streamguys1.com/live.mp3"
 # fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f --exclude Library'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || exa --tree --color --icons {}) 2> /dev/null | head -200' --preview-window=right:40%"
-export FZF_ALT_C_COMMAND="fd -t d --exclude=Library --exclude=go"
+if [[ $platform == "Darwin" ]]; then
+    export FZF_DEFAULT_COMMAND='fd --type f --exclude Library'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd -t d --exclude=Library --exclude=go"
+else
+    export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200' --preview-window=right:50%"
+    export FZF_DEFAULT_OPTS='--color fg+:italic,hl:-1:underline,hl+:-1:reverse:underline'
+fi
+
 export FZF_ALT_C_OPTS="--preview 'exa --tree --icons {} | head -200'"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#ebdbb2,bg:-1,hl:#689d6a --color=fg+:#fbf1c7,bg+:#3c3836,hl+:#8ec07c --color=info:#98971a,prompt:#cc241d,pointer:#d3869b --color=marker:#b8bb26,spinner:#b16286,header:#83a598'
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || exa --tree --color --icons {}) 2> /dev/null | head -200' --preview-window=right:40%"
 
 # Colors
 export TERM='xterm-256color'
