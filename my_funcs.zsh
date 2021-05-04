@@ -235,17 +235,22 @@ compdef _radio radio
  
 # youtube-dl from url
 function ydl() {
-    local url=$(wl-paste)
-    echo "Playing:"
-    youtube-dl --get-title "$url"
-    local urls=$(youtube-dl --get-url --format m4a "$url")
-
-    for url in "$urls"
-    do
-        echo "$url"
-        cvlc -Vdummy --play-and-exit -q "$url" > /dev/null 2>&1
-    done
-    return 0
+  if [[ "$platform" == "Darwin" ]]; then
+    url=$(pbpaste)
+  else
+    url=$(wl-paste)
+  fi
+  echo "$url"
+  urls=$(youtube-dl --get-url --format m4a "$url")
+  for url in "$urls"
+  do
+    if [[ "$platform" == "Darwin" ]]; then
+      vlc -I http "$url"
+    else
+      cvlc -Vdummy "$url"
+    fi
+  done
+  return 0
 }
 
 #--------------------zsh------------------------------------------------- 
