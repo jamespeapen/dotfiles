@@ -201,16 +201,6 @@ function radio() {
   urls[wyce]="http://ice24.securenetsystems.net/WYCE"
   urls[npr]="https://npr-ice.streamguys1.com/live.mp3"
   
-  local command="$1"
-
-  local -a stations
-
-  stations=("wblv" "wyce" "miradio" "npr")
-
-  if (( CURRENT == 2 )); then
-    _describe 'command' stations
-  fi
-  
   if [[ "$platform" == "Darwin" ]]; then
     vlc -I http "$urls[$1]" --play-and-exit -q > /dev/null 2>&1
   else
