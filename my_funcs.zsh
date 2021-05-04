@@ -213,9 +213,9 @@ function radio() {
     fi
     
     if [[ "$platform" == "Darwin" ]]; then
-        vlc -I http "$urls[$1]"
+        vlc -I http "$urls[$1]" --play-and-exit -q > /dev/null 2>&1
     else
-        cvlc -Vdummy --play-and-exit -q "$urls[$1]" > /dev/null 2>&1
+        cvlc -Vdummy "$urls[$1]" --play-and-exit -q > /dev/null 2>&1
     fi
 }
 
@@ -245,9 +245,9 @@ function ydl() {
   for url in "$urls"
   do
     if [[ "$platform" == "Darwin" ]]; then
-      vlc -I http "$url"
+      vlc -I http "$url" --play-and-exit -q > /dev/null 2>&1
     else
-      cvlc -Vdummy "$url"
+      cvlc -Vdummy "$url" --play-and-exit -q > /dev/null 2>&1
     fi
   done
   return 0
