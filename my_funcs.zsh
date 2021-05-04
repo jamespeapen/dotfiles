@@ -62,11 +62,10 @@ function lap() {
 
 function gitpuller { 
   for f in *;  do 
-    if [ -d $f  -a ! -h $f ];  
+  if [ -d $f  -a ! -h $f ];  
     then  
       cd -- "$f";  
       git pull
-
       cd ..; 
     fi;  
   done;  
@@ -187,8 +186,8 @@ function duck() {
 # cmdline stopwatch, increments in 5 seconds
 function stopwatch() {
   date1=`date +%s`; while true; do 
-     echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
-     sleep 5
+   echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+   sleep 5
   done
 }
 
@@ -213,9 +212,9 @@ function radio() {
   fi
   
   if [[ "$platform" == "Darwin" ]]; then
-    vlc -I http "$urls[$1]"
+    vlc -I http "$urls[$1]" --play-and-exit -q > /dev/null 2>&1
   else
-    cvlc -Vdummy --play-and-exit -q "$urls[$1]" > /dev/null 2>&1
+    cvlc -Vdummy "$urls[$1]" --play-and-exit -q > /dev/null 2>&1
   fi
 }
 
@@ -235,13 +234,20 @@ compdef _radio radio
  
 # youtube-dl from url
 function ydl() {
-  url=$(wl-paste)
+  if [[ "$platform" == "Darwin" ]]; then
+    url=$(pbpaste)
+  else
+    url=$(wl-paste)
+  fi
   echo "$url"
   urls=$(youtube-dl --get-url --format m4a "$url")
   for url in "$urls"
   do
-    echo "$url"
-    cvlc -Vdummy "$url"
+    if [[ "$platform" == "Darwin" ]]; then
+      vlc -I http "$url" --play-and-exit -q > /dev/null 2>&1
+    else
+      cvlc -Vdummy "$url" --play-and-exit -q > /dev/null 2>&1
+    fi
   done
   return 0
 }
