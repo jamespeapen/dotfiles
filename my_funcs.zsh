@@ -117,7 +117,7 @@ rgf() {
     if [ $? -eq 0 ]; then
       cat /tmp/rgsearch | \
         fzf --delimiter : --preview="$preview_cmd" \
-        --preview-window +{2}-20 \
+        --preview-window=top,+{2}-20 \
         --bind="enter:execute(less +{2} {1})"
     else
       echo "No results found for $1"
