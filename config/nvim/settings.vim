@@ -7,6 +7,10 @@ set linebreak
 set colorcolumn=80
 au BufEnter *.md set textwidth=80
 
+" set split on right and below
+set splitright
+set splitbelow
+
 " indent
 set smartindent
 set autoindent
