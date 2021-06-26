@@ -1,7 +1,7 @@
 " Mappings
 
 " set leader
-:let mapleader = ","
+let mapleader = "\<Space>"
 
 " map ,m to Esc 
 imap ,m <Esc>
@@ -53,8 +53,8 @@ nnoremap <Leader>fp gq}
 nnoremap <Leader>wc :echo wordcount().words . " words"<CR>
 
 " move by one line not sentence
-nnoremap j gj
-nnoremap k gk
+nmap j gj
+nmap k gk
 vnoremap j gj
 vnoremap k gk
 
