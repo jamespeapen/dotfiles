@@ -40,6 +40,9 @@ set incsearch
 set hlsearch
 set inccommand=nosplit
 
+" python
+let g:python3_host_prog="/usr/local/bin/python3"
+
 " fzf settings
 let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
 
