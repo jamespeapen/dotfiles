@@ -54,7 +54,7 @@ let NERDTreeHijackNetrw=1
 let NERDTreeQuitOnOpen=1
 
 " set working directory to buffer directory
-autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * if &buftype !=# 'terminal' | lcd %:p:h
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'index': 'SUMMARY',
