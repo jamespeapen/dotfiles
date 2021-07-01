@@ -171,6 +171,32 @@ gcom () {
   fi
 }
 
+#--------------------R------------------------------------------------- 
+prettyr() {    
+    while getopts ":hr:s:" option; do
+        case ${option} in
+            r ) 
+                scope="$OPTARG"
+                ;;
+            s ) 
+                strict="$OPTARG"
+                ;;
+            h )
+                echo "Usage prettyr -r [spaces|line_breaks|tokens] -s [TRUE|FALSE] file"
+                ;;
+            \? ) 
+                echo "Invalid option -$OPTARG" 1>&2
+                ;;
+        esac
+    done
+    shift $((OPTIND -1))
+    files=("$@")
+    echo "$strict"
+    for file in $files; do
+        R -e "styler::style_file(\"$file\", scope='$scope', strict=$strict)"
+    done
+}
+
 #--------------------Websites------------------------------------------------- 
 # random site in private mode
 function fox() {
