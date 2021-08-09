@@ -66,7 +66,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 
 # Plugins
@@ -75,8 +75,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(sudo cargo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
 
 # custom files
-source ~/.my_funcs.sh
 source $ZSH/oh-my-zsh.sh
+source ~/.my_funcs.zsh
 
 # completion accept
 bindkey '^ ' autosuggest-accept
@@ -87,20 +87,18 @@ bindkey '^ ' autosuggest-accept
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
- else
-   export EDITOR='nvim'
- fi
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 
 # aliases
-# config editing
 alias ls="exa --git"
 alias vim="nvim"
+alias cl="cal -3m"
+
+# config editing
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim"
 alias tmuxconfig="nvim ~/.tmux.conf"
@@ -130,12 +128,6 @@ alias temps='watch -n 1 sensors'
 alias pvpnc="sudo protonvpn c -f"
 alias pvpns="sudo protonvpn s"
 alias pvpnd="sudo protonvpn d"
-
-# radio
-alias wblv="cvlc https://wblv.streamguys1.com/live"
-alias miradio="cvlc http://17003.live.streamtheworld.com:80/WUOMFM_SC"
-alias wyce="cvlc http://ice24.securenetsystems.net/WYCE"
-alias npr="cvlc https://npr-ice.streamguys1.com/live.mp3"
 
 # fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
