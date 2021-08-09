@@ -99,11 +99,11 @@ alias vim="nvim"
 alias cl="cal -3m"
 
 # config editing
-alias zshconfig="nvim ~/.zshrc"
-alias nvimconfig="nvim ~/.config/nvim"
-alias tmuxconfig="nvim ~/.tmux.conf"
-alias swayconfig="nvim ~/.config/sway/config"
-alias gitconfig="nvim ~/.gitconfig"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias nvimconfig="$EDITOR ~/.config/nvim"
+alias tmuxconfig="$EDITOR ~/.tmux.conf"
+alias swayconfig="$EDITOR ~/.config/sway/config"
+alias gitconfig="$EDITOR ~/.gitconfig"
 
 # git
 alias fcho="git for-each-ref --format='%(refname:short)' refs/heads |fzf|xargs git checkout"
