@@ -10,7 +10,6 @@ platform=$(uname)
 # PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
-export JDK_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64
 export XDG_DATA_HOME=~/.local/share
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -72,7 +71,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Plugins
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(sudo cargo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(cargo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
 
 # custom files
 source $ZSH/oh-my-zsh.sh
@@ -94,7 +93,7 @@ export EDITOR='nvim'
 
 
 # aliases
-alias ls="exa --git"
+alias ls="exa -l --git --icons"
 alias vim="nvim"
 alias cl="cal -3m"
 
@@ -123,11 +122,6 @@ alias rr="ranger"
 
 # system sensors
 alias temps='watch -n 1 sensors'
-
-# protonvpn
-alias pvpnc="sudo protonvpn c -f"
-alias pvpns="sudo protonvpn s"
-alias pvpnd="sudo protonvpn d"
 
 # fzf
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
