@@ -39,7 +39,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " R
-Plug 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
 
 " VimWiki
 Plug 'vimwiki/vimwiki'
@@ -59,11 +59,12 @@ let g:bullets_enabled_file_types = [
     \ 'gitcommit',
     \]
 
+
 " Latex
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for': ['tex', 'plaintex']}
 
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " Fuzzy finder
 Plug 'junegunn/fzf'
