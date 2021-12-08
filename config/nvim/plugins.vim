@@ -5,16 +5,14 @@ call plug#begin()
 Plug 'mhinz/vim-startify'
 
 " Nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
 "Tagbar
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
-" Syntax highlighting
-Plug 'vim-syntastic/syntastic'
-let g:polyglot_disabled = ['md', 'markdown']
-Plug 'sheerun/vim-polyglot'
+" splitting line
+Plug 'AndrewRadev/splitjoin.vim', { 'for': ['py', 'json', 'zsh', 'sh', 'rs'] }
 
 " i3/sway syntax
 Plug 'jamespeapen/sway-config.vim'
