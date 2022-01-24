@@ -116,9 +116,14 @@ rgf() {
     rg -i --line-number "$1" -g '!R' > /tmp/rgsearch
     if [ $? -eq 0 ]; then
       cat /tmp/rgsearch | \
-        fzf --delimiter : --preview="$preview_cmd" \
-        --preview-window=top,+{2}-20 \
-        --bind="enter:execute(less +{2} {1})"
+        fzf --header "Search string: $1" \
+        --header-first \
+        --reverse \
+        --border \
+        --delimiter : \
+        --preview="$preview_cmd" \
+        --preview-window=right,+{2}-20 \
+        --bind='enter:execute(nvim -R +{2} -c "normal! zz" {1})'
     else
       echo "No results found for $1"
     fi
