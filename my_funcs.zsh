@@ -1,8 +1,6 @@
 #--------------------Configs, sync package lists------------------------------------------------- 
 # list all installed_packages
-function get-installed-packages() {
-  apt list --installed | sed 's/\/.*//' | sort | uniq | tee Documents/LINUX_SOFTWARE/installed_packages
-}
+# TODO: distro aware function
 
 #sync dotfiles and return in dotfiles dir
 function sync-dots() {
@@ -74,6 +72,7 @@ function gitpuller {
 #--------------------Logs------------------------------------------------- 
 
 # get ssh logs with date and time
+# TODO add systemctl support
 function ssh-log() {
   grep -a Accepted /var/log/auth.log | sed -r -e 's/^(.*)\s.*from\s([0-9]*.*)\sport.*$/\1 \2/' 
 }
@@ -99,11 +98,6 @@ function sudo-log() {
 
 function crypt-log() {
   sudo journalctl /usr/lib/systemd/systemd-cryptsetup | grep Failed | sed -r -e 's/(^.*).*: (Failed.*$)/\1 \2/'
-}
-
-#check for recent intel atomic failures from syslog
-function atomic() {
-  cat /var/log/syslog | grep Atomic
 }
 
 #--------------------Searching------------------------------------------------
@@ -218,11 +212,6 @@ prettyr() {
 }
 
 #--------------------Websites------------------------------------------------- 
-# random site in private mode
-function fox() {
-  firefox -private-window $1 &
-}
-
 # search with DDG, search string must have '+' as delimiter
 function duck() {
   search_url="https://duckduckgo.com/?q=${1}&t=canonical&ia=web"
@@ -288,11 +277,3 @@ function ydl() {
   return 0
 }
 
-#--------------------zsh------------------------------------------------- 
-
-function exiting() {
-  exit
-}
-
-zle -N exiter exiting
-bindkey ',q'  exiter
