@@ -7,6 +7,9 @@ fi
 # platform
 platform=$(uname)
 
+# TERM
+export TERM='xterm-kitty'
+
 # PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
@@ -140,8 +143,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#ebdbb2,bg:-1,hl:#689d6a -
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || exa --tree --color --icons {}) 2> /dev/null | head -200' --preview-window=right:40%"
 
 # Colors
-export TERM='xterm-256color'
-
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 if [[ "$(tput colors)" == "256" ]]; then
