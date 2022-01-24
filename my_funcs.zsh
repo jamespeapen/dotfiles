@@ -176,6 +176,21 @@ gcom () {
   fi
 }
 
+ghclone () {
+    local orgs repo
+
+    orgs=$(gh api /user/memberships/orgs | \
+        jq | \
+        grep -o -e "login.*" | \
+        grep -v "jamespeapen" | \
+        sed -E 's/^.*: "(.*)",/\1/' )
+
+    orgs+=("\njamespeapen")
+    repo=$(echo $orgs | fzf)
+
+    gh repo list $repo | fzf | awk '{print $1}' | xargs echo #gh repo clone
+}
+
 #--------------------R------------------------------------------------- 
 prettyr() {    
     while getopts ":hr:s:" option; do
