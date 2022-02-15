@@ -88,3 +88,7 @@ nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v
 
 " Special chars
 imap ,be β
+imap ,al α
+
+" magrittr pipe
+ia -\ %>%
