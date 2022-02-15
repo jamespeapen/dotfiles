@@ -8,4 +8,5 @@ else
     source ~/.config/nvim/ui.vim
     source ~/.config/nvim/settings.vim
     source ~/.config/nvim/treesitter.vim
+    autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
 endif
