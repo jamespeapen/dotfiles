@@ -1,33 +1,38 @@
 {
-    "coc.preferences.colorSupport": true,
-    "coc.preferences.snippets.enable": true,
-    "coc.preferences.formatOnType": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
 
-    // suggestions
-    "suggest.noselect": true,
-    "suggest.autoTrigger": "always",
-    "suggest.floatEnable": true,
-    "suggest.minTriggerInputLength": 2,
-    "list.indicator": ">",
+  // suggestions
+  "suggest.noselect": true,
+  "suggest.autoTrigger": "always",
+  "suggest.floatEnable": true,
+  "suggest.minTriggerInputLength": 2,
+  "list.indicator": ">",
+  "coc.source.omni.filetypes": ["rmd"],
+  "coc.source.omni.enable": true,
+  "coc.source.omni.triggerCharacters": ["@"],
 
-    // snippets
-    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
+  // snippets
 
-    // solargraph
-    "solargraph.completion": true,
-    "solargraph.references": true,
+  // R
+  "r.lsp.debug": false,
+  "r.lsp.diagnostics": false,
 
-    // R
-    "r.lsp.debug": false,
-    "r.lsp.diagnostics": false,
-
-    // bash
-    "languageserver": {
-        "bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": ["~"]
-        }
+  // bash
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["bash", "zsh"],
+      "ignoredRootPaths": ["~"]
     }
+  },
+
+  // diagnostics
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "bash": "shellcheck",
+    "zsh": "shellcheck"
+  }
 }
