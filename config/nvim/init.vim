@@ -7,4 +7,5 @@ else
     source ~/.config/nvim/lightline.vim
     source ~/.config/nvim/ui.vim
     source ~/.config/nvim/settings.vim
+    source ~/.config/nvim/treesitter.vim
 endif
