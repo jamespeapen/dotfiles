@@ -82,6 +82,8 @@ let R_assign = 2 " underscrore to '<-': on 2
 let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed']
 let R_openhtml = 0 " don't open html in default browser on knit
 let r_indent_align_args = 0 " Set vim-r-plugin to mimics ess :
+let r_indent_ess_comments = 0
+let r_indent_ess_compatible = 0
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'rmd']}
