@@ -6,6 +6,7 @@ let mapleader = "\<Space>"
 " map ,m to Esc 
 imap ,m <Esc>
 vmap ,m <Esc>
+tnoremap ,m <C-\><C-n>
 
 " map C-space to nothing to prevent C-@ from being called
 imap <C-space> <Nop>
