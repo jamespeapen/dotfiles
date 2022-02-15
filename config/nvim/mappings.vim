@@ -33,6 +33,7 @@ nnoremap <Leader>vs :vsplit<CR>
 function! Prose()
     :Goyo 90
     :set spell
+    :source ~/.config/nvim/autocorrect.vim
 endfunction
 
 function! Gy()

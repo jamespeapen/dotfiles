@@ -1,5 +1,6 @@
 if exists('g:started_by_firenvim')
     source ~/.config/nvim/firenvim.vim
+    source ~/.config/nvim/autocorrect.vim
 else
     source ~/.config/nvim/plugins.vim
     source ~/.config/nvim/mappings.vim
