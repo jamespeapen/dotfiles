@@ -63,7 +63,7 @@ vnoremap k gk
 " FZF configs
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>gf :GitFiles<CR>
-nmap <Leader>ag :Ag<CR>
+nmap <Leader>ag :Rg<CR>
 nmap <Leader>ff :Files<CR>
 nmap <Leader>fh :Files~<CR>
 
