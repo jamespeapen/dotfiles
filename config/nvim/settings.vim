@@ -5,7 +5,7 @@ set showcmd
 set linebreak
 
 set colorcolumn=80
-au BufEnter *.md,*.tex set textwidth=80
+au BufEnter *.md,*.rmd,*.tex set textwidth=80
 
 " set split on right and below
 set splitright
