@@ -32,7 +32,7 @@ nnoremap <Leader>vs :vsplit<CR>
 
 " prose editing
 function! Prose()
-    :Goyo 90
+    :Goyo 81
     :set spell
     :source ~/.config/nvim/autocorrect.vim
 endfunction
