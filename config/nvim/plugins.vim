@@ -121,6 +121,7 @@ Plug 'romainl/vim-cool'
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ap/vim-css-color', {'for': ['css', 'rmd']}
+Plug 'preservim/vim-colors-pencil'
 
 " Writing mode
 Plug 'junegunn/goyo.vim'
