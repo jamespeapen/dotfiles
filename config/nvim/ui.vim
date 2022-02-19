@@ -7,7 +7,9 @@ set background=dark
 
 function! Light()
     :set background=light
-    :hi Normal guibg=#ebdbb2
+    au ColorScheme * hi Normal ctermbg=white guibg=#eeeeee
+    hi Normal ctermbg=white guibg=#eeeeee
+    :colo pencil
 endfunction
 
 nnoremap <Leader>l :call Light()<CR>
