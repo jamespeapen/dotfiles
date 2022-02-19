@@ -125,7 +125,7 @@ Plug 'preservim/vim-colors-pencil'
 
 " Writing mode
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim', { 'for': ['markdown', 'rmd'] }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
