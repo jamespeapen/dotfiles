@@ -31,6 +31,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 "Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
+" marks
+Plug 'kshenoy/vim-signature'
+
 " splitting line
 Plug 'AndrewRadev/splitjoin.vim', { 'for': ['py', 'json', 'zsh', 'sh', 'rs'] }
 
