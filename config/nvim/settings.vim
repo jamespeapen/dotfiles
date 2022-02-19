@@ -46,15 +46,11 @@ set undofile
 " python
 let g:python3_host_prog="/usr/local/bin/python3"
 
-" set working directory to buffer directory unless terminal buffer
-autocmd BufEnter * if &buftype !=# 'terminal' | lcd %:p:h
-
 " autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 
 " set working directory to buffer directory unless terminal buffer
 autocmd BufEnter * if &buftype !=# 'terminal' | lcd %:p:h
-
 
 " Markdown
 let g:markdown_fenced_languages = ['r', 'python', 'sh', 'bash=sh', 'rust', 'vim', 'awk', 'sed', 'tex']
