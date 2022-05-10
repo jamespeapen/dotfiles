@@ -2,6 +2,7 @@
 set termguicolors     " enable true colors support
 let &t_ut=''
 
+let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 
