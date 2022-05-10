@@ -49,7 +49,7 @@ nnoremap <silent><Leader>gy :call Gy()<CR>
 " format full document
 nnoremap <Leader>fd gggqGgg
 " format paragraph
-nnoremap <Leader>fp gq}
+nnoremap <Leader>fp gq}<C-o>
 
 " get wordcount
 nnoremap <Leader>wc :echo wordcount().words . " words"<CR>
