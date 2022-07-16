@@ -4,6 +4,10 @@ set showcmd
 " linebreak at spaces
 set linebreak
 
+" show trailing spaces
+set list
+set listchars=trail:·
+
 "tabstop
 filetype plugin indent on
 set tabstop=4
