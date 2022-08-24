@@ -2,6 +2,7 @@
 
 " set leader
 let mapleader = "\<Space>"
+let maplocalleader = "\\"
 
 " map ,m to Esc 
 imap ,m <Esc>
