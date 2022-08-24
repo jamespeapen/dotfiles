@@ -7,6 +7,10 @@ set linebreak
 set colorcolumn=80
 au BufEnter *.md,*.rmd,*.Rmd,*.tex,*.qmd set textwidth=80
 
+" show trailing spaces
+set list
+set listchars=trail:·
+
 " set split on right and below
 set splitright
 set splitbelow
