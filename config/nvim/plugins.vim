@@ -88,10 +88,12 @@ let r_indent_ess_compatible = 0
 let R_rmdchunk = 1
 
 " Markdown
-Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'rmd']}
+Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'rmd', 'quarto']}
 let g:pandoc#modules#disabled = ['folding']
 let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#keyboard#use_default_mappings = 0
+Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'rmd', 'quarto']}
+Plug 'quarto-dev/quarto-vim', {'for': ['quarto']}
 
 " Bullets.vim
 Plug 'dkarter/bullets.vim', {'for': ['markdown', 'rmd']}
