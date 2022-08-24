@@ -42,6 +42,8 @@ Plug 'tpope/vim-fugitive'
 
 " parens
 Plug 'tpope/vim-surround'
+Plug 'LunarWatcher/auto-pairs'
+let g:AutoPairs = {'"': '"', '{': '}', '''': '''', '(': ')', '''''''': '''''''', '[': ']', '"""': '"""'}
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
