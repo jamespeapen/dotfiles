@@ -135,7 +135,7 @@ Plug 'romainl/vim-cool'
 
 " color schemes
 Plug 'rktjmp/lush.nvim'
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ap/vim-css-color', {'for': ['css', 'rmd']}
 Plug 'preservim/vim-colors-pencil'
 
