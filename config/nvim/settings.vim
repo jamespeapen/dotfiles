@@ -5,7 +5,7 @@ set showcmd
 set linebreak
 
 set colorcolumn=80
-au BufEnter *.md,*.rmd,*.tex set textwidth=80
+au BufEnter *.md,*.rmd,*.Rmd,*.tex,*.qmd set textwidth=80
 
 " set split on right and below
 set splitright
@@ -18,11 +18,14 @@ let g:indentLine_concealcursor=""
 let g:indentLine_conceallevel=2
 
 "tabstop
+autocmd FileType r set shiftwidth=2
+autocmd FileType julia set shiftwidth=4
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
 
 " clipboard
 set clipboard=unnamed
