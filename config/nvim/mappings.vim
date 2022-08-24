@@ -80,12 +80,8 @@ nmap TB :TagbarToggle <CR>
 " switch focus to tagbar - assuming its the rightmost file
 nmap EI :9 wincmd l <CR>
 
-" wayland clipboard support
-xnoremap <Leader>y y:call system("wl-copy", @")<cr>
-
-nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-
-nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+" xclip
+vmap <Leader>y "+y
 
 " Special chars
 imap ,be β
