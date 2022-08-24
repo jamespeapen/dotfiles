@@ -6,27 +6,21 @@ Plug 'tpope/vim-obsession'
 
 "startup
 Plug 'mhinz/vim-startify'
+let g:startify_session_persistence = 1
+let g:startify_session_autoload = 1
+" Nerdtree
 
 " Read ~/.NERDTreeBookmarks file and takes its second column
-function! s:nerdtreeBookmarks()
-    let bookmarks = systemlist("cut -d' ' -f 2- ~/.NERDTreeBookmarks")
-    let bookmarks = bookmarks[0:-2] " Slices an empty last line
-    return map(bookmarks, "{'line': v:val, 'path': v:val}")
-endfunction
 
 let g:startify_lists = [
-        \ { 'type': function('s:nerdtreeBookmarks'), 'header': ['   NERDTree Bookmarks']},
         \ { 'type': 'files',     'header': ['   MRU']            },
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
         \]
 
-" Nerdtree
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeHijackNetrw=1 " NERDTree to split mode
 let NERDTreeQuitOnOpen=1
-
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
 "Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
