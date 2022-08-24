@@ -111,6 +111,21 @@ let g:tex_flavor = "latex"
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
+" Julia
+Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
+Plug 'kdheepak/JuliaFormatter.vim', {'for': 'julia'}
+
+" REPL
+let maplocalleader = "\\"
+nmap <LocalLeader>l gzz
+Plug 'axvr/zepl.vim', {'for': ['julia', 'python']}
+let g:repl_config = {
+            \   'julia': {
+            \     'cmd': 'julia',
+            \     'load_files': 'include("%s")'
+            \   }
+            \ }
+
 " Fuzzy finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
