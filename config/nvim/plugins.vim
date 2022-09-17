@@ -50,16 +50,25 @@ let g:AutoPairs = {'"': '"', '{': '}', '''': '''', '(': ')', '''''''': '''''''',
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 
-" map <CR> to select suggestion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-I>
+  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ CheckBackSpace() ? "\<TAB>" :
+  \ coc#refresh()
+
+function! CheckBackSpace() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 "
-"" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 "
-"" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
