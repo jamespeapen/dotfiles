@@ -29,7 +29,8 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'kshenoy/vim-signature'
 
 " splitting line
-Plug 'AndrewRadev/splitjoin.vim', { 'for': ['py', 'json', 'zsh', 'sh', 'rs'] }
+Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'json', 'zsh', 'r', 'rs'] }
+let g:splitjoin_python_brackets_on_separate_lines = 1
 
 " i3/sway syntax
 Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'] }
@@ -114,6 +115,9 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " Julia
 Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
 Plug 'kdheepak/JuliaFormatter.vim', {'for': 'julia'}
+
+" Python
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 
 " REPL
 let maplocalleader = "\\"
