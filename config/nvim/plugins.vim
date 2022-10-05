@@ -56,33 +56,17 @@ let g:AutoPairsShortcutIgnore = ""
 let g:AutoPairsShortcutToggleMultilineClose = ""
 
 " LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-autocmd FileType * let b:coc_additional_keywords = ["-"]
+Plug 'neovim/nvim-lspconfig'
 
-inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
-        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Auto-completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp' " nvim LSP source
+Plug 'hrsh7th/cmp-buffer'   " buffer source
+Plug 'hrsh7th/cmp-path'     " filesystem path source
+Plug 'hrsh7th/cmp-cmdline'  " vim commandline source
+Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips source
 
-inoremap <silent><expr> <C-I>
-  \ coc#pum#visible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ CheckBackSpace() ? "\<TAB>" :
-  \ coc#refresh()
-
-function! CheckBackSpace() abort
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <C-l> for trigger snippet expand.
-imap <C-i> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
