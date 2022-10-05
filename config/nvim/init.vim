@@ -12,3 +12,9 @@ else
     au BufEnter neomutt* source ~/.config/nvim/autocorrect.vim
 endif
 
+if exists("g:neovide")
+    set guifont=Iosevka:h15
+    let g:neovide_hide_mouse_when_typing = 1
+    let g:neovide_cursor_trail_size=0.5
+endif
+
