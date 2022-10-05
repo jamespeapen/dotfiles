@@ -33,7 +33,7 @@ Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'json', 'zsh', 'r', 'rs'] 
 let g:splitjoin_python_brackets_on_separate_lines = 1
 
 " i3/sway syntax
-Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'] }
+Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'], 'branch': 'dev' }
 
 " Status line
 Plug 'itchyny/lightline.vim'
