@@ -88,7 +88,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " Snippets
 Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<C-I>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
