@@ -174,6 +174,6 @@ Plug 'ryanoasis/vim-devicons'
 " Indents
 Plug 'Yggdroot/indentLine'
 
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) }, 'on': [] }
-call plug#end()
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+call plug#end()
