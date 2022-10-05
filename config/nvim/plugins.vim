@@ -59,6 +59,9 @@ let g:AutoPairsShortcutToggleMultilineClose = ""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() :
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 inoremap <silent><expr> <C-I>
   \ coc#pum#visible() ? coc#_select_confirm() :
   \ coc#expandableOrJumpable() ?
@@ -72,11 +75,11 @@ return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-"
+imap <C-i> <Plug>(coc-snippets-expand)
+
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
-"
+
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
