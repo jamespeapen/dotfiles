@@ -94,9 +94,6 @@ ia -\ %>%
 function! Bibtex_ls()
   let bibfiles = (
       \ globpath('.', '*.bib', v:true, v:true) +
-      \ globpath('..', '*.bib', v:true, v:true) +
-      \ globpath('../', '*.bib', v:true, v:true) +
-      \ globpath('../../', '*.bib', v:true, v:true) +
       \ globpath('*/', '*.bib', v:true, v:true)
       \ )
   let bibfiles = join(bibfiles, ' ')
