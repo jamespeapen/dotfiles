@@ -1,7 +1,6 @@
-set rtp+=~/.config/nvim/plugged/firenvim
-set rtp+=~/.config/nvim/plugged/gruvbox
-set rtp+=~/.config/nvim/plugged/coc.nvim
-
+set rtp+=~/.local/share/nvim/plugged/firenvim
+set rtp+=~/.local/share/nvim/plugged/gruvbox.nvim
+set rtp+=~/.local/share/nvim/plugged/coc.nvim
 
 let g:firenvim_config = { 
     \ 'globalSettings': {
@@ -30,3 +29,4 @@ nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>w :w<CR>
 
 set background=light
+colorscheme gruvbox
