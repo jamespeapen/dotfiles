@@ -9,7 +9,7 @@ au BufEnter *.md,*.rmd,*.Rmd,*.tex,*.qmd set textwidth=80
 
 " show trailing spaces
 set list
-set listchars=trail:·
+set listchars=tab:\ \ ,trail:·
 
 " set split on right and below
 set splitright
