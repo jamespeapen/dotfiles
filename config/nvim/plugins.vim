@@ -132,6 +132,7 @@ let g:tex_flavor = "latex"
 
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+let g:rustfmt_autosave = 1
 
 " Julia
 Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
