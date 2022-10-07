@@ -10,7 +10,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    disable = { "python", "c", "rust" },  -- list of language that will be disabled
     additional_vim_regex_highlighting = false,
   },
   incremental_selection = {
