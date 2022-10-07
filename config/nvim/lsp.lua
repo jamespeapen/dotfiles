@@ -11,28 +11,36 @@ nvim_lsp.r_language_server.setup{
 }
 
 -- Rust
-nvim_lsp.rust_analyzer.setup({
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
     settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            checkOnSave = {
-                command = "clippy",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
+      imports = {
+          granularity = {
+              group = "module",
+          },
+          prefix = "self",
+      },
+      checkOnSave = {
+          command = "clippy",
+      },
+      cargo = {
+          buildScripts = {
+              enable = true,
+          },
+      },
+      procMacro = {
+          enable = true
+      },
     }
+  },
 })
 
 -- Bash
@@ -74,7 +82,7 @@ cmp.setup({
     },
     snippet = {
         expand = function(args)
-          vim.fn["Ultisnips#Anon"](args.body)
+          vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
     window = {
@@ -86,7 +94,7 @@ cmp.setup({
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), 
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
