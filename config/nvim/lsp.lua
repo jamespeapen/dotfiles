@@ -101,6 +101,7 @@ cmp.setup({
         { name = 'ultisnips' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
     }),
     experimental = {
         ghost_text = true
