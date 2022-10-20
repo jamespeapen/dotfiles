@@ -30,3 +30,6 @@ nnoremap <Leader>w :w<CR>
 
 set background=light
 colorscheme gruvbox
+
+set spell
+source ~/.config/nvim/autocorrect.vim
