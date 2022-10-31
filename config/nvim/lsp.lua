@@ -70,6 +70,13 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
+nvim_lsp.ccls.setup {
+  init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
+}
 -- Cmp
 local cmp = require'cmp'
 
