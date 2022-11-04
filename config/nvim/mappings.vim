@@ -61,13 +61,6 @@ nmap k gk
 vnoremap j gj
 vnoremap k gk
 
-" FZF configs
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>gf :GitFiles<CR>
-nmap <Leader>rg :Rg<CR>
-nmap <Leader>ff :Files<CR>
-nmap <Leader>fh :Files~<CR>
-
 " fugitive
 nmap <Leader>gc :w<CR> :tab :Git commit -v %<CR>
 nmap <Leader>gp :Git push

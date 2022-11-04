@@ -9,6 +9,7 @@ else
     source ~/.config/nvim/settings.vim
     source ~/.config/nvim/treesitter.vim
     source ~/.config/nvim/lsp.lua
+    source ~/.config/nvim/telescope.lua
     autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
     au BufEnter neomutt* source ~/.config/nvim/autocorrect.vim
 endif

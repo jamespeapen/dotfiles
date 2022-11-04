@@ -25,10 +25,14 @@ let NERDTreeHijackNetrw=1 " NERDTree to split mode
 let NERDTreeQuitOnOpen=1
 
 "-------------------- Utils 
+" lua functions
+Plug 'nvim-lua/plenary.nvim'
 
 " Fuzzy finder
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+
+" fzf for telescope
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " smart search highlighting 
 Plug 'romainl/vim-cool'
