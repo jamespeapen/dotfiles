@@ -1,6 +1,8 @@
 " Plugins
 call plug#begin()
 
+"-------------------- Opening 
+
 " Session restore
 Plug 'tpope/vim-obsession'
 
@@ -8,10 +10,10 @@ Plug 'tpope/vim-obsession'
 Plug 'mhinz/vim-startify'
 let g:startify_session_persistence = 1
 let g:startify_session_autoload = 1
+
 " Nerdtree
 
 " Read ~/.NERDTreeBookmarks file and takes its second column
-
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['   MRU']            },
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
@@ -22,6 +24,15 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeHijackNetrw=1 " NERDTree to split mode
 let NERDTreeQuitOnOpen=1
 
+"-------------------- Utils 
+
+" Fuzzy finder
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+" smart search highlighting 
+Plug 'romainl/vim-cool'
+
 "Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
@@ -31,15 +42,6 @@ Plug 'kshenoy/vim-signature'
 " splitting line
 Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'json', 'zsh', 'r', 'rs'] }
 let g:splitjoin_python_brackets_on_separate_lines = 1
-
-" i3/sway syntax
-Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'], 'branch': 'dev' }
-
-" Status line
-Plug 'itchyny/lightline.vim'
-
-" Git
-Plug 'tpope/vim-fugitive'
 
 " parens
 Plug 'tpope/vim-surround'
@@ -55,7 +57,29 @@ let g:AutoPairsMoveExpression = ""
 let g:AutoPairsShortcutIgnore = ""
 let g:AutoPairsShortcutToggleMultilineClose = ""
 
-" LSP
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<C-I>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+Plug 'honza/vim-snippets'
+
+" REPL
+let maplocalleader = "\\"
+nmap <LocalLeader>l gzz
+Plug 'axvr/zepl.vim', {'for': ['julia', 'python']}
+let g:repl_config = {
+            \   'julia': {
+            \     'cmd': 'julia',
+            \     'load_files': 'include("%s")'
+            \   }
+            \ }
+
+"-------------------- LSP
 Plug 'neovim/nvim-lspconfig'
 
 " Auto-completion
@@ -71,13 +95,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips source
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
-" Snippets
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<C-I>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-Plug 'honza/vim-snippets'
+"-------------------- LANGUAGE PLUGINS 
 
 " R
 Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
@@ -102,15 +120,6 @@ let g:pandoc#keyboard#use_default_mappings = 0
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'rmd', 'quarto']}
 Plug 'quarto-dev/quarto-vim', {'for': ['quarto']}
 
-" Bullets.vim
-Plug 'dkarter/bullets.vim', {'for': ['markdown', 'rmd']}
-let g:bullets_line_spacing = 2
-let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'rmd',
-    \ 'gitcommit',
-    \]
-
 " Latex
 Plug 'lervag/vimtex', {'for': ['tex', 'plaintex']}
 let g:tex_flavor = "latex"
@@ -127,29 +136,19 @@ Plug 'kdheepak/JuliaFormatter.vim', {'for': 'julia'}
 " Python
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 
-" REPL
-let maplocalleader = "\\"
-nmap <LocalLeader>l gzz
-Plug 'axvr/zepl.vim', {'for': ['julia', 'python']}
-let g:repl_config = {
-            \   'julia': {
-            \     'cmd': 'julia',
-            \     'load_files': 'include("%s")'
-            \   }
-            \ }
+" i3/sway syntax
+Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'], 'branch': 'dev' }
 
-" Fuzzy finder
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
-" smart search highlighting 
-Plug 'romainl/vim-cool'
+"-------------------- UI 
 
 " color schemes
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ap/vim-css-color', {'for': ['css', 'rmd']}
 Plug 'preservim/vim-colors-pencil'
+
+" Status line
+Plug 'itchyny/lightline.vim'
 
 " Writing mode
 Plug 'junegunn/goyo.vim'
@@ -162,5 +161,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Bullets.vim
+Plug 'dkarter/bullets.vim', {'for': ['markdown', 'rmd']}
+let g:bullets_line_spacing = 2
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'rmd',
+    \ 'gitcommit',
+    \]
 
 call plug#end()
