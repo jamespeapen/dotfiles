@@ -57,6 +57,13 @@ let g:AutoPairsMoveExpression = ""
 let g:AutoPairsShortcutIgnore = ""
 let g:AutoPairsShortcutToggleMultilineClose = ""
 
+" Commenting
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'tpope/vim-commentary'
+vmap <C-/> gc
+imap <C-/> <Esc>VgcA
+nmap <C-/> Vgc
+
 " Git
 Plug 'tpope/vim-fugitive'
 
