@@ -34,6 +34,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 " fzf for telescope
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
+" bibtex
+Plug 'nvim-telescope/telescope-bibtex.nvim', { 'for': 'rmd' }
+
 " smart search highlighting 
 Plug 'romainl/vim-cool'
 

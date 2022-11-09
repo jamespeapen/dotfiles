@@ -83,33 +83,6 @@ imap ,al α
 " magrittr pipe
 ia -\ %>%
 
-" bibtex
-function! Bibtex_ls()
-  let bibfiles = (
-      \ globpath('.', '*.bib', v:true, v:true) +
-      \ globpath('*/', '*.bib', v:true, v:true)
-      \ )
-  let bibfiles = join(bibfiles, ' ')
-  let source_cmd = 'bibtex-ls '.bibfiles
-  return source_cmd
-endfunction
-
-function! s:bibtex_cite_sink_insert(lines)
-    if &filetype == 'rmd' || &filetype == 'quarto'
-        let r=system("bibtex-cite -mode=pandoc -separator=';'", a:lines)
-    elseif &filetype == 'tex'
-        let r=system("bibtex-cite -mode=latex ", a:lines)
-    endif
-    execute ':normal! i' . r
-    call feedkeys('a', 'n')
-endfunction
-
-inoremap <silent> @@ <c-g>u<c-o>:call fzf#run({
-                        \ 'source': Bibtex_ls(),
-                        \ 'sink*': function('<sid>bibtex_cite_sink_insert'),
-                        \ 'up': '40%',
-                        \ 'options': '--ansi --layout=reverse-list --multi --prompt "Cite> "'})<CR>
-
 " Syntax
 function! SynStack()
   if !exists("*synstack")
