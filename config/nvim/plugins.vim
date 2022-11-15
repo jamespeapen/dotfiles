@@ -4,7 +4,7 @@ call plug#begin()
 "-------------------- Opening 
 
 " Session restore
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession', { 'on': 'Obsession' }
 
 "startup
 Plug 'mhinz/vim-startify'
