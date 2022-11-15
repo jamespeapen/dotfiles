@@ -41,7 +41,22 @@ require("telescope").setup{
         ["<M-d>"] = actions.preview_scrolling_down,
       },
     },
-  }
+  },
+  pickers = {
+    find_files = {
+            find_command = {
+                "rg",
+                "--follow",
+                "--files",
+                "--hidden",
+                "-g", "!.git/*",
+                "-g", "!*.docx",
+                "-g", "!*.o",
+                "-g", "!*.png",
+                "-g", "!*.pdf",
+            },
+    },
+  },
 }
 
 
