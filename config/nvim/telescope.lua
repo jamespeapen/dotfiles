@@ -29,6 +29,10 @@ require('telescope').load_extension('fzf')
 local actions = require("telescope.actions")
 require("telescope").setup{
   defaults = {
+    layout_config = {
+      width = 0.7,
+      preview_width = 0.6,
+    },
     mappings = {
       i = {
         ["<C-u>"] = false,
