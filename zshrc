@@ -1,4 +1,4 @@
-# p10k prompt
+#This is the itctl usage screen: p10k prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     ]]; then 
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" 
@@ -7,22 +7,17 @@ fi
 # platform
 platform=$(uname)
 
-# TERM
-export TERM='xterm-kitty'
-
 # PATH
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
+export JDK_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64
 export XDG_DATA_HOME=~/.local/share
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# man pages
-#export PAGER='most'
-
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # ZSH_TMUX_AUTOSTART='true'
 
@@ -34,7 +29,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -74,7 +69,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Plugins
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(cargo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(sudo forgit colored-man-pages fzf-tab zsh-syntax-highlighting zsh-autosuggestions docker docker)
 
 # custom files
 source $ZSH/oh-my-zsh.sh
@@ -83,22 +78,14 @@ source ~/.my_funcs.zsh
 # completion accept
 bindkey '^ ' autosuggest-accept
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-
 # aliases
-alias ls="exa -l --git --icons"
+alias ls="exa --git"
 alias vim="nvim"
 alias cl="cal -3m"
+alias open="xdg-open"
 
 # config editing
 alias zshconfig="$EDITOR ~/.zshrc"
@@ -118,7 +105,6 @@ alias suinstall="sudo dnf install"
 
 # session
 alias quit="gnome-session-quit"
-alias :q="exit"
 
 # file explorer
 alias rr="ranger"
