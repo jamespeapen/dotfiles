@@ -107,7 +107,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " R
 Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
-let R_rconsole_height=4
+let R_rconsole_height=20
 let R_rconsole_width=67
 let R_objbr_w=35
 let R_assign = 2 " underscrore to '<-': on 2
