@@ -78,7 +78,8 @@ Plug 'honza/vim-snippets'
 " REPL
 let maplocalleader = "\\"
 nmap <LocalLeader>l gzz
-Plug 'axvr/zepl.vim', {'for': ['julia', 'python']}
+nmap <LocalLeader>p gzip
+Plug 'axvr/zepl.vim', { 'for': [ 'julia', 'python'] }
 let g:repl_config = {
             \   'julia': {
             \     'cmd': 'julia',
