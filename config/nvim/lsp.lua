@@ -10,6 +10,9 @@ nvim_lsp.r_language_server.setup{
     filetypes = {"r", "rmd"}
 }
 
+-- Julia
+require'lspconfig'.julials.setup{
+}
 }
 
 -- Rust
