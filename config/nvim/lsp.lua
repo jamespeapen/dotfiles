@@ -13,6 +13,10 @@ nvim_lsp.r_language_server.setup{
 -- Julia
 require'lspconfig'.julials.setup{
 }
+
+-- LateX
+require('lspconfig').texlab.setup{
+    filetypes = {"latex", "quarto"}
 }
 
 -- Rust
