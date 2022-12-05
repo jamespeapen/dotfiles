@@ -2,7 +2,7 @@ local nvim_lsp = require'lspconfig'
 
 -- Python
 nvim_lsp.jedi_language_server.setup{
-    filetypes = {"python", "quarto"}
+    filetypes = {"python"}
 }
 
 -- R
