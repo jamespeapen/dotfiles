@@ -88,7 +88,6 @@ nvim_lsp.ccls.setup {
 }
 
 --- Ansible
-
 require'lspconfig'.ansiblels.setup{}
 
 -- Cmp

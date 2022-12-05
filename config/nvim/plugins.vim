@@ -30,6 +30,8 @@ Plug 'nvim-lua/plenary.nvim'
 
 " Fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+
 
 " fzf for telescope
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
