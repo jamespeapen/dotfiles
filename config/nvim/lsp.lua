@@ -7,7 +7,9 @@ nvim_lsp.jedi_language_server.setup{
 
 -- R
 nvim_lsp.r_language_server.setup{
-    filetypes = {"r", "rmd", "quarto"}
+    filetypes = {"r", "rmd"}
+}
+
 }
 
 -- Rust
