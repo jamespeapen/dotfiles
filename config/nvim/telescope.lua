@@ -54,14 +54,10 @@ require("telescope").setup{
     find_files = {
             find_command = {
                 "rg",
+                "-l", ".*",
                 "--follow",
-                "--files",
                 "--hidden",
                 "-g", "!.git/*",
-                "-g", "!*.docx",
-                "-g", "!*.o",
-                "-g", "!*.png",
-                "-g", "!*.pdf",
             },
     },
   },
@@ -75,6 +71,11 @@ vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex context=true') en
 function find_home()
     telescope.find_files {
         cwd = "~",
+        find_command = {
+            "rg",
+            "-l", ".*",
+            "--follow",
+        },
     }
 end
 
