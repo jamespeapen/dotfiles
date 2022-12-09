@@ -62,4 +62,10 @@ require("telescope").load_extension("file_browser")
 require("telescope").load_extension("bibtex")
 vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex context=true') end)
 
-vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex') end)
+function find_home()
+    telescope.find_files {
+        cwd = "~",
+    }
+end
+
+vim.keymap.set("n", "<Leader>-fh", find_home)
