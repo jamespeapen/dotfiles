@@ -1,13 +1,11 @@
-local builtin = require('telescope.builtin')
+local telescope = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
-vim.keymap.set('n', '<leader>rg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-vim.keymap.set('n', '<leader>H', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
+vim.keymap.set('n', '<leader>gf', telescope.git_files, {})
+vim.keymap.set('n', '<leader>rg', telescope.live_grep, {})
+vim.keymap.set('n', '<leader>b', telescope.buffers, {})
+vim.keymap.set('n', '<leader>H', telescope.help_tags, {})
 
-
-require("telescope").load_extension("bibtex")
 require("telescope").setup {
   extensions = {
     fzf = {
@@ -23,9 +21,6 @@ require("telescope").setup {
     },
   },
 }
-
-require('telescope').load_extension('fzf')
-require("telescope").load_extension("file_browser")
 
 local actions = require("telescope.actions")
 require("telescope").setup{
@@ -60,5 +55,9 @@ require("telescope").setup{
   },
 }
 
+require('telescope').load_extension('fzf')
+require("telescope").load_extension("file_browser")
+require("telescope").load_extension("bibtex")
+vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex context=true') end)
 
 vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex') end)
