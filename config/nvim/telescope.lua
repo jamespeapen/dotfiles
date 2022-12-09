@@ -29,6 +29,16 @@ require("telescope").setup{
     layout_config = {
       flex = {
         flip_columns = 130,
+        width = 0.6,
+      },
+      vertical = {
+        height = 0.6,
+        width = 0.7,
+        preview_height = 0.5,
+      },
+      horizontal = {
+        width = 0.8,
+        preview_width = 0.5,
       },
     },
     mappings = {
@@ -68,4 +78,4 @@ function find_home()
     }
 end
 
-vim.keymap.set("n", "<Leader>-fh", find_home)
+vim.keymap.set("n", "<Leader>fh", find_home)
