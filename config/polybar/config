@@ -21,11 +21,11 @@ include-file = /home/$USER/.config/polybar/colors.ini
 include-file = /home/$USER/.config/polybar/modules/launcher.ini
 include-file = /home/$USER/.config/polybar/modules/i3.ini
 include-file = /home/$USER/.config/polybar/modules/date.ini
-include-file = /home/$USER/.config/polybar/modules/bluetoothctl.ini
 include-file = /home/$USER/.config/polybar/modules/pulseaudio.ini
 include-file = /home/$USER/.config/polybar/modules/backlight.ini
 include-file = /home/$USER/.config/polybar/modules/wlan.ini
 include-file = /home/$USER/.config/polybar/modules/eth.ini
+include-file = /home/$USER/.config/polybar/modules/usb-eth.ini
 include-file = /home/$USER/.config/polybar/modules/filesystem.ini
 include-file = /home/$USER/.config/polybar/modules/cpu.ini
 include-file = /home/$USER/.config/polybar/modules/memory.ini
@@ -66,7 +66,7 @@ font-3 = "SauceCodePro Nerd Font:size=18;4"
 ; module arrangement
 modules-left = launcher i3
 modules-center = date
-modules-right = system-bluetooth-bluetoothctl pulseaudio backlight wlan eth filesystem memory cpu temperature battery 
+modules-right = system-bluetooth-bluetoothctl pulseaudio backlight wlan eth usb-eth filesystem memory cpu temperature battery 
 
 tray-background = ${colors.background}
 tray-position = right
