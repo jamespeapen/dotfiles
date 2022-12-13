@@ -1,0 +1,31 @@
+### Idle configuration
+bindsym $mod+Shift+Escape exec swaylock -f -c 000000
+exec swayidle -w \
+         timeout 60 'swaylock -f -c 000000' \
+         timeout 60 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+### Input configuration
+input "type:keyboard" {
+    xkb_layout "us"
+        #xkb_variant jpe_colemak_ergo
+        #xkb_options ctrl:swap_lalt_lctl
+}
+
+input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
+#    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+### Screen Brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+### Volume control
+bindsym XF86AudioMute exec amixer sset 'Master' 0% -c 0
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%- -c 0
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ -c 0
+
