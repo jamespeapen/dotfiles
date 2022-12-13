@@ -7,7 +7,7 @@
 
 window#waybar {
     /* background: transparent; */
-    background-color: rgba(40, 40, 40, 0.8);
+    background-color: rgba(40, 40, 40, 0.7);
     color: #ebdbb2;
 }
 
@@ -75,7 +75,7 @@ window#waybar {
 #idle_inhibitor.activated {
     color: #fe8019;
     animation-name: blink;
-    animation-duration: 0.1s;
+    animation-duration: 0.2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
