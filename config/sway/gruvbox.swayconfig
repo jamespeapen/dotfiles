@@ -42,7 +42,7 @@ gaps inner 5
 gaps outer 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+smart_gaps off
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 smart_borders on
@@ -58,7 +58,4 @@ client.focused_inactive $inactive_bgcolor $inactive_bgcolor $inactive_textcolor 
 client.unfocused $unfocused_bgcolor $unfocused_bgcolor $unfocused_textcolor $unfocused_indicator $unfocused_bgcolor
 client.urgent $urgent_bgcolor $urgent_bgcolor $urgent_textcolor $urgent_indicator $urgent_bgcolor
 
-# Background image
-output * bg ~/Pictures/john-towner-JgOeRuGD_Y4-unsplash.jpg fill
-#output * bg ~/Pictures/reichenbach_fortress.jpg fill
-#output * bg /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png fill
+include /etc/sway/config.d/*
