@@ -1,0 +1,20 @@
+# variables
+set $term kitty
+set $browser firefox -private-window
+set $menu "rofi -combi-modi drun,ssh,run -show combi -show-icons"
+
+# application menu
+bindsym $mod+d exec $menu
+
+# term
+bindsym $mod+Return exec $term
+
+# browser
+bindsym Mod1+Shift+g exec $browser
+bindsym Mod1+q exec ~/.local/bin/search
+bindsym Mod1+s exec ~/.local/bin/search --selection
+
+# pass
+bindsym $mod+p exec ~/.local/bin/passmenu
+bindsym $mod+o exec ~/.local/bin/otpmenu
+
