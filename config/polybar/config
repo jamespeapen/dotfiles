@@ -21,6 +21,7 @@ include-file = /home/$USER/.config/polybar/colors.ini
 include-file = /home/$USER/.config/polybar/modules/launcher.ini
 include-file = /home/$USER/.config/polybar/modules/i3.ini
 include-file = /home/$USER/.config/polybar/modules/date.ini
+include-file = /home/$USER/.config/polybar/modules/bluetoothctl.ini
 include-file = /home/$USER/.config/polybar/modules/pulseaudio.ini
 include-file = /home/$USER/.config/polybar/modules/backlight.ini
 include-file = /home/$USER/.config/polybar/modules/wlan.ini
