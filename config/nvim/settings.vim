@@ -1,3 +1,6 @@
+" title
+set title
+
 " show commands
 set showcmd
 
@@ -29,7 +32,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
 
 " clipboard
 set clipboard=unnamed
