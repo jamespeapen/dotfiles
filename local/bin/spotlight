@@ -1,5 +1,5 @@
 #! /bin/bash
-export FD_COMMAND="fdfind -L --type f"
+export FD_COMMAND="fd -L --type f"
 export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
 
 file=$(/home/james.eapen/.fzf/bin/fzf \
