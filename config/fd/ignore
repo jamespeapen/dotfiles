@@ -1,0 +1,9 @@
+.git
+lib*
+bin
+build
+debug
+share
+site-packages
+__pycache__
+Documents/software
