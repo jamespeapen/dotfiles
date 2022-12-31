@@ -1,0 +1,10 @@
+romkatv/zsh-bench   kind:path
+
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+
+romkatv/powerlevel10k   kind:fpath
+
+wfxr/forgit
+aloxaf/fzf-tab
+spwhitt/nix-zsh-completions
