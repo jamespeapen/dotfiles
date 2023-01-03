@@ -1,0 +1,13 @@
+[user]
+	email = james.eapen@vai.org
+	name = James Eapen
+	signingkey = CAAE67D13A361533
+[commit]
+	gpgsign = true
+[credential]
+	helper = cache
+[pull]
+	rebase = true
+[core]
+	excludesfile = /home/james.eapen/.gitignore
+	symlinks = on
