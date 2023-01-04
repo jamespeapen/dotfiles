@@ -61,10 +61,12 @@ require("telescope").setup {
 }
 
 require('telescope').load_extension('fzf')
-require("telescope").load_extension("file_browser")
-require("telescope").load_extension("bibtex")
-vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex context=true') end)
 
+-- bibtex
+require("telescope").load_extension("bibtex")
+vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex') end)
+
+-- files browser
 function find_home()
     telescope.find_files {
         cwd = "~",
@@ -76,4 +78,5 @@ function find_home()
     }
 end
 
+require("telescope").load_extension("file_browser")
 vim.keymap.set("n", "<Leader>fh", find_home)
