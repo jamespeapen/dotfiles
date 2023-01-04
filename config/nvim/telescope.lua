@@ -1,4 +1,5 @@
 local telescope = require('telescope.builtin')
+local actions = require("telescope.actions")
 
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>gf', telescope.git_files, {})
@@ -7,23 +8,6 @@ vim.keymap.set('n', '<leader>b', telescope.buffers, {})
 vim.keymap.set('n', '<leader>H', telescope.help_tags, {})
 
 require("telescope").setup {
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    },
-    bibtex = {
-      context = true,
-      context_fallback = true,
-    },
-  },
-}
-
-local actions = require("telescope.actions")
-require("telescope").setup{
   defaults = {
     layout_strategy = "flex",
     layout_config = {
@@ -59,6 +43,19 @@ require("telescope").setup{
                 "--hidden",
                 "-g", "!.git/*",
             },
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    },
+    bibtex = {
+      context = true,
+      context_fallback = true,
     },
   },
 }
