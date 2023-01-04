@@ -6,4 +6,8 @@ debug
 share
 site-packages
 __pycache__
+_book
+_site
+forks
+*revealjs*
 Documents/software
