@@ -43,7 +43,7 @@ alias gcommit="git commit -v "
 alias sed="sed -E "
 
 # dnf
-if [[ "$OS_RELEASE" == "Fedora" ]]; then
+if [[ "$OS_RELEASE" == "Fedora Linux" ]]; then
     alias suinstall="sudo dnf install"
 elif [[ "$OS_RELEASE" == "Ubuntu" ]]; then
     alias suinstall="sudo apt-get install"
