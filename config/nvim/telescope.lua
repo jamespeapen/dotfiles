@@ -37,11 +37,9 @@ require("telescope").setup {
   pickers = {
     find_files = {
             find_command = {
-                "rg",
-                "-l", ".*",
-                "--follow",
+                "fd",
                 "--hidden",
-                "-g", "!.git/*",
+                "--no-ignore-vcs",
             },
     },
   },
