@@ -37,7 +37,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " bibtex
-Plug 'nvim-telescope/telescope-bibtex.nvim', { 'for': 'rmd' }
+Plug 'nvim-telescope/telescope-bibtex.nvim', { 'for': [ 'rmd', 'quarto' ]}
 
 " smart search highlighting 
 Plug 'romainl/vim-cool'
@@ -74,7 +74,7 @@ imap <C-/> <Esc>VgcA
 nmap <C-/> Vgc
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'on': 'Git' }
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -168,7 +168,7 @@ Plug 'preservim/vim-colors-pencil'
 Plug 'itchyny/lightline.vim'
 
 " Writing mode
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Devicons
@@ -177,7 +177,7 @@ Plug 'ryanoasis/vim-devicons'
 " Indents
 Plug 'Yggdroot/indentLine'
 
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) }, 'on': [] }
 " Bullets.vim
 Plug 'dkarter/bullets.vim', {'for': ['markdown', 'rmd']}
 let g:bullets_line_spacing = 2
