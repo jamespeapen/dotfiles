@@ -1,7 +1,7 @@
 [user]
 	email = james.eapen@vai.org
 	name = James Eapen
-	signingkey = CAAE67D13A361533
+	signingkey = B1BF05766D0B704C
 [commit]
 	gpgsign = true
 [credential]
