@@ -22,6 +22,12 @@ let mapleader = "\<Space>"
 imap ,m <Esc>
 vmap ,m <Esc>
 nnoremap fp gq}$
+" move by one line not sentence
+nmap j gj
+nmap k gk
+vnoremap j gj
+vnoremap k gk
+
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>11 :q!<CR>
