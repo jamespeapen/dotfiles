@@ -4,6 +4,9 @@
 # Correction
 setopt correctall
 
+# fzf
+[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
+
 # source plugins
 source "$ZDOTDIR/plugins.zsh"
 
@@ -27,7 +30,5 @@ eval "$(zoxide init zsh)"
 # direnv
 eval "$(direnv hook zsh)"
 
-# fzf
-[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 
 #zprof
