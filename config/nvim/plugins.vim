@@ -119,6 +119,7 @@ Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
 let R_rconsole_height=20
 let R_rconsole_width=67
 let R_objbr_w=35
+let R_nvimpager = "horizontal"
 let R_assign = 2 " underscrore to '<-': on 2
 let R_debug_center = 1
 let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed', 'cpp']
