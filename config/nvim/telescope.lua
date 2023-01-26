@@ -69,9 +69,7 @@ function find_home()
     telescope.find_files {
         cwd = "~",
         find_command = {
-            "rg",
-            "-l", ".*",
-            "--follow",
+            "fd",
         },
     }
 end
