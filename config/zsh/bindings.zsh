@@ -16,6 +16,7 @@ bindkey '^W' backward-kill-word
 # mappings
 bindkey -s '\ey' 'exa -l --icons --git\n'
 bindkey -s '\e;' 'exa -la --icons --git\n'
+bindkey -s '\et' 'task\n'
 
 # Edit the current command line in $EDITOR
 autoload -U edit-command-line
