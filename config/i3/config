@@ -56,7 +56,7 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q kill; split h
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -107,6 +107,12 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# quasi fibonacci
+# https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
+# https://www.reddit.com/r/swaywm/comments/jjgumr/my_sway_desktop_and_feeling/
+default_orientation horizontal
+for_window [app_id=".*"] split toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -212,6 +218,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #desktop background
 exec feh --bg-fill ~/Pictures/john-towner.jpg
-
-#keyboard modifications
-exec xmodmap ~/.Xmodmap
