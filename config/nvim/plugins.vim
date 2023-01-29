@@ -97,6 +97,9 @@ let g:repl_config = {
             \ }
 
 "-------------------- LSP
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'neovim/nvim-lspconfig'
 
 " Auto-completion

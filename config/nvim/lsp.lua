@@ -1,100 +1,36 @@
-local nvim_lsp = require'lspconfig'
-
--- Python
-nvim_lsp.jedi_language_server.setup{
-    filetypes = {"python"}
-}
-
--- R
-nvim_lsp.r_language_server.setup{
-    filetypes = {"r", "rmd"}
-}
-
--- Julia
-require'lspconfig'.julials.setup{
-}
-
--- LateX
-require('lspconfig').texlab.setup{
-    filetypes = {"latex", "quarto"}
-}
-
--- Rust
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<Leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-    settings = {
-      imports = {
-          granularity = {
-              group = "module",
-          },
-          prefix = "self",
-      },
-      checkOnSave = {
-          command = "clippy",
-          extraArgs = {
-              { "--target-dir", "/tmp/rust-analyzer-check" }
-        }
-      },
-      cargo = {
-          buildScripts = {
-              enable = true,
-          },
-      },
-      procMacro = {
-          enable = true
-      },
-    }
-  },
-})
-
--- Bash
-nvim_lsp.bashls.setup{}
-
--- Lua
-require'lspconfig'.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+-- mason setup
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "bashls",
+        "clangd",
+        "jedi_language_server",
+        "rust_analyzer",
+        "sumneko_lua",
+        "texlab",
     },
-  },
 }
 
-nvim_lsp.ccls.setup {
-  init_options = {
-    cache = {
-      directory = ".ccls-cache";
-    };
-  }
-}
 
---- Ansible
-require'lspconfig'.ansiblels.setup{}
+-- bindings
+local lsp_attach = function(client, bufnr)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<Ctrl-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', 'd]', vim.diagnostic.goto_next, opts)
+end
+
 
 -- Cmp
 local cmp = require'cmp'
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 cmp.setup({
     view = {
@@ -141,4 +77,79 @@ sources = cmp.config.sources({
 })
 })
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+-- mason LSP setup
+local nvim_lsp = require'lspconfig'
+
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    nvim_lsp[server_name].setup({
+      on_attach = lsp_attach,
+      capabilities = cmp_capabilities,
+    })
+  end,
+})
+
+-- LSP setup
+nvim_lsp.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    }
+  }
+}
+
+
+-- LateX
+nvim_lsp.texlab.setup{
+    filetypes = {"latex", "quarto"}
+}
+
+
+-- R
+nvim_lsp.r_language_server.setup{
+    filetypes = {"quarto", "r", "rmd"}
+}
+
+-- Rust
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<Leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+    settings = {
+      imports = {
+          granularity = {
+              group = "module",
+          },
+          prefix = "self",
+      },
+      checkOnSave = {
+          command = "clippy",
+      },
+      cargo = {
+          buildScripts = {
+              enable = true,
+          },
+      },
+      procMacro = {
+          enable = true
+      },
+    }
+  },
+})
