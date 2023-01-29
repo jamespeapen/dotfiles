@@ -49,7 +49,7 @@ bindsym $mod+e layout toggle split
 # quasi fibonacci
 # https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
 # https://www.reddit.com/r/swaywm/comments/jjgumr/my_sway_desktop_and_feeling/
-default_orientation vertical
+default_orientation horizontal
 for_window [app_id=".*"] split toggle
 
 # Make the current focus fullscreen
