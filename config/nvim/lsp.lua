@@ -6,6 +6,7 @@ require("mason-lspconfig").setup {
         "bashls",
         "clangd",
         "jedi_language_server",
+        "julials",
         "rust_analyzer",
         "sumneko_lua",
         "texlab",
