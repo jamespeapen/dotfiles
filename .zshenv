@@ -1,5 +1,5 @@
-PLATFORM=$(uname)
-OS_RELEASE=$(grep "^NAME" /etc/os-release | sed -E 's/^.*"(.*)"$/\1/')
+export PLATFORM="$(uname)"
+export OS_RELEASE=$(grep "^NAME" /etc/os-release | sed -E 's/^.*"(.*)"$/\1/')
 
 # PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -15,7 +15,6 @@ export HISTFILE="$HOME/.zsh_history"
 export HIST_STAMPS="mm/dd/yyyy"
 export HISTSIZE=10000
 export SAVEHIST=10000
-export FPATH="$ANTIGEN_PATH/src/:$FPATH"
 
 # EDITOR
 export EDITOR="nvim"
