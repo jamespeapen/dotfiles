@@ -4,7 +4,7 @@ if [[ "$PLATFORM" != "Darwin" ]]; then
 fi
 
 # PATH
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH
 export FPATH=$HOME/.local/share/zsh/completions:$HOME/.nix-profile/share/zsh/site-functions:$ANTIGEN_PATH/src/:$FPATH
 
 # XDG
