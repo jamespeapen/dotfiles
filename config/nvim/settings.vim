@@ -55,7 +55,7 @@ set undofile
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 " python
-let g:python3_host_prog="/usr/bin/python3"
+let g:python3_host_prog="nvim-python3"
 
 " autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
