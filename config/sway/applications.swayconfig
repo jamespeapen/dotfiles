@@ -6,6 +6,11 @@ set $menu "rofi -combi-modi drun,ssh,run -show combi -show-icons"
 # application menu
 bindsym $mod+d exec $menu
 
+# spotlight
+bindsym $mod+Shift+d exec rxvt -e "spotlight"
+for_window [class="URxvt"] floating enable
+for_window [class="foot"] floating enable
+
 # term
 bindsym $mod+Return exec $term
 
