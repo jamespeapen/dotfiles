@@ -12,7 +12,7 @@ fi
 setopt correctall
 
 # fzf
-[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
+[[ -x "$(command -v fzf-share)" ]] && source "$(eval fzf-share)/key-bindings.zsh"  
 
 # source plugins
 source "$ZDOTDIR/plugins.zsh"
