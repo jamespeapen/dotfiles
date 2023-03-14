@@ -3,11 +3,17 @@ export OS_RELEASE=$(grep "^NAME" /etc/os-release | sed -E 's/^.*"(.*)"$/\1/')
 
 # PATH
 export PATH=$HOME/.local/bin:$PATH
-export FPATH=$HOME/.local/share/zsh/completions:$HOME/.nix-profile/share/zsh/site-functions:$FPATH
+export FPATH=$HOME/.local/share/zsh/completions:$HOME/.nix-profile/share/zsh/site-functions:$ANTIGEN_PATH/src/:$FPATH
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+
+# HISTORY
+setopt SHARE_HISTORY
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HIST_STAMPS="%d/%m/%y %T"
 
 # ZSHCONFIG
 export ZDOTDIR="$HOME/.config/zsh"
