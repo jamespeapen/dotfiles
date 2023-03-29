@@ -1,12 +1,11 @@
 " Install vim-plug
-let data_dir = stdpath('data') . '/site'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+let data_dir = stdpath('data') " . '/site'
+if empty(glob(data_dir . '/site/autoload/plug.vim')) || empty(glob(data_dir . "/plugged"))
+  silent execute '!curl -fLo '.data_dir.'/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  :execute 'source ' . glob(data_dir . '/site/autoload/plug.vim')
   source ~/.config/nvim/plugins.vim
   autocmd VimEnter * PlugInstall --sync | echo "Plugins installed - quitting. Reopen to finish setup" | sleep 5 | qa!
-
 else
-
   if exists('g:started_by_firenvim')
       source ~/.config/nvim/firenvim.vim
       source ~/.config/nvim/autocorrect.vim
