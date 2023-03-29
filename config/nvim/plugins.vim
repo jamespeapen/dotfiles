@@ -126,7 +126,6 @@ let R_debug_center = 1
 let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed', 'cpp']
 let R_openhtml = 0 " don't open html in default browser on knit
 let R_openpdf = 0 " don't open html in default browser on knit
-let r_indent_align_args = 0 " Set vim-r-plugin to mimics ess :
 let r_indent_ess_comments = 0
 let R_rmdchunk = '``'
 " radian config
@@ -137,11 +136,11 @@ let R_args = []
 let R_bracketed_paste = 1
 
 " Markdown
-Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'rmd', 'quarto']}
-let g:pandoc#modules#disabled = ['folding']
-let g:pandoc#filetypes#pandoc_markdown = 0
+Plug 'vim-pandoc/vim-pandoc' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
+let g:pandoc#formatting#mode = 'h'
+let g:pandoc#folding#level = 2
 let g:pandoc#keyboard#use_default_mappings = 0
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'rmd', 'quarto']}
+Plug 'vim-pandoc/vim-pandoc-syntax' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
 Plug 'quarto-dev/quarto-vim', {'for': ['quarto']}
 
 " Latex
