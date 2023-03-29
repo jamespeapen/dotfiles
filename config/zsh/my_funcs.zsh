@@ -115,7 +115,7 @@ rgf() {
         --reverse \
         --border \
         --delimiter : \
-        --nth=-1 \
+        --nth=2.. \
         --query "$1" \
         --preview="$preview_cmd" \
         --preview-window=right,+{2}-20 \
@@ -124,7 +124,7 @@ rgf() {
         --bind='alt-j:preview-down,alt-n:preview-down' \
         --bind='ctrl-r:toggle-all' \
         --bind='ctrl-s:toggle-sort' \
-        --bind='?:toggle-preview' \
+        --bind='ctrl-space:toggle-preview' \
         --bind='alt-w:toggle-preview-wrap'
     else
       echo "No results found for $1"
