@@ -52,6 +52,8 @@ set inccommand=nosplit
 " undo
 set undofile
 
+set spellfile=~/.config/nvim/spell/en.utf-8.add
+
 " python
 let g:python3_host_prog="/usr/bin/python3"
 
