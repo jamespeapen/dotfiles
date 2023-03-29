@@ -34,10 +34,4 @@ bindsym Shift+XF86MonBrightnessUp exec sudo /usr/bin/light -A 5 && $refresh_i3st
 bindsym Shift+XF86MonBrightnessDown exec sudo /usr/bin/light -U 5 && $refresh_i3status
 # }}}
 
-# -------------------- APPLICATION SPECIFIC {{{
-for_window [class="URxvt"] floating enable, border pixel 0
-assign [title="Neovide"] $ws4
-for_window [title="Neovide"] layout tabbed
-# }}}
-
 # vim: set filetype=i3config :
