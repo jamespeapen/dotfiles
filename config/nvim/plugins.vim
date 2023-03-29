@@ -49,7 +49,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'kshenoy/vim-signature'
 
 " splitting line
-Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'json', 'zsh', 'r', 'rs', 'lua'] }
+Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'javascript', 'json', 'zsh', 'r', 'rs', 'lua'] }
 let g:splitjoin_python_brackets_on_separate_lines = 1
 
 " parens
