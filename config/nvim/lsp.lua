@@ -129,3 +129,13 @@ rt.setup({
     }
   },
 })
+
+-- ccls
+nvim_lsp.ccls.setup {
+  init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
+}
+
