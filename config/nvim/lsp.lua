@@ -4,11 +4,7 @@ require("mason-lspconfig").setup()
 require("mason-lspconfig").setup {
     ensure_installed = {
         "bashls",
-        "clangd",
         "jedi_language_server",
-        "julials",
-        "rust_analyzer",
-        "sumneko_lua",
         "texlab",
     },
 }
@@ -89,27 +85,6 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
 })
-
--- LSP setup
-nvim_lsp.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    }
-  }
-}
-
 
 -- LateX
 nvim_lsp.texlab.setup{
