@@ -12,8 +12,7 @@ require("telescope").setup {
     layout_strategy = "flex",
     layout_config = {
       flex = {
-        flip_columns = 130,
-        width = 0.6,
+        flip_columns = 140,
       },
       vertical = {
         height = 0.6,
@@ -70,6 +69,8 @@ function find_home()
         cwd = "~",
         find_command = {
             "fd",
+            "--hidden",
+            "--no-ignore-vcs",
         },
     }
 end
