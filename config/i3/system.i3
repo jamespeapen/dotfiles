@@ -20,18 +20,18 @@ exec --no-startup-id nm-applet
 # }}}
 
 # -------------------- AUDIO {{{
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 # }}}
 
 # -------------------- BRIGHTNESS {{{
-bindsym XF86MonBrightnessUp exec sudo /usr/bin/light -A 1 && $refresh_i3status
-bindsym XF86MonBrightnessDown exec sudo /usr/bin/light -U 1 && $refresh_i3status
-bindsym Shift+XF86MonBrightnessUp exec sudo /usr/bin/light -A 5 && $refresh_i3status
-bindsym Shift+XF86MonBrightnessDown exec sudo /usr/bin/light -U 5 && $refresh_i3status
+bindsym XF86MonBrightnessUp exec sudo /usr/bin/light -A 1
+bindsym XF86MonBrightnessDown exec sudo /usr/bin/light -U 1
+bindsym Shift+XF86MonBrightnessUp exec sudo /usr/bin/light -A 5
+bindsym Shift+XF86MonBrightnessDown exec sudo /usr/bin/light -U 5
 # }}}
 
 # vim: set filetype=i3config :
