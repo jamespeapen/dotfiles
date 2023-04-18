@@ -5,6 +5,7 @@ require("mason-lspconfig").setup {
     ensure_installed = {
         "bashls",
         "jedi_language_server",
+        "lua_ls",
         "texlab",
     },
 }
@@ -55,9 +56,9 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
-        { name = 'buffer' },
         { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
+        { name = 'buffer' },
     }),
     experimental = {
         ghost_text = true
@@ -139,3 +140,22 @@ nvim_lsp.ccls.setup {
   }
 }
 
+-- Lua
+nvim_lsp.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim', 'bufopts', 'opts'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    }
+  }
+}
