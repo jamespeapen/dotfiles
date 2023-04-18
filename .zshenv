@@ -11,16 +11,13 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # HISTORY
 setopt SHARE_HISTORY
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=50000
+export SAVEHIST=50000
 export HIST_STAMPS="%d/%m/%y %T"
 
 # ZSHCONFIG
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.zsh_history"
-export HIST_STAMPS="mm/dd/yyyy"
-export HISTSIZE=10000
-export SAVEHIST=10000
 
 # EDITOR
 export EDITOR="nvim"
