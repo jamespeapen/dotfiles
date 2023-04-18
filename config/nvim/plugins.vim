@@ -130,6 +130,12 @@ let r_indent_align_args = 0 " Set vim-r-plugin to mimics ess :
 let r_indent_ess_comments = 0
 let r_indent_ess_compatible = 0
 let R_rmdchunk = 1
+" radian config
+let R_app = "radian"
+let R_cmd = "R"
+let R_hl_term = 0
+let R_args = []
+let R_bracketed_paste = 1
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'rmd', 'quarto']}
