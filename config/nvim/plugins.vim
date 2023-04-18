@@ -116,6 +116,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 " R
 Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
+let R_buffer_opts = "nobuflisted"
 let R_rconsole_height=20
 let R_rconsole_width=67
 let R_objbr_w=35
