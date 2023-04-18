@@ -163,7 +163,6 @@ Plug 'jamespeapen/sway-config.vim', { 'for': ['swayconfig'], 'branch': 'dev' }
 Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ap/vim-css-color', {'for': ['css', 'rmd']}
-Plug 'preservim/vim-colors-pencil'
 
 " Status line
 Plug 'itchyny/lightline.vim'

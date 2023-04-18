@@ -36,6 +36,7 @@ function! Prose()
     :Goyo 82
     :set spell
     :source ~/.config/nvim/autocorrect.vim
+    ":syntax on
 endfunction
 
 function! Gy()
