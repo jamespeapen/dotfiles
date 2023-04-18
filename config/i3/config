@@ -169,6 +169,7 @@ include applications.i3
 # -------------------- APPLICATION SPECIFIC {{{
 focus_on_window_activation focus
 for_window [class="URxvt"] floating enable, border pixel 0
+for_window [class="R_x11"] floating enable
 assign [title="Neovide"] $ws8
 for_window [title="Neovide"] layout tabbed
 # }}}
