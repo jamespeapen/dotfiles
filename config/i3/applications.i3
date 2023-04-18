@@ -28,4 +28,7 @@ bindsym Mod1+Shift+p exec ~/.local/bin/search --pub
 bindsym $mod+p exec /home/james.eapen/.local/bin/passmenu
 bindsym $mod+o exec /home/james.eapen/.local/bin/otpmenu
 
+# warpd
+bindsym Mod1+o exec /home/james.eapen/.nix-profile/bin/warpd --hint
+
 # vim: set filetype=i3config :
