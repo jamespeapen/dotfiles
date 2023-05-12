@@ -44,3 +44,7 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
 
+# extras
+if [[ -f "~/.extras.zsh" ]]; then
+    source .extras.zsh
+fi
