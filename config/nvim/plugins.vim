@@ -82,7 +82,7 @@ let g:UltiSnipsExpandTrigger="<C-I>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-Plug 'honza/vim-snippets'
+Plug 'jamespeapen/vim-snippets'
 
 " REPL
 let maplocalleader = "\\"
