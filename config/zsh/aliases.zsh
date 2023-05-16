@@ -29,7 +29,7 @@ alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
 
 # application
-alias R='radian'
+alias r='radian'
 
 # config editing
 alias zshconfig="$EDITOR ~/.config/zsh/.zshrc"
