@@ -270,7 +270,11 @@ function ydl() {
   if [[ "$platform" == "Darwin" ]]; then
     url=$(pbpaste)
   else
-    url=$(wl-paste)
+    if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+        url=$(xclip -o)
+    else
+        url=$(wl-paste)
+    fi
   fi
   echo "$url"
   urls=$(youtube-dl --get-url --format m4a "$url")
