@@ -111,6 +111,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips source
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/playground'
 
 "-------------------- LANGUAGE PLUGINS 
 
