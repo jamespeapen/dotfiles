@@ -39,6 +39,9 @@ rt.setup({
       },
       checkOnSave = {
           command = "clippy",
+          extraArgs = {
+              { "--target-dir", "/tmp/rust-analyzer-check" }
+        }
       },
       cargo = {
           buildScripts = {
