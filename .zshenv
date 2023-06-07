@@ -13,9 +13,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # HISTORY
 setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
 export HISTSIZE=50000
 export SAVEHIST=50000
-export HIST_STAMPS="%d/%m/%y %T"
 
 # ZSHCONFIG
 export ZDOTDIR="$HOME/.config/zsh"
