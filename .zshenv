@@ -47,6 +47,4 @@ source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
 
 # extras
-if [[ -f "~/.extras.zsh" ]]; then
-    source .extras.zsh
-fi
+[[ -f ~/.extras.zsh ]] && source ~/.extras.zsh
