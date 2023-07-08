@@ -9,9 +9,9 @@
 [pull]
 	rebase = true
 [core]
-	excludesfile = /home/james.eapen/.gitignore
+	excludesfile = ~/.config/git/gitignore
 	symlinks = on
-    pager = delta
+#    pager = delta
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
