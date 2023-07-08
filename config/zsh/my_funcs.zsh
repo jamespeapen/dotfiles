@@ -116,7 +116,7 @@ rgf() {
         --border \
         --delimiter : \
         --nth=2.. \
-        --query "$1" \
+        --query "$1 " \
         --preview="$preview_cmd" \
         --preview-window=right,+{2}-20 \
         --bind='enter:execute(nvim -R +{2} -c "normal! zz" {1})' \
