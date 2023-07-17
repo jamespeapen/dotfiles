@@ -75,6 +75,7 @@ nmap <C-/> Vgc
 
 " Git
 Plug 'tpope/vim-fugitive', { 'on': 'Git' }
+Plug 'lewis6991/gitsigns.nvim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
