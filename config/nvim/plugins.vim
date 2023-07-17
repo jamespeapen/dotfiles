@@ -110,6 +110,7 @@ Plug 'hrsh7th/cmp-buffer'   " buffer source
 Plug 'hrsh7th/cmp-path'     " filesystem path source
 Plug 'hrsh7th/cmp-cmdline'  " vim commandline source
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'ray-x/lsp_signature.nvim', { 'for': [ 'r' ] }
 Plug 'quangnguyen30192/cmp-nvim-ultisnips' " Ultisnips source
 
 " Treesitter

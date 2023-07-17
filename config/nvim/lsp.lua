@@ -76,6 +76,9 @@ sources = cmp.config.sources({
 })
 })
 
+-- lsp signature for r_language_server
+require "lsp_signature".setup()
+
 -- mason LSP setup
 local nvim_lsp = require'lspconfig'
 
