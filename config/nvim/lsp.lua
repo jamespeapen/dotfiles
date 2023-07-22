@@ -1,5 +1,54 @@
 local nvim_lsp = require'lspconfig'
 
+
+-- Cmp
+local cmp = require'cmp'
+
+cmp.setup({
+    view = {
+        entries = {name = 'custom', selection_order = 'near_cursor'},
+    },
+    confirmation = {
+        completeopt = "menu,menuone,noinsert"
+    },
+    snippet = {
+        expand = function(args)
+          vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ["<M-u>"] = cmp.mapping.scroll_docs(-4),
+      ["<M-d>"] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'ultisnips' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
+    }),
+    experimental = {
+        ghost_text = true
+    }
+
+})
+
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+})
+
 -- Python
 nvim_lsp.jedi_language_server.setup{
     filetypes = {"python"}
@@ -94,52 +143,3 @@ nvim_lsp.ccls.setup {
 --- Ansible
 require'lspconfig'.ansiblels.setup{}
 
--- Cmp
-local cmp = require'cmp'
-
-cmp.setup({
-    view = {
-        entries = {name = 'custom', selection_order = 'near_cursor'},
-    },
-    confirmation = {
-        completeopt = "menu,menuone,noinsert"
-    },
-    snippet = {
-        expand = function(args)
-          vim.fn["UltiSnips#Anon"](args.body)
-        end,
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ["<M-u>"] = cmp.mapping.scroll_docs(-4),
-      ["<M-d>"] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'ultisnips' },
-        { name = 'buffer' },
-        { name = 'path' },
-        { name = 'nvim_lsp_signature_help' },
-    }),
-    experimental = {
-        ghost_text = true
-    }
-
-})
-
-cmp.setup.cmdline(':', {
-mapping = cmp.mapping.preset.cmdline(),
-sources = cmp.config.sources({
-  { name = 'path' }
-}, {
-  { name = 'cmdline' }
-})
-})
-
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
