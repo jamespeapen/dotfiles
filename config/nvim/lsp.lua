@@ -16,7 +16,7 @@ require'lspconfig'.julials.setup{
 
 -- LateX
 require('lspconfig').texlab.setup{
-    filetypes = {"latex", "quarto"}
+    filetypes = {"tex", "quarto"}
 }
 
 -- Rust
