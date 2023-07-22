@@ -129,12 +129,6 @@ let R_openhtml = 0 " don't open html in default browser on knit
 let R_openpdf = 0 " don't open html in default browser on knit
 let r_indent_ess_comments = 0
 let R_rmdchunk = '``'
-" radian config
-let R_app = "radian"
-let R_cmd = "R"
-let R_hl_term = 0
-let R_args = []
-let R_bracketed_paste = 1
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
