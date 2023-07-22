@@ -1,5 +1,27 @@
 local nvim_lsp = require'lspconfig'
 
+-- bindings
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<F1>', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<F4>', vim.lsp.buf.rename, bufopts)
+
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', 'd[', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', 'd]', vim.diagnostic.goto_next, opts)
+
+    vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+  end,
+})
 
 -- Cmp
 local cmp = require'cmp'
