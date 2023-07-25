@@ -15,7 +15,7 @@ else
       source ~/.config/nvim/lightline.vim
       source ~/.config/nvim/ui.vim
       source ~/.config/nvim/settings.vim
-      source ~/.config/nvim/treesitter.vim
+      source ~/.config/nvim/treesitter.lua
       source ~/.config/nvim/lsp.lua
       source ~/.config/nvim/telescope.lua
       autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
