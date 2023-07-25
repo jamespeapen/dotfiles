@@ -29,7 +29,8 @@ alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
 
 # application
-alias r='radian'
+alias radian="nix-shell -p python311Packages.radian R --command radian"
+alias play="nix-shell -p $1 --command zsh"
 
 # config editing
 alias zshconfig="$EDITOR ~/.config/zsh/.zshrc"
