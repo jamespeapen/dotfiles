@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+__ScriptVersion="0.1.2"
+
+import png:- | xclip -selection clipboard -t image/png
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+    echo "Usage :  $0 [options] [--]
+
+    Options:
+    -h|help       Display this message
+    -v|version    Display script version
+    -f|file       Output to file"
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+
+while getopts ":hvf" opt
+do
+  case $opt in
+
+    h|help     )  usage; exit 0   ;;
+
+    v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+
+    f|file     ) datetime=$(date +"%Y-%m-%d_%H%M%S");
+                 file="/home/james.eapen/Pictures/screenshots/$datetime.png";
+                 xclip -selection clipboard -t image/png -o > $file ;;
+
+    * )  echo -e "\n  Option does not exist : $OPTARG\n"
+                usage; exit 1   ;;
+
+  esac    # --- end of case ---
+done
+shift $((OPTIND-1))
+
+
+

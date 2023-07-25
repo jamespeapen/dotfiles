@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rxvt -geometry 80x30 \
+    -e nvim \
+    -c 'set laststatus=0' \
+    -c 'set spell' \
+    -c 'source ~/.config/nvim/autocorrect.vim' /tmp/temp_buffer && \
+    cat /tmp/temp_buffer | perl -pe 'chomp if eof' | xdotool type --delay 1 --clearmodifiers -file - && rm /tmp/temp_buffer

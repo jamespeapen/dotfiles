@@ -1,0 +1,11 @@
+#!/bin/python3
+import subprocess
+from datetime import datetime
+import sys
+
+next_appointment = subprocess.check_output(["/usr/bin/calcurse",  "-n"]).decode("utf-8").split("\n")[1].strip()
+
+time = next_appointment.split()[0]
+app_datetime = datetime.strptime(time, "[%H:%M]")
+if app_datetime.minute % 5 == 0 and app_datetime.hour == 0 and app_datetime.minute <= 30:
+    subprocess.call(["notify-send", "📆 Calendar", f"{next_appointment}"])

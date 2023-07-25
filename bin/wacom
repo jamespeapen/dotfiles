@@ -1,0 +1,16 @@
+#!/bin/bash
+
+bluetoothctl connect $DEVICE
+
+sleep 2s
+export stylus=$(xsetwacom --list devices | grep STYLUS | sed -E 's/.*id: ([0-9]+).*/\1/')
+echo $stylus
+export pad=$(xsetwacom --list devices | grep PAD | sed -E 's/.*id: ([0-9]+).*/\1/')
+echo $pad
+
+xsetwacom set "$stylus" MapToOutput HEAD-0
+#xsetwacom set "$stylus" Rotate cw
+xsetwacom set "$pad" Button 3 "key +ctrl +shift + -ctrl -shift"
+xsetwacom set "$pad" Button 2 "key +ctrl - -ctrl"
+xsetwacom set "$pad" Button 1 "key +shift +ctrl p -shift -ctrl"
+xsetwacom set "$pad" Button 8 "key +shift +ctrl r -shift -ctrl"

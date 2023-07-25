@@ -1,0 +1,78 @@
+#!/bin/bash
+
+REMOVE_QUOTE="tr -d '\"'"
+
+if [[ $1 = \10* ]]; then
+    FORMATTED_DOI=$1
+    FULL_DOI="https://doi.org/$1"
+elif [[ $1 = \https://doi.org* ]]; then
+    FORMATTED_DOI=$(sed -E 's/https:\/\/doi.org\///' <<< "$1")
+    FULL_DOI=$1
+elif [[ $1 == "" ]]; then
+    >&2 echo "Enter valid DOI"
+    exit 22
+else
+    title=$(sed -E 's/\s/+/g' <<< $1)
+    request="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=$title\[TITLE\]&format=json"
+    PMID=$(curl -s "$request" | jq '.esearchresult.idlist[]' | $REMOVE_QUOTE)
+    FORMATTED_DOI=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$PMID&rettype=xml" |\
+        yq -p=xml '.PubmedArticleSet.PubmedArticle.MedlineCitation.Article.ELocationID' |\
+        grep --before-context=1 doi | head -n 1 | cut -d ':' -f 2 | tr -d ' ')
+    FULL_DOI="https://doi.org/$FORMATTED_DOI"
+fi
+
+json=$(curl -s -LH 'Accept: application/json' "$FULL_DOI")
+datetime=$(jq '.created."date-time"' <<< "$json" | $REMOVE_QUOTE)
+PUBLISH_DATE=$(date -d "$datetime" "+%B %d, %Y")
+SUMMARY_DATE=$(date "+%B %d, %Y")
+
+TITLE=$(jq '.title' <<< "$json" | $REMOVE_QUOTE)
+JOURNAL=$(jq '."container-title"' <<< "$json" | $REMOVE_QUOTE)
+
+url_count=$(jq '.link' <<< "$json" | grep "URL" -c)
+if [[ $url_count == 1 ]]; then
+    URL=$(jq '.link' <<< "$json" |\
+        grep URL |\
+        tr -d ' ' | tr -d '"' | tr -d ',' |\
+        cut -d ':' -f 2,3)
+elif [[ $url_count == 3 ]]; then
+    URL=$(jq '.link' <<< "$json" |\
+        grep html --before-context=1 |\
+        head -n 1 |\
+        tr -d ' ' | tr -d '"' | tr -d ',' |\
+        cut -d ':' -f 2,3)
+else
+    URL=$(jq '.resource.primary.URL' <<< "$json" | $REMOVE_QUOTE)
+fi
+
+if [[ $URL == "" ]]; then
+    URL="NOT FOUND"
+fi
+
+if [[ ! $PMID ]]; then
+    PMID=$(curl -s \
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=$FORMATTED_DOI&format=json" |\
+        jq '.esearchresult.idlist[]' | $REMOVE_QUOTE)
+fi
+
+CITATION=$(curl -s \
+    "https://api.ncbi.nlm.nih.gov/lit/ctxp/v1/pubmed/?format=citation&id=+$PMID" |\
+    jq '.nlm.orig' | $REMOVE_QUOTE |\
+    sed -E 's/(PMID: )([0-9]*)/\1[\2]\(https:\/\/pubmed.ncbi.nlm.nih.gov\/\2\)/')
+
+cat << EOF
+---
+categories: []
+date: $PUBLISH_DATE
+date-modified: $SUMMARY_DATE
+doi: $FORMATTED_DOI
+---
+
+# $TITLE
+
+[$JOURNAL]($URL)
+
+> $CITATION
+
+EOF
+

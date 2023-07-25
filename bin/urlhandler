@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "$@" | xclip -selection clipboard
+result=$(grep -E "outlook|onedrive|teams.microsoft.com|sharepoint|instructure|shenlabvari|slack|huishenlab|jamespeapen" <<< $@)
+
+if [[ -n "$result" ]]; then
+    setsid -f firefox "$@" 2> /dev/null
+else
+    setsid -f firefox --private-window "$@" 2> /dev/null
+fi

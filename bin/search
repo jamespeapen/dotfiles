@@ -1,0 +1,20 @@
+#!/bin/bash
+
+URL="https://duckduckgo.com/?q="
+
+if [[ $@ == "--selection" ]]; then
+    selection=1
+    QUERY=$(xsel)
+elif [[ $@ == "--clipboard" ]]; then
+    QUERY=$(xsel -b)
+elif [[ $@ == "--pub" ]]; then
+    URL="https://pubmed.ncbi.nlm.nih.gov/"
+    QUERY=$(xsel)
+else
+    QUERY=$(echo ''| dmenu -p 'Search DDG' -fn 'Ubuntu Nerd Font')
+fi
+
+if [ -n "$QUERY" ]; then
+    xdg-open "${URL}${QUERY}" 2> /dev/null
+    i3-msg [class=firefox] focus
+fi
