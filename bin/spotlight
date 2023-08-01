@@ -1,14 +1,16 @@
-#!/bin/bash
+#! /bin/bash
 export FD_COMMAND="fd -L --type f --no-ignore-vcs"
 export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
 
 file=$(/home/james.eapen/.fzf/bin/fzf \
     --extended \
+    --multi \
     --prompt "File search: " \
     --preview="bat --color=always {}"\
     --preview-window hidden \
     --bind=change:first \
     --bind="ctrl-r:execute(rm -i {})+reload($FD_COMMAND)" \
+    --bind="ctrl-t:execute(dragon -x -a {+})+print-query" \
     --bind="ctrl-space:toggle-preview" \
     --bind="alt-d:preview-down" \
     --bind="alt-u:preview-up"
