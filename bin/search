@@ -1,20 +1,34 @@
 #!/bin/bash
 
 URL="https://duckduckgo.com/?q="
-
-if [[ $@ == "--selection" ]]; then
-    selection=1
-    QUERY=$(xsel)
-elif [[ $@ == "--clipboard" ]]; then
-    QUERY=$(xsel -b)
-elif [[ $@ == "--pub" ]]; then
+if [[ $* == "--selection" ]]; then
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        QUERY=$(wl-paste --primary)
+    else
+        QUERY=$(xsel)
+    fi
+elif [[ $* == "--clipboard" ]]; then
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        QUERY=$(wl-paste)
+    else
+        QUERY=$(xsel -b)
+    fi
+elif [[ $* == "--pub" ]]; then
     URL="https://pubmed.ncbi.nlm.nih.gov/"
-    QUERY=$(xsel)
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        QUERY=$(wl-paste --primary)
+    else
+        QUERY=$(xsel)
+    fi
 else
     QUERY=$(echo ''| dmenu -p 'Search DDG' -fn 'Ubuntu Nerd Font')
 fi
 
 if [ -n "$QUERY" ]; then
     xdg-open "${URL}${QUERY}" 2> /dev/null
-    i3-msg [class=firefox] focus
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        swaymsg '[app_id="firefox"] focus'
+    else
+        i3-msg [class=firefox] focus
+    fi
 fi
