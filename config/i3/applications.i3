@@ -8,7 +8,10 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+u exec dmenuunicode
 
 # file browser
-bindsym $mod+Shift+d exec rxvt -e 'spotlight'
+bindsym $mod+Shift+d exec urxvt -e 'spotlight'
+
+# zotero browser
+bindsym $mod+Shift+p exec urxvt -e 'pgf'
 
 # vim editor
 bindsym $mod+Shift+Return exec vimmy
@@ -19,7 +22,7 @@ bindsym --release Mod1+Shift+f exec screenshot -f
 
 # browser
 bindsym Mod1+Shift+g exec firefox --private-window
-bindsym Mod1+q exec ~/.local/bin/search
+bindsym $mod+Shift+f exec urxvt -e bkmrks
 bindsym Mod1+Shift+q exec ~/.local/bin/search --clipboard
 bindsym Mod1+Shift+s exec ~/.local/bin/search --selection
 bindsym Mod1+Shift+p exec ~/.local/bin/search --pub
