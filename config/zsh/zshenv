@@ -26,7 +26,7 @@ export HISTFILE="$HOME/.zsh_history"
 export EDITOR="nvim"
 
 # BROWSER
-export BROWSER="firefox -private"
+export BROWSER="firefox -private-window"
 
 # FZF
 if [[ $platform == "Darwin" ]]; then
