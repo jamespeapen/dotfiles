@@ -24,6 +24,10 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeHijackNetrw=1 " NERDTree to split mode
 let NERDTreeQuitOnOpen=1
 
+" Undotree
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+nnoremap <F5> :UndotreeToggle<CR>
+
 "-------------------- Utils 
 " lua functions
 Plug 'nvim-lua/plenary.nvim'
