@@ -23,15 +23,16 @@ bindsym --release Mod1+Shift+f exec screenshot -f
 # browser
 bindsym Mod1+Shift+g exec firefox --private-window
 bindsym $mod+Shift+f exec urxvt -e bkmrks
-bindsym Mod1+Shift+q exec ~/.local/bin/search --clipboard
-bindsym Mod1+Shift+s exec ~/.local/bin/search --selection
-bindsym Mod1+Shift+p exec ~/.local/bin/search --pub
+bindsym Mod1+q exec search
+bindsym Mod1+Shift+q exec search --clipboard
+bindsym Mod1+Shift+s exec search --selection
+bindsym Mod1+Shift+p exec search --pub
 
 # pass
-bindsym $mod+p exec /home/james.eapen/.local/bin/passmenu
-bindsym $mod+o exec /home/james.eapen/.local/bin/otpmenu
+bindsym $mod+p exec passmenu
+bindsym $mod+o exec otpmenu
 
 # warpd
-bindsym Mod1+o exec /home/james.eapen/.nix-profile/bin/warpd --hint
+bindsym Mod1+o exec warpd --hint
 
 # vim: set filetype=i3config :
