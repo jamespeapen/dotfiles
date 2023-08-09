@@ -49,9 +49,9 @@ nnoremap <silent><Leader>pr :call Prose()<CR>
 nnoremap <silent><Leader>gy :call Gy()<CR>
 
 " format full document
-nnoremap <Leader>fd gggqGgg
+nnoremap <Leader>fd gggwGgg
 " format paragraph
-nnoremap <Leader>fp gq}<C-o>
+nnoremap <Leader>fp gw}
 
 " get wordcount
 nnoremap <Leader>wc :echo wordcount().words . " words"<CR>
