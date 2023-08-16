@@ -33,7 +33,7 @@ do
     v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
 
     f|file     ) datetime=$(date +"%Y-%m-%d_%H%M%S");
-                 file="/home/james.eapen/Pictures/screenshots/$datetime.png";
+                 file="$HOME/Pictures/screenshots/$datetime.png";
                  xclip -selection clipboard -t image/png -o > $file ;;
 
     * )  echo -e "\n  Option does not exist : $OPTARG\n"
