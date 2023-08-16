@@ -180,7 +180,7 @@ exec --no-startup-id fusuma
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-exec feh --bg-fill --randomize /home/james.eapen/Pictures/wallpapers/*
+exec feh --bg-fill --randomize $HOME/Pictures/wallpapers/*
 exec sh ~/.screenlayout/dual_vert.sh
 
 # Picom
