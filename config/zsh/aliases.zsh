@@ -40,7 +40,6 @@ alias swayconfig="$EDITOR ~/.config/sway/config"
 alias gitconfig="$EDITOR ~/.gitconfig"
 
 # git
-alias fcho="git for-each-ref --format='%(refname:short)' refs/heads |fzf|xargs git checkout"
 alias gcommit="git commit -v "
 
 alias sed="sed -E "
