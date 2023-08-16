@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 clipboard_command="xclip -selection clipboard"
 if [[ -n $WAYLAND_DISPLAY ]]; then

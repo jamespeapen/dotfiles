@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env bash
+
 echo "$@" | xclip -selection clipboard
 result=$(grep -E "outlook|onedrive|teams.microsoft.com|sharepoint|instructure|shenlabvari|slack|huishenlab|jamespeapen" <<< $@)
 

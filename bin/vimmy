@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 rxvt -geometry 80x30 \
     -e nvim \

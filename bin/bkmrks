@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env bash
+
 export PATH=$PATH:$HOME/.nix-profile/bin:$HOME/.local/bin
 export FZF_DEFAULT_COMMAND="cat $HOME/.cache/dots/moz_bookmarks"
 

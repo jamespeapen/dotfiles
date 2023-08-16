@@ -1,4 +1,4 @@
-#!/bin/env zsh
+#! /usr/bin/env bash
 
 finder() {
     RG_PREFIX="~/.local/bin/rga --files-with-matches"
