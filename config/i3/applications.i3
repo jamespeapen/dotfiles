@@ -17,16 +17,17 @@ bindsym $mod+Shift+p exec urxvt -e 'pgf'
 bindsym $mod+Shift+Return exec vimmy
 
 # screenshot
-bindsym --release $mod+Shift+s exec screenshot
-bindsym --release Mod1+Shift+f exec screenshot -f
+bindsym --release F9 exec screenshot
+bindsym --release Mod1+F9 exec screenshot -f
 
 # browser
 bindsym Mod1+Shift+g exec firefox --private-window
 bindsym $mod+Shift+f exec urxvt -e bkmrks
+
+# search
 bindsym Mod1+q exec search
 bindsym Mod1+Shift+q exec search --clipboard
 bindsym Mod1+Shift+s exec search --selection
-bindsym Mod1+Shift+p exec search --pub
 
 # pass
 bindsym $mod+p exec passmenu
