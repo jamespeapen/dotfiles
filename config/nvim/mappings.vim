@@ -45,8 +45,14 @@ function! Gy()
     :set number
 endfunction
 
+function! Reader()
+    map <C-e> <Esc>wvis
+    map <C-y> <Esc>bviso
+endfunction
+
 nnoremap <silent><Leader>pr :call Prose()<CR>
 nnoremap <silent><Leader>gy :call Gy()<CR>
+nnoremap <silent><Leader>gr :call Reader()<CR>
 
 " format full document
 nnoremap <Leader>fd gggwGgg
