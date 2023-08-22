@@ -66,5 +66,5 @@ set autochdir
 " Markdown
 let g:markdown_fenced_languages = ['r', 'python', 'sh', 'bash=sh', 'rust', 'vim', 'awk', 'sed', 'tex']
 
-" so vim fugitive is quicker to load (tpote/vim-fugitive#1492)
-set shell=bash 
+" so vim fugitive is quicker to load (tpope/vim-fugitive#1492)
+set shell=bash
