@@ -60,8 +60,8 @@ let g:python3_host_prog="nvim-python3"
 " autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 
-" set working directory to buffer directory unless terminal buffer
-autocmd BufEnter * if &buftype !=# 'terminal' && &buftype !=# 'nowrite' | lcd %:p:h
+" set working directory to buffer directory
+set autochdir
 
 " Markdown
 let g:markdown_fenced_languages = ['r', 'python', 'sh', 'bash=sh', 'rust', 'vim', 'awk', 'sed', 'tex']
