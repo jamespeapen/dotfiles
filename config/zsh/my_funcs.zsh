@@ -46,18 +46,6 @@ function light-mode() {
  sed -i 's/gruvbox/PaperColor/' ~/.vim/lightline.vim
 }
 
-function ergo() {
-  sed -i 's/xkb_variant/#xkb_variant/' ~/.config/sway/config
-  sed -i 's/xkb_options/#xkb_options/' ~/.config/sway/config
-  swaymsg reload
-}
-
-function lap() {
-  sed -i 's/#xkb_variant/xkb_variant/' ~/.config/sway/config
-  sed -i 's/#xkb_options/xkb_options/' ~/.config/sway/config
-  swaymsg reload
-}
-
 function gitpuller { 
   for f in *;  do 
   if [ -d $f  -a ! -h $f ];  
