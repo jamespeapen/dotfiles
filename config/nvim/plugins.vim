@@ -58,17 +58,7 @@ let g:splitjoin_python_brackets_on_separate_lines = 1
 
 " parens
 Plug 'tpope/vim-surround'
-Plug 'LunarWatcher/auto-pairs'
-let g:AutoPairs = {'"': '"', '{': '}', '''': '''', '(': ')', '''''''': '''''''', '[': ']', '"""': '"""'}
-let g:AutoPairsCompatibleMaps = 0
-let g:AutoPairsMapBS = 1
-let g:AutoPairsShortcutToggle = ""
-let g:AutoPairsShortcutFastWrap = ""
-let g:AutoPairsShortcutJump = ""
-let g:AutoPairsShortcutBackInsert = ""
-let g:AutoPairsMoveExpression = ""
-let g:AutoPairsShortcutIgnore = ""
-let g:AutoPairsShortcutToggleMultilineClose = ""
+Plug 'windwp/nvim-autopairs'
 
 " Commenting
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
