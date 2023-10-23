@@ -14,8 +14,8 @@ export WORDCHARS=${WORDCHARS/\//}
 bindkey '^W' backward-kill-word
 
 # mappings
-bindkey -s '\ey' 'exa -l --icons --git\n'
-bindkey -s '\e;' 'exa -la --icons --git\n'
+bindkey -s '\ey' 'eza -l --icons --git\n'
+bindkey -s '\e;' 'eza -la --icons --git\n'
 bindkey -s '\et' 'task\n'
 
 # Edit the current command line in $EDITOR
