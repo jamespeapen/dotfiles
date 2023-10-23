@@ -1,5 +1,5 @@
 # dirs
-alias ls="exa -l --git --icons"
+alias ls="eza -l --git --icons"
 alias md="mkdir -p"
 alias -g ...='../..'
 alias -g ....='../../..'
