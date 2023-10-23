@@ -12,7 +12,7 @@ alias open="xdg-open"
 alias vim="nvim"
 
 # util options
-alias rm='rm -i'
+alias rm='safe-rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias grep="grep --color"
