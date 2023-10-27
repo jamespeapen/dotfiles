@@ -41,6 +41,7 @@ alias gitconfig="$EDITOR ~/.gitconfig"
 
 # git
 alias gcommit="git commit -v "
+alias vit="vim +Git -c ':only'"
 
 alias sed="sed -E "
 
