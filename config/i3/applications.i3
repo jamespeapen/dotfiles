@@ -36,4 +36,19 @@ bindsym $mod+o exec otpmenu
 # warpd
 bindsym Mod1+o exec warpd --hint
 
+# bindings
+bindsym Mod1+Shift+n [class="kitty" title="neomutt"] focus
+bindsym Mod1+Shift+o [class="kitty" title="weechat"] focus
+
+# settings
+for_window [class="URxvt"] floating enable, border pixel 0
+for_window [class="R_x11"] floating enable
+
+for_window [title="neomutt"] layout splitv
+assign [title="neomutt"] $ws7
+assign [title="weechat"] $ws7
+
+assign [title="Neovide"] $ws8
+for_window [title="Neovide"] layout tabbed
+
 # vim: set filetype=i3config :
