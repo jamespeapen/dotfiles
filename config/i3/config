@@ -82,6 +82,8 @@ bindsym $mod+Shift+l move right
 # }}}
 
 # -------------------- FOCUS {{{
+focus_on_window_activation focus
+
 # change focus
 bindsym $mod+h focus left; exec ~/.config/i3/mouse_warp
 bindsym $mod+j focus down; exec ~/.config/i3/mouse_warp
