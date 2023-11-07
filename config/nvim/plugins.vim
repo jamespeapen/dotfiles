@@ -181,7 +181,7 @@ Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ap/vim-css-color', {'for': ['css', 'rmd']}
 
 " Status line
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 
 " Writing mode
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo'}
