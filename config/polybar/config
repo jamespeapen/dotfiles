@@ -60,10 +60,10 @@ module-margin-right = 1
 module-padding-left = 0
 
 ; fonts
-font-0 = "SauceCodePro Nerd Font:style=Medium:size=14;2"
-font-1 = "SauceCodePro Nerd Font:style=Bold:size=12;2"
-font-2 = "SauceCodePro Nerd Font:size=14;3"
-font-3 = "SauceCodePro Nerd Font:size=18;4"
+font-0 = "JetBrainsMono Nerd Font:style=Medium:size=14;2"
+font-1 = "JetBrainsMono Nerd Font:style=Bold:size=12;2"
+font-2 = "JetBrainsMono Nerd Font:size=14;3"
+font-3 = "JetBrainsMono Nerd Font:size=18;4"
 font-4 = "Noto Color Emoji:scale=4;5"
 
 ; module arrangement
