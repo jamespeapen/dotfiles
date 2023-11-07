@@ -1,7 +1,7 @@
 bindsym $mod+Return exec kitty
 
 # application menu
-set $menu "rofi -combi-modi drun,ssh,run -show combi -show-icons"
+set $menu "rofi -combi-modi window,drun,ssh,run -show combi -show-icons -drun-match-fields name"
 bindsym $mod+d exec $menu
 
 # emoji list
