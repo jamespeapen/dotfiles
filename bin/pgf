@@ -1,16 +1,17 @@
-#! /usr/bin/env bash
+#!/bin/env zsh
 
-finder() {
-    RG_PREFIX="~/.local/bin/rga --files-with-matches"
-    local file
-    file="$(
-        FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
-            fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
-                --phony -q "$1" \
-                --bind "change:reload:$RG_PREFIX {q}" \
-                --preview-window="down:50%:wrap"
-    )" &&
-    setsid -f xdg-open "$file"
-}
+RGA_COMMAND="rga --files-with-matches --glob \"*.pdf\""
+files=$(cd ~/Documents/.Zotero/storage && rga --files-with-matches --glob "*.pdf" "$1")
 
-(cd ~/Documents/.Zotero/storage && exec finder)
+(cd ~/Documents/.Zotero/storage &&
+    echo "$files" | \
+    fzf --sort \
+        --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+        --disabled \
+        -q "$1" \
+        --preview-window="down:50%:wrap" \
+        --bind="change:reload:$RGA_COMMAND {q}" \
+        --bind="ctrl-z:execute(zotcli && kill \"$$\")" \
+        --bind="enter:execute(setsid -f xdg-open {} && kill \"$$\")"
+)
+
