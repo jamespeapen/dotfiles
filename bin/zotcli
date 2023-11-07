@@ -1,0 +1,20 @@
+#!/bin/bash
+
+paper=$(
+    sqlite3 --readonly ~/.cache/zotero/zotero.sqlite \
+    "SELECT '~/Documents/.Zotero/storage/' || key || replace(path, 'storage:', ':') \
+    FROM itemAttachments\
+    INNER JOIN items \
+    ON itemAttachments.itemID = items.itemID AND items.libraryID = 1 \
+    WHERE itemAttachments.contentType = 'application/pdf'" \
+    | sort | uniq | \
+    fzf \
+        --delimiter : \
+        --with-nth=2.. \
+        --bind='ctrl-s:toggle-sort' \
+        --bind='ctrl-o:execute(setsid -f xdg-open {})'
+    )
+
+file=$(echo "$paper" | sed "s|~|$HOME|" | sed "s/:/\//")
+echo $file
+setsid -f xdg-open "$file"
