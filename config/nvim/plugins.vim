@@ -167,7 +167,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Devicons
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Indents
 Plug 'Yggdroot/indentLine'
