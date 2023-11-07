@@ -27,7 +27,7 @@ set notification-error-fg	"#fb4934"
 set notification-warning-bg	"#282828"
 set notification-warning-fg	"#fabd2f"
 
-set recolor	"true"
+set recolor	false
 set recolor-keephue	"true"
 set recolor-darkcolor	"#ebdbb2"
 set recolor-lightcolor	"#282828"
