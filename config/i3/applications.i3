@@ -34,7 +34,7 @@ bindsym $mod+p exec passmenu
 bindsym $mod+o exec otpmenu
 
 # warpd
-bindsym Mod1+o exec warpd --hint
+bindsym Mod1+o exec warpd --hint --oneshot --click 1
 
 # bindings
 bindsym Mod1+Shift+n [class="kitty" title="neomutt"] focus
