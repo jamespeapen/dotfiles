@@ -26,8 +26,8 @@ bindsym $mod+Shift+f exec rxvt -e bkmrks
 
 # search
 bindsym Mod1+q exec search
-bindsym Mod1+Shift+q exec search --clipboard
-bindsym Mod1+Shift+s exec search --selection
+bindsym Mod1+s exec search --selection
+bindsym Mod1+Shift+s exec search --clipboard
 
 # pass
 bindsym $mod+p exec passmenu
