@@ -16,6 +16,8 @@ bindsym $mod+Return exec $term
 
 # browser
 bindsym Mod1+Shift+g exec $browser
+bindsym $mod+Shift+f exec rxvt -e bkmrks
+
 # search
 bindsym Mod1+q exec search
 bindsym Mod1+s exec search --selection
