@@ -27,3 +27,6 @@ bindsym Mod1+Shift+s exec search --clipboard
 bindsym $mod+p exec passmenu
 bindsym $mod+o exec otpmenu
 
+# warpd
+bindsym Mod1+o exec warpd --hint --oneshot --click 1
+
