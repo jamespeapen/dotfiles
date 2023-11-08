@@ -19,6 +19,7 @@ bindsym Mod1+Shift+g exec $browser
 # search
 bindsym Mod1+q exec search
 bindsym Mod1+s exec search --selection
+bindsym Mod1+Shift+s exec search --clipboard
 
 # pass
 bindsym $mod+p exec passmenu
