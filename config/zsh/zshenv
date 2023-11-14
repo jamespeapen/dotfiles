@@ -1,6 +1,6 @@
 export PLATFORM="$(uname)"
 if [[ "$PLATFORM" != "Darwin" ]]; then
-    export OS_RELEASE=$(grep "^NAME" /etc/os-release | sed -E 's/^.*"(.*)"$/\1/')
+    export OS_RELEASE=$(grep "^NAME" /etc/os-release | cut -d = -f 2 | tr -d '"')
 fi
 
 # PATH
