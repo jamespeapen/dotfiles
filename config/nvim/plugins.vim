@@ -68,7 +68,7 @@ imap <C-/> <Esc>VgcA
 nmap <C-/> Vgc
 
 " Git
-Plug 'tpope/vim-fugitive', { 'on': 'Git' }
+Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
 
 " Snippets
