@@ -8,25 +8,29 @@ Plug 'tpope/vim-obsession', { 'on': 'Obsession' }
 
 "startup
 Plug 'mhinz/vim-startify'
+"<<<
 let g:startify_session_persistence = 1
 let g:startify_session_autoload = 1
+">>>
 
 " Nerdtree
-
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+" <<<
 " Read ~/.NERDTreeBookmarks file and takes its second column
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['   MRU']            },
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
         \]
-
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeHijackNetrw=1 " NERDTree to split mode
 let NERDTreeQuitOnOpen=1
+" >>>
 
 " Undotree
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+" <<<
 nnoremap <F5> :UndotreeToggle<CR>
+" >>>
 
 "-------------------- Utils 
 " lua functions
@@ -54,7 +58,9 @@ Plug 'kshenoy/vim-signature'
 
 " splitting line
 Plug 'AndrewRadev/splitjoin.vim', { 'for': ['python', 'javascript', 'json', 'zsh', 'r', 'rs', 'lua'] }
+" <<<
 let g:splitjoin_python_brackets_on_separate_lines = 1
+" >>>
 
 " parens
 Plug 'tpope/vim-surround'
@@ -63,9 +69,11 @@ Plug 'windwp/nvim-autopairs'
 " Commenting
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'tpope/vim-commentary'
+" <<<
 vmap <C-/> gc
 imap <C-/> <Esc>VgcA
 nmap <C-/> Vgc
+" >>>
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -73,23 +81,27 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
+" <<<
 let g:UltiSnipsExpandTrigger="<C-I>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" >>>
 
 Plug 'jamespeapen/vim-snippets'
 
 " REPL
+Plug 'axvr/zepl.vim', { 'for': [ 'julia', 'python'] }
+" <<<
 let maplocalleader = "\\"
 nmap <LocalLeader>l gzz
 nmap <LocalLeader>p gzip
-Plug 'axvr/zepl.vim', { 'for': [ 'julia', 'python'] }
 let g:repl_config = {
             \   'julia': {
             \     'cmd': 'julia',
             \     'load_files': 'include("%s")'
             \   }
             \ }
+" >>>
 
 "-------------------- LSP
 Plug 'neovim/nvim-lspconfig'
@@ -112,6 +124,7 @@ Plug 'nvim-treesitter/playground'
 
 " R
 Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
+" <<<
 let R_buffer_opts = "nobuflisted"
 let R_rconsole_height=20
 let R_rconsole_width=67
@@ -124,23 +137,30 @@ let R_openhtml = 0 " don't open html in default browser on knit
 let R_openpdf = 1 " don't open html in default browser on knit
 let r_indent_ess_comments = 0
 let R_rmdchunk = '``'
+" >>>
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
+" <<<
 let g:pandoc#formatting#mode = 'h'
 let g:pandoc#folding#level = 2
 let g:pandoc#keyboard#use_default_mappings = 0
+" >>>
 Plug 'vim-pandoc/vim-pandoc-syntax' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
 Plug 'quarto-dev/quarto-vim', {'for': ['quarto']}
 
 " Latex
 Plug 'lervag/vimtex', {'for': ['tex', 'plaintex']}
+" <<<
 let g:tex_flavor = "latex"
+" >>>
 
 " Rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+" <<<
 let g:rustfmt_autosave = 1
 Plug 'simrat39/rust-tools.nvim', {'for': 'rust'}
+" >>>
 
 " Julia
 Plug 'JuliaEditorSupport/julia-vim', {'for': 'julia'}
@@ -175,15 +195,19 @@ Plug 'Yggdroot/indentLine'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) }, 'on': [] }
 " Bullets.vim
 Plug 'dkarter/bullets.vim', {'for': ['markdown', 'rmd']}
+" <<<
 let g:bullets_line_spacing = 2
 let g:bullets_enabled_file_types = [
     \ 'markdown',
     \ 'rmd',
     \ 'gitcommit',
     \]
+" >>>
 
 call plug#end()
 
 lua <<EOF
 require('gitsigns').setup()
 EOF
+
+" vim:foldmethod=marker:fmr=<<<,>>>
