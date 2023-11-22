@@ -78,6 +78,7 @@ nmap <C-/> Vgc
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'AndrewRadev/linediff.vim', { 'on': 'Linediff' }
 
 " Snippets
 Plug 'SirVer/ultisnips'
