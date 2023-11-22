@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: missing-fields
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "lua", "python", "r", "vim", "vimdoc" }, -- one of "all", "maintained"
   ignore_install = { "javascript"}, -- List of parsers to ignore installing
