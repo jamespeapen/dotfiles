@@ -138,6 +138,9 @@ rt.setup({
 -- Bash
 nvim_lsp.bashls.setup{}
 
+--Go
+require'lspconfig'.gopls.setup{}
+
 -- Lua
 nvim_lsp.lua_ls.setup {
   settings = {
