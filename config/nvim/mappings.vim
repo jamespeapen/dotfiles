@@ -24,10 +24,6 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" tabs
-nmap <leader>l gt
-nmap <leader>h gT
-
 " splits
 nnoremap <Leader>vs :vsplit<CR>
 
