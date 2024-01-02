@@ -29,8 +29,8 @@ require'nvim-treesitter.configs'.setup {
         keymaps = {
             list_definitions = "gnd",
             list_definitions_toc = "g0",
-            goto_next_usage = "<a-*>",
-            goto_previous_usage = "<a-#>",
+            goto_next_usage = "g]",
+            goto_previous_usage = "g[",
         }
     },
     smart_rename = {
