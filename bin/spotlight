@@ -10,6 +10,7 @@ file=$(fzf \
     --preview-window hidden \
     --prompt "Search> " \
     --bind=change:first \
+    --bind="ctrl-i:toggle-out" \
     --bind="ctrl-s:toggle-sort" \
     --bind="ctrl-r:execute(rm -i {})+reload($FD_COMMAND)" \
     --bind="ctrl-d:change-prompt(Directories only> )+reload(fd -L --type d)+execute(kitty icat --clear)" \
