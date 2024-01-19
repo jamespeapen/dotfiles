@@ -8,9 +8,13 @@ file=$(fzf \
     --prompt "File search: " \
     --preview="bat --color=always {}"\
     --preview-window hidden \
+    --prompt "Search> " \
     --bind=change:first \
     --bind="ctrl-s:toggle-sort" \
     --bind="ctrl-r:execute(rm -i {})+reload($FD_COMMAND)" \
+    --bind="ctrl-d:change-prompt(Directories only> )+reload(fd -L --type d)+execute(kitty icat --clear)" \
+    --bind="ctrl-f:change-prompt(Files only> )+reload(fd -L --type f)" \
+    --bind="ctrl-r:change-prompt(Search> )+reload(fd -L)" \
     --bind="ctrl-t:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
     --bind="ctrl-space:toggle-preview" \
     --bind="alt-d:preview-down" \
