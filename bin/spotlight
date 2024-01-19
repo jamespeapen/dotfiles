@@ -2,7 +2,7 @@
 export FD_COMMAND="fd -L --type f --no-ignore-vcs"
 export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
 
-file=$(fzf \
+files=$(fzf \
     --extended \
     --multi \
     --prompt "File search: " \
@@ -23,4 +23,8 @@ file=$(fzf \
     --bind="alt-d:preview-down" \
     --bind="alt-u:preview-up"
 )
-setsid -f xdg-open "$file"
+
+echo "$files"
+for file in $files; do
+    setsid -f xdg-open $file
+done
