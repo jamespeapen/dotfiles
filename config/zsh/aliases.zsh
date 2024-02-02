@@ -43,6 +43,7 @@ alias gitconfig="$EDITOR ~/.gitconfig"
 alias gcommit="git commit -v "
 alias vit="vim +Git -c ':only'"
 alias vson="vim '+set ft=json'"
+alias cgr='cd $(git rev-parse --show-toplevel)'
 
 alias sed="sed -E "
 
