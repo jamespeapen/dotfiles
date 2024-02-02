@@ -12,7 +12,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<F4>', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<F4>',
+      function()
+        vim.cmd(":write")
+        vim.lsp.buf.rename()
+      end,
+      bufopts
+    )
 
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', 'd[', vim.diagnostic.goto_prev, opts)
