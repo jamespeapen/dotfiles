@@ -91,38 +91,6 @@ function crypt-log() {
 #--------------------Searching------------------------------------------------
 
 # rg -i with fzf file preview
-rgf() {
-  local preview_cmd
-  preview_cmd="echo {} | sed 's/(.*:[0-9]+).*//' | xargs -0 preview {}"
-  if [ "$1" != "" ]; then
-    rg -i --line-number "$1" > /tmp/rgsearch
-    if [ $? -eq 0 ]; then
-      cat /tmp/rgsearch | \
-        fzf --header "Search string: $1" \
-        --header-first \
-        --reverse \
-        --border \
-        --delimiter : \
-        --nth=2.. \
-        --query "$1 " \
-        --preview="$preview_cmd" \
-        --preview-window=right,+{2}-20 \
-        --bind='enter:execute(nvim -R +{2} -c "normal! zz" {1})' \
-        --bind='alt-k:preview-up,alt-p:preview-up' \
-        --bind='alt-j:preview-down,alt-n:preview-down' \
-        --bind='ctrl-r:toggle-all' \
-        --bind='ctrl-s:toggle-sort' \
-        --bind='ctrl-space:toggle-preview' \
-        --bind='alt-w:toggle-preview-wrap'
-    else
-      echo "No results found for $1"
-    fi
-  else
-    echo "Enter a search string"
-  fi
-  return 0
-}
-
 agstring() {
   local cmd
   cmd="echo {} | sed 's/:.*//' | xargs -I% highlight -O ansi -l % 2> /dev/null"
