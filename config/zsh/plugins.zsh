@@ -49,3 +49,6 @@ fi
 # zsh-autosuggestions
 bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# fzf-tab
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-i:toggle+down' 'ctrl-a:toggle-all'
