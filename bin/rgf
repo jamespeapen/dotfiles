@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+
+export PREVIEW_CMD="echo {} | sed 's/(.*:[0-9]+).*//' | xargs -0 preview {}"
+export INITAL_QUERY="${*:-}"
+export RG_PREFIX="rg --line-number --color=always --smart-case --no-heading"
+
+if [ "$INITAL_QUERY" != "" ]; then
+  rg -i --line-number "$INITAL_QUERY" --color=always | \
+      fzf --header "Search string: $1" \
+      --header-first \
+      --reverse \
+      --delimiter : \
+      --nth=2.. \
+      --ansi \
+      --query "$1 " \
+      --preview="$PREVIEW_CMD" \
+      --preview-window=right,+{2}-20 \
+      --bind="alt-r:reload:$RG_PREFIX {q}" \
+      --bind="enter:execute(nvim -R +{2} -c 'normal! zz' {1})" \
+      --bind="alt-k:preview-up,alt-p:preview-up" \
+      --bind="alt-j:preview-down,alt-n:preview-down" \
+      --bind="ctrl-r:toggle-all" \
+      --bind="ctrl-s:toggle-sort" \
+      --bind="ctrl-space:toggle-preview" \
+      --bind="alt-w:toggle-preview-wrap"
+else
+  echo "Enter a search string"
+fi
+
