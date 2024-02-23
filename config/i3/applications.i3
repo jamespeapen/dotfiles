@@ -8,10 +8,10 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+u exec dmenuunicode
 
 # file browser
-bindsym $mod+Shift+d exec rxvt -e 'spotlight'
+bindsym $mod+Shift+d exec kitty --class flykitty 'spotlight'
 
 # zotero browser
-bindsym $mod+Shift+p exec rxvt -e 'pgf'
+bindsym $mod+Shift+p exec flykitty 'zotcli'
 
 # vim editor
 bindsym $mod+Shift+Return exec vimmy
@@ -22,7 +22,7 @@ bindsym --release Mod1+F9 exec screenshot -f
 
 # browser
 bindsym Mod1+Shift+g exec firefox --private-window
-bindsym $mod+Shift+f exec rxvt -e bkmrks
+bindsym $mod+Shift+f exec flykitty bkmrks
 
 # search
 bindsym Mod1+q exec search
@@ -43,6 +43,7 @@ bindsym Mod1+Shift+o [class="kitty" title="weechat"] focus
 # settings
 for_window [class="URxvt"] floating enable, border pixel 0
 for_window [class="R_x11"] floating enable
+for_window [class="flykitty"] floating enable, border pixel 0
 
 for_window [title="neomutt"] layout splitv
 assign [title="neomutt"] $ws7
