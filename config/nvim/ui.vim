@@ -12,6 +12,7 @@ endfunction
 nnoremap <Leader>l :call Light()<CR>
 
 "au ColorScheme * hi Normal ctermbg=none guibg=none
+highlight link GitSignsCurrentLineBlame GruvboxAqua
 
 " Indent line
 let g:indentLine_setColors = 0
