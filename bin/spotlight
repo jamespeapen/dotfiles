@@ -5,7 +5,6 @@ export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
 files=$(fzf \
     --extended \
     --multi \
-    --prompt "File search: " \
     --preview="bat --color=always {}"\
     --preview-window hidden \
     --prompt "Search> " \
