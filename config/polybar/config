@@ -22,6 +22,7 @@ include-file = /home/$USER/.config/polybar/modules/launcher.ini
 include-file = /home/$USER/.config/polybar/modules/i3.ini
 include-file = /home/$USER/.config/polybar/modules/date.ini
 include-file = /home/$USER/.config/polybar/modules/weather.ini
+include-file = /home/$USER/.config/polybar/modules/calcurse.ini
 include-file = /home/$USER/.config/polybar/modules/bluetoothctl.ini
 include-file = /home/$USER/.config/polybar/modules/pulseaudio.ini
 include-file = /home/$USER/.config/polybar/modules/backlight.ini
@@ -69,7 +70,7 @@ font-4 = "Noto Color Emoji:scale=4;5"
 ; module arrangement
 modules-left = launcher i3
 modules-center = date weather
-modules-right = system-bluetooth-bluetoothctl pulseaudio backlight wlan eth usb-eth filesystem memory cpu temperature battery
+modules-right = calcurse system-bluetooth-bluetoothctl pulseaudio backlight wlan eth usb-eth filesystem memory cpu temperature battery
 
 tray-background = ${colors.background}
 tray-position = right
