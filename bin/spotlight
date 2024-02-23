@@ -18,9 +18,13 @@ files=$(fzf \
     --bind="ctrl-r:change-prompt(Search> )+reload(fd -L)" \
     --bind="alt-r:execute(rm -i {})+reload($FD_COMMAND)" \
     --bind="ctrl-t:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
-    --bind="ctrl-space:toggle-preview" \
+    --bind="ctrl-space:toggle-preview+execute(kitty icat --clear)" \
     --bind="alt-d:preview-down" \
-    --bind="alt-u:preview-up"
+    --bind="alt-u:preview-up" \
+    --bind="ctrl-/:change-preview-window(hidden)+execute(kitty icat --clear)" \
+    --header="ALT-a/A: Select/deselect all | CTRL-d: Search dirs | CTRL-f: Search files | CTRL-t: Open with xdragon | CTRL-space: toggle preview | CTRL-/: clear images" \
+    --border \
+    --padding=1 \
 )
 
 echo "$files"
