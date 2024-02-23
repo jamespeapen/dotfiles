@@ -12,7 +12,7 @@ require("telescope").setup {
     layout_strategy = "flex",
     layout_config = {
       flex = {
-        flip_columns = 140,
+        flip_columns = 200,
       },
       vertical = {
         height = 0.6,
