@@ -13,6 +13,9 @@ bindsym $mod+Shift+d exec kitty --class flykitty 'spotlight'
 # zotero browser
 bindsym $mod+Shift+p exec flykitty 'zotcli'
 
+# calculator
+bindsym $mod+Shift+c exec flykitty 'numbat'
+
 # vim editor
 bindsym $mod+Shift+Return exec vimmy
 
