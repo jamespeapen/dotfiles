@@ -121,6 +121,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'nvim-treesitter/playground'
 
+" Refactoring
+Plug 'ThePrimeagen/refactoring.nvim'
+
 "-------------------- LANGUAGE PLUGINS 
 
 " R
