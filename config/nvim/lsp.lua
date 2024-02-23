@@ -79,6 +79,7 @@ cmp.setup.cmdline(':', {
 
 -- autopairs
 require("nvim-autopairs").setup {}
+  require('nvim-autopairs').remove_rule('`')
 -- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
