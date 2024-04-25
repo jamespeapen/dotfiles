@@ -26,6 +26,20 @@ files=$(fzf \
     --header="ALT-a/A: Select/deselect all | CTRL-d: Search dirs | CTRL-f: Search files | CTRL-y: copy path | CTRL-t: Open with xdragon | CTRL-space: toggle preview | CTRL-/: clear images" \
     --border \
     --padding=1 \
+    --preview-window hidden \
+    --preview='
+   if file --mime-type {} | grep -qF 'image/'; then
+      kitty icat --clear --transfer-mode=stream --stdin=no --place=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}@0x0 {}
+   elif file --mime-type {} | grep -qF 'text/csv'; then
+     csview {}
+   elif file --mime-type {} | grep -qF 'inode/directory'; then
+      eza --tree --color --icons {}
+   elif file --mime-type {} | grep -qF 'inode/directory'; then
+      eza --tree --color --icons {}
+   else
+     bat --color=always {}
+   fi
+    '
 )
 
 echo "$files"
