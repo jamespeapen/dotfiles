@@ -11,9 +11,6 @@ fi
 # Correction
 setopt correctall
 
-# fzf
-[[ -x "$(command -v fzf-share)" ]] && source "$(eval fzf-share)/key-bindings.zsh"  
-
 # source plugins
 source "$ZDOTDIR/plugins.zsh"
 
