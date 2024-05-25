@@ -20,8 +20,14 @@ bindsym $mod+Shift+c exec flykitty 'numbat'
 bindsym $mod+Shift+Return exec vimmy
 
 # screenshot
-bindsym --release F9 exec screenshot
-bindsym --release Mod1+F9 exec screenshot -f
+mode "screenshot" {
+    bindsym --release c exec screenshot; mode "default"
+    bindsym --release f exec screenshot -f; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym Mod1+F9 mode "screenshot"
 
 # browser
 bindsym Mod1+Shift+g exec firefox --private-window

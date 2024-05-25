@@ -30,3 +30,13 @@ bindsym $mod+o exec otpmenu
 # warpd
 bindsym Mod1+o exec warpd --hint --oneshot --click 1
 
+# screenshot
+mode "screenshot" {
+    bindsym --release c exec grimshot copy area; mode "default"
+    bindsym --release f exec grimshot copy area; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym Mod1+F9 mode "screenshot"
+
