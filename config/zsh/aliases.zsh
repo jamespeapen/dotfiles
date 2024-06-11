@@ -10,6 +10,7 @@ alias -g ......='../../../../..'
 alias cal="cal -3"
 alias open="xdg-open"
 alias vim="nvim"
+alias clip="xclip -selection clipboard"
 
 # util options
 alias rm='safe-rm -i'
