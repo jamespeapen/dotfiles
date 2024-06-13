@@ -211,7 +211,17 @@ let g:bullets_enabled_file_types = [
 call plug#end()
 
 lua <<EOF
-require('gitsigns').setup()
+require('gitsigns').setup {
+current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 200,
+    ignore_whitespace = false,
+    virt_text_priority = 100,
+  },
+  current_line_blame_formatter = '  <author>, <author_time:%Y-%m-%d> - <summary>',
+}
 EOF
 
 " vim:foldmethod=marker:fmr=<<<,>>>
