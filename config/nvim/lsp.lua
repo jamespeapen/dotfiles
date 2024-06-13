@@ -59,6 +59,7 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
         { name = 'buffer' },
+        { name = 'cmp_r' },
         { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
     }),
@@ -100,9 +101,15 @@ nvim_lsp.jedi_language_server.setup{
 }
 
 -- R
-nvim_lsp.r_language_server.setup{
-    filetypes = {"r", "rmd"}
+require'lspconfig'.r_language_server.setup{
+    filetypes = {"r", "rmd", "quarto"},
 }
+require("cmp_r").setup({
+  filetypes = {"r", "rmd", "quarto"},
+  fun_data_1 = {"melt", "lm", "subset"},
+  fun_data_2 = {ggplot = {'aes'}, with = {'*'}},
+  doc_width = 58,
+  })
 
 -- Julia
 require'lspconfig'.julials.setup{

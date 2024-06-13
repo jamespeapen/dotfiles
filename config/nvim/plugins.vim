@@ -127,21 +127,8 @@ Plug 'ThePrimeagen/refactoring.nvim'
 "-------------------- LANGUAGE PLUGINS 
 
 " R
-Plug 'jalvesaq/Nvim-R', { 'for': ['r', 'rmd'] }
-" <<<
-let R_buffer_opts = "nobuflisted"
-let R_rconsole_height=20
-let R_rconsole_width=67
-let R_objbr_w=35
-let R_nvimpager = "horizontal"
-let R_assign = 2 " underscrore to '<-': on 2
-let R_debug_center = 1
-let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed', 'cpp']
-let R_openhtml = 0 " don't open html in default browser on knit
-let R_openpdf = 1 " don't open html in default browser on knit
-let r_indent_ess_comments = 0
-let R_rmdchunk = '``'
-" >>>
+Plug 'R-nvim/R.nvim', { 'for': ['r', 'rmd', 'quarto'] }
+Plug 'R-nvim/cmp-r'
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
@@ -222,6 +209,17 @@ current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
   },
   current_line_blame_formatter = '  <author>, <author_time:%Y-%m-%d> - <summary>',
 }
+
+require('r').setup {
+  R_args = {"--quiet", "--no-save"}, 
+  rconsole_height=20,
+  rconsole_width=170,
+  buffer_opts = "nobuflisted",
+  objbr_w=35,
+  Rout_more_colors = true,
+  bracketed_paste = true,
+}
+
 EOF
 
 " vim:foldmethod=marker:fmr=<<<,>>>
