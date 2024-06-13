@@ -9,7 +9,7 @@ fi
 #zmodload zsh/zprof
 
 # Correction
-setopt correctall
+setopt correct
 
 # source plugins
 source "$ZDOTDIR/plugins.zsh"
