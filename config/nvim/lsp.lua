@@ -87,6 +87,9 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
+-- js
+require'lspconfig'.tsserver.setup{}
+
 -- Python
 nvim_lsp.jedi_language_server.setup{
     filetypes = {"python"}
