@@ -4,29 +4,30 @@ export FD_NOIGNORE="fd -L --no-ignore"
 export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
 
 # bindings
+export RELOAD="ctrl-r"
+export IGNORE="alt-i"
 export SEL="ctrl-i"
-export TOGGLE_SORT="ctrl-s"
 export SEL_ALL="alt-a"
 export DESEL_ALL="alt-A"
 export SEARCH_DIRS="ctrl-d"
 export SEARCH_FILES="ctrl-f"
-export RELOAD="ctrl-r"
 export DELETE="alt-r"
 export XDRAGON="ctrl-t"
-export TOGGLE_PREVIEW="ctrl-space"
+export TOGGLE_SORT="ctrl-s"
 export COPY_PATH="ctrl-y"
-export CLEAR_IMG="ctrl-/"
-export IGNORE="alt-i"
+export TOGGLE_PREVIEW="ctrl-space"
 export PREVIEW_DOWN="alt-d"
 export PREVIEW_UP="alt-u"
+export CLEAR_IMG="ctrl-/"
 
 files=$(fzf \
     --extended \
     --multi \
     --prompt "Search> " \
     --bind change:first \
+    --bind "$RELOAD:change-prompt(Search> )+reload($FD_COMMAND)" \
+    --bind "$IGNORE:reload($FD_NOIGNORE)" \
     --bind "$SEL:toggle-out" \
-    --bind "$TOGGLE_SORT:toggle-sort" \
     --bind "$SEL_ALL:select-all" \
     --bind "$DESEL_ALL:deselect-all" \
     --bind "$SEARCH_DIRS:change-prompt(Directories only> )+reload(fd -L --type d)+execute(kitty icat --clear)" \
@@ -34,11 +35,11 @@ files=$(fzf \
     --bind "$RELOAD:change-prompt(Search> )+reload($FD_COMMAND)" \
     --bind "$DELETE:execute(rm -i {})+reload($FD_COMMAND)" \
     --bind "$XDRAGON:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
-    --bind "$TOGGLE_PREVIEW:toggle-preview+execute(kitty icat --clear)" \
+    --bind "$TOGGLE_SORT:toggle-sort" \
     --bind "$COPY_PATH:execute-silent(timeout 1s xclip -se c <(echo {}))" \
+    --bind "$TOGGLE_PREVIEW:toggle-preview+execute(kitty icat --clear)" \
     --bind "$PREVIEW_DOWN:preview-down" \
     --bind "$PREVIEW_UP:preview-up" \
-    --bind "$IGNORE:reload($FD_NOIGNORE)" \
     --bind "$CLEAR_IMG:change-preview-window(hidden)+execute(kitty icat --clear)" \
     --header "$DESEL_ALL/A: Select/deselect all | $SEARCH_DIRS: Search dirs | $SEARCH_FILES: Search files | $XDRAGON: Open with xdragon | $TOGGLE_PREVIEW: toggle preview | $CLEAR_IMG: clear images" \
     --border \
