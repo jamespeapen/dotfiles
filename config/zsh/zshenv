@@ -27,7 +27,3 @@ export EDITOR="nvim"
 
 # BROWSER
 export BROWSER="firefox -private-window"
-
-# cargo
-source "$HOME/.cargo/env"
-. "$HOME/.cargo/env"

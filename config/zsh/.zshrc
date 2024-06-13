@@ -35,6 +35,9 @@ eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
 
+# cargo
+[[ -f ~/.cargo/env ]] && source ~/.cargo/env && . "$HOME/.cargo/env"
+
 #zprof
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
