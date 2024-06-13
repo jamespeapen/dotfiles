@@ -87,6 +87,10 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
+
+-- Go
+require'lspconfig'.gopls.setup{}
+
 -- js
 require'lspconfig'.tsserver.setup{}
 
