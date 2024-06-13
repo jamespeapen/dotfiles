@@ -1,31 +1,48 @@
 #! /usr/bin/env bash
 export FD_COMMAND="fd -L --no-ignore-vcs"
+export FD_NOIGNORE="fd -L --no-ignore"
 export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
+
+# bindings
+export SEL="ctrl-i"
+export TOGGLE_SORT="ctrl-s"
+export SEL_ALL="alt-a"
+export DESEL_ALL="alt-A"
+export SEARCH_DIRS="ctrl-d"
+export SEARCH_FILES="ctrl-f"
+export RELOAD="ctrl-r"
+export DELETE="alt-r"
+export XDRAGON="ctrl-t"
+export TOGGLE_PREVIEW="ctrl-space"
+export COPY_PATH="ctrl-y"
+export CLEAR_IMG="ctrl-/"
+export IGNORE="alt-i"
+export PREVIEW_DOWN="alt-d"
+export PREVIEW_UP="alt-u"
 
 files=$(fzf \
     --extended \
     --multi \
-    --preview="bat --color=always {}"\
-    --preview-window hidden \
     --prompt "Search> " \
-    --bind=change:first \
-    --bind="ctrl-i:toggle-out" \
-    --bind="ctrl-s:toggle-sort" \
-    --bind="alt-a:select-all" \
-    --bind="alt-A:deselect-all" \
-    --bind="ctrl-d:change-prompt(Directories only> )+reload(fd -L --type d)+execute(kitty icat --clear)" \
-    --bind="ctrl-f:change-prompt(Files only> )+reload(fd -L --type f)" \
-    --bind="ctrl-r:change-prompt(Search> )+reload(fd -L)" \
-    --bind="alt-r:execute(rm -i {})+reload($FD_COMMAND)" \
-    --bind="ctrl-t:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
-    --bind="ctrl-space:toggle-preview+execute(kitty icat --clear)" \
-    --bind="ctrl-y:execute-silent(timeout 1s xclip -se c <(echo {}))" \
-    --bind="alt-d:preview-down" \
-    --bind="alt-u:preview-up" \
-    --bind="ctrl-/:change-preview-window(hidden)+execute(kitty icat --clear)" \
-    --header="ALT-a/A: Select/deselect all | CTRL-d: Search dirs | CTRL-f: Search files | CTRL-y: copy path | CTRL-t: Open with xdragon | CTRL-space: toggle preview | CTRL-/: clear images" \
+    --bind change:first \
+    --bind "$SEL:toggle-out" \
+    --bind "$TOGGLE_SORT:toggle-sort" \
+    --bind "$SEL_ALL:select-all" \
+    --bind "$DESEL_ALL:deselect-all" \
+    --bind "$SEARCH_DIRS:change-prompt(Directories only> )+reload(fd -L --type d)+execute(kitty icat --clear)" \
+    --bind "$SEARCH_FILES:change-prompt(Files only> )+reload($FD_COMMAND)" \
+    --bind "$RELOAD:change-prompt(Search> )+reload($FD_COMMAND)" \
+    --bind "$DELETE:execute(rm -i {})+reload($FD_COMMAND)" \
+    --bind "$XDRAGON:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
+    --bind "$TOGGLE_PREVIEW:toggle-preview+execute(kitty icat --clear)" \
+    --bind "$COPY_PATH:execute-silent(timeout 1s xclip -se c <(echo {}))" \
+    --bind "$PREVIEW_DOWN:preview-down" \
+    --bind "$PREVIEW_UP:preview-up" \
+    --bind "$IGNORE:reload($FD_NOIGNORE)" \
+    --bind "$CLEAR_IMG:change-preview-window(hidden)+execute(kitty icat --clear)" \
+    --header "$DESEL_ALL/A: Select/deselect all | $SEARCH_DIRS: Search dirs | $SEARCH_FILES: Search files | $XDRAGON: Open with xdragon | $TOGGLE_PREVIEW: toggle preview | $CLEAR_IMG: clear images" \
     --border \
-    --padding=1 \
+    --padding 1 \
     --preview-window hidden \
     --preview "
         if file --mime-type {} | grep -qF 'image/'; then
