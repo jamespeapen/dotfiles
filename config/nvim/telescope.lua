@@ -56,6 +56,8 @@ require("telescope").setup {
     bibtex = {
       context = true,
       context_fallback = true,
+      citation_format = "{{author}} [{{title}}](https://doi.org/{{doi}}). *{{journal}}* {{year}} *{{volume}}*({{number}}):{{pages}}.",
+      citation_max_auth = 20,
     },
   },
 }
