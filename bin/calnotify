@@ -4,7 +4,7 @@ import subprocess
 from datetime import datetime
 import sys
 
-next_appointment = subprocess.check_output(["/usr/bin/calcurse",  "-n"]).decode("utf-8").split("\n")[1].strip()
+next_appointment = subprocess.check_output(["calcurse",  "-n"]).decode("utf-8").split("\n")[1].strip()
 
 time = next_appointment.split()[0]
 app_datetime = datetime.strptime(time, "[%H:%M]")
