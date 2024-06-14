@@ -8,5 +8,5 @@ next_appointment = subprocess.check_output(["/usr/bin/calcurse",  "-n"]).decode(
 
 time = next_appointment.split()[0]
 app_datetime = datetime.strptime(time, "[%H:%M]")
-if app_datetime.minute % 5 == 0 and app_datetime.hour == 0 and app_datetime.minute <= 30:
+if app_datetime.minute % 5 == 0 and app_datetime.hour == 0 and app_datetime.minute <= 60:
     subprocess.call(["notify-send", "📆 Calendar", f"{next_appointment}"])
