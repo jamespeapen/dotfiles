@@ -15,17 +15,38 @@ for_window [class="foot"] floating enable
 bindsym $mod+Return exec $term
 
 # browser
-bindsym Mod1+Shift+g exec $browser
-bindsym $mod+Shift+f exec rxvt -e bkmrks
+mode "browser" {
+    bindsym i exec firefox --private-window; mode "default"
+    bindsym b exec firefox; mode "default"
+    bindsym $mod+i [app_id="firefox" title=".*Private Browsing$"] focus; mode "default"
+    bindsym $mod+b [app_id="firefox" title=".*Mozilla Firefox$"] focus; mode "default"
+    bindsym f exec rxvt -e bkmrks; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+b mode "browser"
 
 # search
-bindsym Mod1+q exec search
-bindsym Mod1+s exec search --selection
-bindsym Mod1+Shift+s exec search --clipboard
+mode "search" {
+    bindsym q exec search; mode "default"
+    bindsym s exec search --selection; mode "default"
+    bindsym c exec search --clipboard; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym Mod1+q mode "search"
 
 # pass
-bindsym $mod+p exec passmenu
-bindsym $mod+o exec otpmenu
+mode "pass" {
+    bindsym p exec passmenu; mode "default"
+    bindsym o exec otpmenu; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+p mode "pass"
 
 # warpd
 bindsym Mod1+o exec warpd --hint --oneshot --click 1
