@@ -1,0 +1,28 @@
+[Added Associations]
+image/png=gimp.desktop;
+image/jpeg=display-im6.q16.desktop;
+image/svg+xml=org.gnome.eog.desktop;
+text/plain=org.gnome.gedit.desktop;
+
+[Default Applications]
+text/plain=org.gnome.gedit.desktop
+text/x-python=nvim.desktop
+text/markdown=nvim.desktop
+text/x-r-source=nvim.desktop
+text/x-r-markdown=nvim.desktop
+text/html=firefox-private.desktop
+text/css=nvim.desktop
+text/x-quarto-markdown=nvim.desktop
+text/x-c=nvim.desktop;vim.desktop;
+text/x-c++=nvim.desktop;vim.desktop;
+application/x-shellscript=nvim.desktop
+application/pdf=zathura.desktop
+text/x-c++hdr=nvim.desktop;vim.desktop;
+text/x-c++src=nvim.desktop;vim.desktop;
+text/x-makefile=nvim.desktop;vim.desktop;
+x-scheme-handler/http=firefox-private.desktop
+x-scheme-handler/https=firefox-private.desktop
+x-scheme-handler/about=firefox-private.desktop
+x-scheme-handler/unknown=firefox-private.desktop
+video/mp4=vlc.desktop
+x-scheme-handler/zotero=zotero.desktop
