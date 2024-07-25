@@ -1,17 +1,19 @@
-#!/bin/env zsh
+#!/bin/env bash
 
+ZOTERO_LIB_PATH="$HOME/Documents/.Zotero/storage"
 RGA_COMMAND="rga --files-with-matches --glob \"*.pdf\""
-files=$(cd ~/Documents/.Zotero/storage && rga --files-with-matches --glob "*.pdf" "$1")
 
-(cd ~/Documents/.Zotero/storage &&
-    echo "$files" | \
-    fzf --sort \
-        --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
-        --disabled \
-        -q "$1" \
-        --preview-window="down:50%:wrap" \
-        --bind="change:reload:$RGA_COMMAND {q}" \
-        --bind="ctrl-z:execute(zotcli && kill \"$$\")" \
-        --bind="enter:execute(setsid -f xdg-open {} && kill \"$$\")"
+file=$(rga --files-with-matches --glob "*.pdf" "$1" "$ZOTERO_LIB_PATH" | \
+    fzf \
+    --sort \
+    --disabled \
+    --delimiter='/' \
+    --with-nth=8 \
+    -q "$1" \
+    --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+    --preview-window=down \
+    --bind "alt-j:preview-down,alt-k:preview-up" \
+    --bind="change:reload:$RGA_COMMAND {q} $ZOTERO_LIB_PATH" \
+    --bind="enter:execute(setsid -f xdg-open {} && kill \"$$\")"
 )
-
+echo $file
