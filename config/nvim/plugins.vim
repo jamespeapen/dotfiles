@@ -216,14 +216,24 @@ current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
 
 require('r').setup {
   R_args = {"--quiet", "--no-save"}, 
-  rconsole_height=20,
+  rconsole_height=25,
   rconsole_width=170,
   buffer_opts = "nobuflisted",
   objbr_w=35,
   Rout_more_colors = true,
   bracketed_paste = true,
+  rmdchunk = "``",
 }
 
+-- let R_objbr_w=35
+-- let R_nvimpager = "horizontal"
+-- let R_assign = 2 " underscrore to '<-': on 2
+-- let R_debug_center = 1
+-- let g:rmd_fenced_languages = ['r', 'python', 'bash=sh', 'sh', 'awk', 'sed', 'cpp']
+-- let R_openhtml = 0 " don't open html in default browser on knit
+-- let R_openpdf = 1 " don't open html in default browser on knit
+-- let r_indent_ess_comments = 0
+-- let R_rmdchunk = 0
 EOF
 
 " vim:foldmethod=marker:fmr=<<<,>>>
