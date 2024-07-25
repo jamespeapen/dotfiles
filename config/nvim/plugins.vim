@@ -136,6 +136,7 @@ Plug 'vim-pandoc/vim-pandoc' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
 let g:pandoc#formatting#mode = 'h'
 let g:pandoc#folding#level = 2
 let g:pandoc#keyboard#use_default_mappings = 0
+let g:pandoc#command#latex_engine = "pdflatex"
 " >>>
 Plug 'vim-pandoc/vim-pandoc-syntax' ", { 'for': [ 'markdown', 'rmd', 'quarto']}
 Plug 'quarto-dev/quarto-vim', {'for': ['quarto']}
