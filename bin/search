@@ -1,34 +1,30 @@
-#! /usr/bin/env bash
+#!/bin/bash
 
-URL="https://duckduckgo.com/?q="
-if [[ $* == "--selection" ]]; then
-    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        QUERY=$(wl-paste --primary)
-    else
-        QUERY=$(xsel)
-    fi
-elif [[ $* == "--clipboard" ]]; then
-    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        QUERY=$(wl-paste)
-    else
-        QUERY=$(xsel -b)
-    fi
-elif [[ $* == "--pub" ]]; then
-    URL="https://pubmed.ncbi.nlm.nih.gov/"
-    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        QUERY=$(wl-paste --primary)
-    else
-        QUERY=$(xsel)
-    fi
+case "$XDG_SESSION_TYPE" in
+  "wayland")
+    [[ $* == "--selection" ]] && CLIP="wl-paste --primary" || CLIP="wl-paste"
+    ;;
+  "x11")
+    [[ $* == "--selection" ]] && CLIP="xsel" || CLIP="xsel -b"
+    ;;
+esac
+
+SEARCH="https://duckduckgo.com/?q="
+if [[ $* == "--pub" ]]; then
+    SEARCH="https://pubmed.ncbi.nlm.nih.gov/"
+fi
+
+if [[ $* != "" ]]; then
+    QUERY=$($CLIP)
 else
     QUERY=$(echo ''| dmenu -p 'Search DDG' -fn 'Ubuntu Nerd Font')
 fi
 
-if [ -n "$QUERY" ]; then
-    xdg-open "${URL}${QUERY}" 2> /dev/null
-    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        swaymsg '[app_id="firefox"] focus'
-    else
-        i3-msg [class=firefox] focus
-    fi
+if [[ "$QUERY" == http* ]]; then
+    URL="$QUERY"
+elif [ -n "$QUERY" ]; then
+    URL="${SEARCH}${QUERY}"
 fi
+
+urlhandler "${URL}"
+
