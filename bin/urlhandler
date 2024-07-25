@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 echo "$@" | xclip -selection clipboard
-result=$(grep -E "outlook|onedrive|teams.microsoft.com|sharepoint|instructure|shenlabvari|slack|huishenlab|jamespeapen" <<< $@)
+result=$(grep -E "outlook|onedrive|teams.microsoft.com|sharepoint|instructure|shenlabvari|slack|huishenlab|jamespeapen|shen-docs|VAI" <<< $@)
 
 if [[ -n "$result" ]]; then
     setsid -f firefox "$@" 2> /dev/null
