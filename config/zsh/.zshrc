@@ -34,6 +34,8 @@ eval "$(zoxide init zsh)"
 # direnv
 eval "$(direnv hook zsh)"
 
+# navi
+eval "$(navi widget zsh)"
 
 # cargo
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env && . "$HOME/.cargo/env"
