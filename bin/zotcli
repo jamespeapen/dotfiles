@@ -11,8 +11,12 @@ paper=$(
     fzf \
         --delimiter : \
         --with-nth=2.. \
+        --border \
+        --padding 1 \
+        --bind=change:first \
         --bind='ctrl-s:toggle-sort' \
-        --bind='ctrl-o:execute(setsid -f xdg-open {})'
+        --bind='ctrl-z:become(pgf && kill "$$")' \
+        --header="CTRL-z: launch pdf search | CTRL-s: toggle-sort"
     )
 
 file=$(echo "$paper" | sed "s|~|$HOME|" | sed "s/:/\//")
