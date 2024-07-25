@@ -101,8 +101,18 @@ nvim_lsp.jedi_language_server.setup{
 }
 
 -- R
-require'lspconfig'.r_language_server.setup{
-    filetypes = {"r", "rmd", "quarto"},
+require'lspconfig'.r_language_server.setup {
+  filetypes = {"r", "rmd", "quarto"},
+  cmd = {
+    (function()
+      local rpath = os.getenv("HOME") .. "/.nix-profile/bin/R"
+      if vim.fn.executable(rpath) == 0 then
+        rpath = "R"
+      end
+      return rpath
+    end)(),
+    "--slave", "-e", "languageserver::run()"
+  },
 }
 require("cmp_r").setup({
   filetypes = {"r", "rmd", "quarto"},
