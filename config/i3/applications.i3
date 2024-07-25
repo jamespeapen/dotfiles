@@ -48,6 +48,7 @@ mode "search" {
     bindsym q exec search; mode "default"
     bindsym s exec search --selection; mode "default"
     bindsym c exec search --clipboard; mode "default"
+    bindsym p exec search --pub; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
