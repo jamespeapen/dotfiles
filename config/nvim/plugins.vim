@@ -78,6 +78,9 @@ nmap <C-/> Vgc
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
+" <<<
+highlight link GitSignsCurrentLineBlame GruvboxFg3
+" >>>
 Plug 'AndrewRadev/linediff.vim', { 'on': 'Linediff' }
 
 " Snippets
