@@ -227,13 +227,13 @@ function ydl() {
     url=$(pbpaste)
   else
     if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
-        url=$(xclip -o)
+        url=$(xclip -selection clipboard -o)
     else
         url=$(wl-paste)
     fi
   fi
   echo "$url"
-  urls=$(youtube-dl --get-url --format m4a "$url")
+  urls=$(yt-dlp --format bestaudio --audio-format mp3 --audio-quality 160K --get-url $url)
   for url in "$urls"
   do
     if [[ "$platform" == "Darwin" ]]; then
