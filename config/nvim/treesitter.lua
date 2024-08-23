@@ -1,10 +1,20 @@
 ---@diagnostic disable-next-line: missing-fields
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "lua", "python", "r", "rust", "vim", "vimdoc" }, -- one of "all", "maintained"
+    ensure_installed = {
+        "cpp",
+        "lua",
+        "markdown_inline",
+        "python",
+        "r",
+        "rnoweb",
+        "rust",
+        "vim",
+        "vimdoc",
+    }, -- one of "all", "maintained"
   ignore_install = { "javascript"}, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "markdown" },  -- list of language that will be disabled
+    disable = {},
     additional_vim_regex_highlighting = false,
   },
   indent = {
