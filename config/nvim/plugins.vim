@@ -95,18 +95,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 Plug 'jamespeapen/vim-snippets'
 
 " REPL
-Plug 'axvr/zepl.vim', { 'for': [ 'julia', 'python'] }
-" <<<
-let maplocalleader = "\\"
-nmap <LocalLeader>l gzz
-nmap <LocalLeader>p gzip
-let g:repl_config = {
-            \   'julia': {
-            \     'cmd': 'julia',
-            \     'load_files': 'include("%s")'
-            \   }
-            \ }
-" >>>
+Plug 'jamespeapen/iron.nvim', { 'branch': 'dev', 'for': [ 'python'] }
 
 "-------------------- LSP
 Plug 'neovim/nvim-lspconfig'
@@ -235,6 +224,56 @@ require('r').setup {
 -- let R_openpdf = 1 " don't open html in default browser on knit
 -- let r_indent_ess_comments = 0
 -- let R_rmdchunk = 0
+
+local iron = require("iron.core")
+
+iron.setup {
+  config = {
+    repl_definition = {
+      python = {
+        command = { "python" },  -- or { "ipython", "--no-autoindent" }
+        format = require("iron.fts.common").bracketed_paste_python
+      }
+    },
+    -- How the repl window will be displayed
+    -- See below for more information
+    repl_open_cmd = require('iron.view').split.vertical("50%"),
+  },
+  -- Iron doesn't set keymaps by default anymore.
+  -- You can set them here or manually add keymaps to the functions in iron.core
+  keymaps = {
+    -- send_motion = "<LocalLeader>l",
+    visual_send = "<LocalLeader>ss",
+    send_file = "<LocalLeader>fa",
+    send_line = "<LocalLeader>l",
+    send_line_down = "<LocalLeader>d",
+    send_paragraph = "<LocalLeader>pp",
+    send_paragraph_down = "<LocalLeader>pd",
+    send_word = "<LocalLeader>rp",
+    send_until_cursor = "<LocalLeader>su",
+    send_mark = "<LocalLeader>sm",
+    mark_motion = "<LocalLeader>mc",
+    mark_visual = "<LocalLeader>mc",
+    remove_mark = "<LocalLeader>md",
+    cr = "<LocalLeader>s<cr>",
+    interrupt = "<LocalLeader>s<LocalLeader>",
+    exit = "<LocalLeader>rq",
+    clear = "<LocalLeader>rr",
+  },
+  -- If the highlight is on, you can change how it looks
+  -- For the available options, check nvim_set_hl
+  highlight = {
+    italic = true
+  },
+  ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+}
+
+-- iron also has a list of commands, see :h iron-commands for all available commands
+vim.keymap.set('n', '<LocalLeader>rf', '<cmd>IronRepl<cr>')
+vim.keymap.set('n', '<LocalLeader>rR', '<cmd>IronRestart<cr>')
+vim.keymap.set('n', '<LocalLeader>rF', '<cmd>IronFocus<cr>')
+vim.keymap.set('n', '<LocalLeader>rq', '<cmd>IronHide<cr>')
+
 EOF
 
 " vim:foldmethod=marker:fmr=<<<,>>>
