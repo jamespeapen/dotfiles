@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+latest=$HOME/Pictures/wallpapers/noaa/latest.jpg
+smaller=$HOME/Pictures/wallpapers/noaa/w.jpg
+
+wget https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/latest.jpg -O "$latest" && \
+convert -scale 30% "$latest" "$smaller" && \
+feh --bg-max "$smaller"
