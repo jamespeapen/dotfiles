@@ -61,6 +61,8 @@ Plug 'AndrewRadev/splitjoin.vim', { 'for': [ 'cpp', 'python', 'javascript', 'jso
 " <<<
 let g:splitjoin_python_brackets_on_separate_lines = 1
 let g:r_indent_align_args = 0
+let g:r_indent_align_args = 0
+let g:splitjoin_c_argument_split_first_newline = 1
 " >>>
 
 " parens
