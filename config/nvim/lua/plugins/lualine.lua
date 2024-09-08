@@ -133,51 +133,6 @@ local os_icon = {
 vim.g.os_icon = os_icon[os.getenv("OS_RELEASE")].icon
 vim.g.os_icon_color = os_icon[os.getenv("OS_RELEASE")].color
 
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {
-        'encoding',
-        { 'g:os_icon', color = {fg = vim.g.os_icon_color} },
-        {'filetype', icon_only = true},
-    },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
-
 local goyo_group = vim.api.nvim_create_augroup("GoyoGroup", { clear = true })
 vim.api.nvim_create_autocmd("User", {
     desc = "Hide lualine on goyo enter",
@@ -195,3 +150,52 @@ vim.api.nvim_create_autocmd("User", {
         require("lualine").hide({ unhide = true })
     end,
 })
+
+return {
+  "nvim-lualine/lualine.nvim",
+  opts = {
+    options = {
+      icons_enabled = true,
+      theme = 'auto',
+      component_separators = { left = '', right = ''},
+      section_separators = { left = '', right = ''},
+      disabled_filetypes = {
+        statusline = {},
+        winbar = {},
+      },
+      ignore_focus = {},
+      always_divide_middle = true,
+      globalstatus = false,
+      refresh = {
+        statusline = 1000,
+        tabline = 1000,
+        winbar = 1000,
+      }
+    },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_c = {'filename'},
+      lualine_x = {
+        'encoding',
+        { 'g:os_icon', color = {fg = vim.g.os_icon_color} },
+        {'filetype', icon_only = true},
+      },
+      lualine_y = {'progress'},
+      lualine_z = {'location'}
+    },
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {'filename'},
+      lualine_x = {'location'},
+      lualine_y = {},
+      lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+
+  }
+}
