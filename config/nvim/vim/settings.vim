@@ -25,6 +25,7 @@ let g:indentLine_concealcursor=""
 let g:indentLine_conceallevel=2
 
 "tabstop
+autocmd FileType lua set shiftwidth=2
 autocmd FileType r set shiftwidth=2
 autocmd FileType julia set shiftwidth=4
 filetype plugin indent on
