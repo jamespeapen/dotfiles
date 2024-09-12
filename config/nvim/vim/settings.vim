@@ -21,8 +21,6 @@ set splitbelow
 " indent
 set smartindent
 set autoindent
-let g:indentLine_concealcursor=""
-let g:indentLine_conceallevel=2
 
 "tabstop
 autocmd FileType lua set shiftwidth=2
