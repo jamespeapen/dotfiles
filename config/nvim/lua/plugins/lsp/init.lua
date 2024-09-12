@@ -44,8 +44,15 @@ return {
       }
 
       -- LateX
-      nvim_lsp.texlab.setup{
-        filetypes = {"tex", "quarto"}
+      nvim_lsp.texlab.setup {
+        filetypes = {"tex", "quarto"},
+        settings = {
+          texlab = {
+            diagnostics = {
+              ignoredPatterns = { "Underfull.*", "Overfull.*" }
+            },
+          },
+        },
       }
 
       -- Lua
