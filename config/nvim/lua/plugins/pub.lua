@@ -4,6 +4,16 @@ return {
     ft = {'tex', 'plaintex'},
     init = function()
       vim.g.tex_flavor = "latex"
+      vim.g.vimtex_quickfix_open_on_warning = 0
+      vim.opt.conceallevel = 2
+      vim.g.vimtex_syntax_custom_cmds = {
+        { name = 'citealp', conceal = true, argspell = 0 },
+        { name = 'url', conceal = true, argspell = 0 },
+      }
+      vim.g.vimtex_syntax_conceal = { sections = 1 }
+      vim.cmd("hi link texStyleArgConc SpecialKey")
+      vim.cmd("hi link texCCitealpArg Constant")
+      vim.cmd("hi link texCUrlArg Underlined")
     end
   },
   {
