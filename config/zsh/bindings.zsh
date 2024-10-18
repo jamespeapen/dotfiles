@@ -14,6 +14,9 @@ export WORDCHARS=${WORDCHARS/\//}
 bindkey '^W' backward-kill-word
 
 # mappings
+bindkey '\ep' history-beginning-search-backward
+bindkey '\en' history-beginning-search-forward
+
 bindkey -s '\ey' 'ls\n'
 bindkey -s '\e;' 'ls -a\n'
 bindkey -s '\eg' 'ls --git-ignore\n'
