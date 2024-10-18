@@ -11,13 +11,6 @@ export FPATH=$HOME/.local/share/zsh/completions:$HOME/.nix-profile/share/zsh/sit
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-# HISTORY
-setopt SHARE_HISTORY
-setopt EXTENDED_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-export HISTSIZE=50000
-export SAVEHIST=50000
-
 # ZSHCONFIG
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.zsh_history"

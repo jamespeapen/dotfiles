@@ -47,3 +47,16 @@ eval "$(navi widget zsh)"
 
 # extras
 [[ -f ~/.extras.zsh ]] && source ~/.extras.zsh
+
+# HISTORY
+export HISTSIZE=5000
+export SAVEHIST=$HISTSIZE
+export HISTDUP=erase
+setopt APPENDHISTORY
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+
