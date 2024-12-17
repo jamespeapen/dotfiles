@@ -70,7 +70,7 @@ font-4 = "Noto Color Emoji:scale=6;5"
 ; module arrangement
 modules-left = launcher i3
 modules-center = date weather
-modules-right = calcurse system-bluetooth-bluetoothctl pulseaudio backlight wlan eth usb-eth filesystem memory cpu temperature battery
+modules-right = calcurse system-bluetooth-bluetoothctl pulseaudio backlight wlan eth usb-eth filesystem memory cpu temperature battery tray
 
 tray-background = ${colors.background}
 tray-position = right
