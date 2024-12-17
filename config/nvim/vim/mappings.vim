@@ -29,10 +29,10 @@ nnoremap <Leader>vs :vsplit<CR>
 
 " prose editing
 function! Prose()
-    :Goyo 90
+    :Goyo 85
     :set spell
     :source ~/.config/nvim/vim/autocorrect.vim
-    ":syntax on
+    :syntax on
 endfunction
 
 function! Gy()
