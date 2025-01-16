@@ -15,6 +15,7 @@ return {
     },
     init = function()
       vim.cmd([[highlight link GitSignsCurrentLineBlame GruvboxFg3]])
+      vim.cmd([[map gn :Gitsigns next_hunk<CR>]])
     end
   },
   {
