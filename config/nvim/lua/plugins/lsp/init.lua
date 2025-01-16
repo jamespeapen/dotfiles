@@ -49,7 +49,7 @@ return {
         settings = {
           texlab = {
             diagnostics = {
-              ignoredPatterns = { "Underfull.*", "Overfull.*" }
+              ignoredPatterns = { "Underfull.*", "Overfull.*", "Undefined reference" }
             },
           },
         },
