@@ -54,7 +54,8 @@ if [[ "$OS_RELEASE" == "Fedora Linux" ]]; then
 elif [[ "$OS_RELEASE" == "Ubuntu" ]]; then
     alias suinstall="sudo apt-get install"
 fi
-        
+
+alias tmxd="eval \$(tmux showenv -s | grep -E '^(SSH|DISPLAY)')"
 
 # session
 alias quit="gnome-session-quit"
