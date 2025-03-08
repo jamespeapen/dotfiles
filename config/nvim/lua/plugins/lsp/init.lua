@@ -153,6 +153,7 @@ return {
       local cmp = require'cmp'
       cmp.setup({
         sources = cmp.config.sources({
+          { name = 'orgmode' },
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
           { name = 'buffer' },
