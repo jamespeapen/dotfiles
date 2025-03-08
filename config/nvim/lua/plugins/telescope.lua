@@ -1,9 +1,7 @@
--- files browser
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-bibtex.nvim",
     'nvim-telescope/telescope-fzf-native.nvim',
   },
@@ -81,9 +79,6 @@ return {
           override_file_sorter = true,     -- override the file sorter
           case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
-        },
-        file_browser = {
-          respect_gitignore = false,
         },
         bibtex = {
           context = true,
