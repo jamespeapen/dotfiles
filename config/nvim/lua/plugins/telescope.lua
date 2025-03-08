@@ -19,7 +19,6 @@ return {
   opts = function()
     local telescope = require("telescope.builtin")
     local actions = require("telescope.actions")
-    require("telescope").load_extension("bibtex")
     vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex') end)
 
     -- mappings
@@ -98,5 +97,6 @@ return {
   config = function (_, opts)
     require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
+    require("telescope").load_extension("bibtex")
   end
 }
