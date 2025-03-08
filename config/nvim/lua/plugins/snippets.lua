@@ -1,7 +1,7 @@
 return {
   {
     'SirVer/ultisnips',
-    event = "InsertEnter",
+    -- event = 'VeryLazy',
     dependencies = "jamespeapen/vim-snippets",
     init = function()
       vim.g.UltiSnipsExpandTrigger="<C-I>"
