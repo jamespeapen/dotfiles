@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-bibtex.nvim",
+    'nvim-telescope/telescope-fzf-native.nvim',
   },
   keys = {
     "<Leader>ff",
@@ -93,5 +94,9 @@ return {
         },
       },
     }
+  end,
+  config = function (_, opts)
+    require("telescope").setup(opts)
+    require("telescope").load_extension("fzf")
   end
 }
