@@ -53,6 +53,9 @@ set undofile
 
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
+" fold
+set foldmethod=marker
+
 " python
 let g:python3_host_prog="nvim-python3"
 
