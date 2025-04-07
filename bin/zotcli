@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 paper=$(
     sqlite3 --readonly ~/.cache/zotero/zotero.sqlite \
