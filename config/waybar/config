@@ -79,7 +79,7 @@
 
     "clock": {
         "timezone": "America/New_York",
-        "format": "{: %a %b %d   %H:%M}",
+        "format": " {:%a %b %d   %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{ :%H:%M %a %Y-%m-%d}",
         "interval": 5
