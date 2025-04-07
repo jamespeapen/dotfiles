@@ -1,6 +1,6 @@
 source "$ZDOTDIR/antidote/antidote.zsh"
 antidote bundle < "$ZDOTDIR/plugin_list.txt" > "$ZDOTDIR/.zsh_plugins.zsh"
-antidote load
+source "$ZDOTDIR/.zsh_plugins.zsh"
 
 # p10k prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
