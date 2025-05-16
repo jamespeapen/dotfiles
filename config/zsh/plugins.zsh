@@ -1,5 +1,7 @@
 source "$ZDOTDIR/antidote/antidote.zsh"
-antidote bundle < "$ZDOTDIR/plugin_list.txt" > "$ZDOTDIR/.zsh_plugins.zsh"
+if [[ ! "$ZDOTDIR/.zsh_plugins.zsh" -nt "$ZDOTDIR/plugin_list.txt"  ]]; then
+    antidote bundle < "$ZDOTDIR/plugin_list.txt" > "$ZDOTDIR/.zsh_plugins.zsh"
+fi
 source "$ZDOTDIR/.zsh_plugins.zsh"
 
 # p10k prompt
