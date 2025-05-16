@@ -18,7 +18,11 @@ source "$ZDOTDIR/plugins.zsh"
 autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
 # Completion
-autoload -U compinit; compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+    compinit
+done
+compinit -C
 
 # source configs
 source "$ZDOTDIR/completion.zsh"
