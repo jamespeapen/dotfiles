@@ -17,3 +17,6 @@
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [merge]
 	ff = true
+[diff]
+	srcPrefix = SRC/
+	dstPrefix = DST/
