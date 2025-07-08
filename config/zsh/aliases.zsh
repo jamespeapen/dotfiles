@@ -9,7 +9,7 @@ alias -g ......='../../../../..'
 # utils
 alias cal3="cal -3"
 alias open="xdg-open"
-alias vim="nvim"
+alias e="nvim"
 alias clip="xclip -selection clipboard"
 
 # util options
@@ -42,8 +42,8 @@ alias gitconfig="$EDITOR ~/.gitconfig"
 
 # git
 alias gcommit="git commit -v "
-alias vit="vim +Git -c ':only'"
-alias vson="vim '+set ft=json'"
+alias vit="nvim +Git -c ':only'"
+alias vson="nvim '+set ft=json'"
 alias cgr='cd $(git rev-parse --show-toplevel)'
 
 alias sed="sed -E "
