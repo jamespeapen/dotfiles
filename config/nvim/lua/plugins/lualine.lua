@@ -128,6 +128,11 @@ local os_icon = {
         color = "#15a6f0",
         color_light = "#478061",
     },
+    ["Linux"] = {
+        icon =  " ",
+        color = "#ffffff",
+        color_light = "#000000",
+    },
 }
 
 local osname = os.getenv("OS_RELEASE")
