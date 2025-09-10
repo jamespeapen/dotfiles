@@ -36,7 +36,7 @@ return {
       require("r").setup(opts)
       require("cmp_r").setup({
         filetypes = {"r", "rmd", "quarto"},
-        fun_data_1 = {"melt", "lm", "subset"},
+        fun_data_1 = {"melt", "lm", "subset", "with"},
         fun_data_2 = {ggplot = {'aes'}, with = {'*'}},
         doc_width = 58,
       })
