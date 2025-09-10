@@ -1,14 +1,13 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    -- the colorscheme should be available when starting Neovim
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     opts = {
       terminal_colors = true, -- add neovim terminal colors
       contrast = "hard", -- can be "hard", "soft" or empty string
     },
-    config = function()
+    init = function()
       vim.cmd([[colorscheme gruvbox]])
     end,
   },
