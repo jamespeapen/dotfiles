@@ -130,8 +130,12 @@ local os_icon = {
     },
 }
 
-vim.g.os_icon = os_icon[os.getenv("OS_RELEASE")].icon
-vim.g.os_icon_color = os_icon[os.getenv("OS_RELEASE")].color
+local osname = os.getenv("OS_RELEASE")
+if not osname then
+  osname = "Linux"
+end
+vim.g.os_icon = os_icon[osname].icon
+vim.g.os_icon_color = os_icon[osname].color
 
 local goyo_group = vim.api.nvim_create_augroup("GoyoGroup", { clear = true })
 vim.api.nvim_create_autocmd("User", {
