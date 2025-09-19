@@ -15,7 +15,6 @@ return {
         buffer_opts = "nobuflisted",
         Rout_more_colors = true,
         bracketed_paste = true,
-        rmdchunk = "``",
         min_editor_width = 72,
         rconsole_height=25,
         rconsole_width=170,
