@@ -16,12 +16,14 @@ return {
           "rust",
           "vim",
           "vimdoc",
+          "yaml",
         },
         ignore_install = {
           "javascript"
         },
         highlight = {
-          enable = true
+          enable = true,
+          -- disable = { "markdown" },
         },
         sync_install = false,
         indent = {
