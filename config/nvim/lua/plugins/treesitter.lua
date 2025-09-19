@@ -8,6 +8,7 @@ return {
         ensure_installed = {
           "cpp",
           "lua",
+          "markdown",
           "markdown_inline",
           "python",
           "r",
