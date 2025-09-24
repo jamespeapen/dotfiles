@@ -8,7 +8,6 @@ alias -g ......='../../../../..'
 
 # utils
 alias cal3="cal -3"
-alias open="xdg-open"
 alias e="nvim"
 alias clip="xclip -selection clipboard"
 
