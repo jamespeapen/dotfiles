@@ -7,6 +7,10 @@ return {
       local opts = {
         hook = {
           on_filetype = function()
+            vim.api.nvim_create_autocmd({ "BufEnter" }, {
+              pattern = {"*.qmd", "*.rmd"},
+              command = "set conceallevel=0 | set shiftwidth=2"
+            })
           end
         },
         R_args = {"--quiet", "--no-save"},
