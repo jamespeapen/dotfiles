@@ -12,12 +12,12 @@ return {
     "<Leader>b",
     "<Leader>rg",
     "<Leader>H",
-    {"@@", mode = "i"},
+    {"^^", mode = "i"},
   },
   opts = function()
     local telescope = require("telescope.builtin")
     local actions = require("telescope.actions")
-    vim.keymap.set("i", "@@", function() vim.cmd('Telescope bibtex') end)
+    vim.keymap.set("i", "^^", function() vim.cmd('Telescope bibtex') end)
 
     -- mappings
     vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
