@@ -6,3 +6,5 @@ vim.cmd('source ' .. vim.fn.stdpath("config") .. '/vim/settings.vim')
 vim.cmd('source ' .. vim.fn.stdpath("config") .. '/vim/autocorrect.vim')
 
 require("config.lazy")
+require("lspconfig")
+
