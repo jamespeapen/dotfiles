@@ -13,11 +13,12 @@ bluetooth_print() {
 
                 if echo "$device_info" | grep -q "Connected: yes"; then
                     device_alias=$(echo "$device_info" | grep "Alias" | cut -d ' ' -f 2-)
+                    device_bat_hex=$(echo "$device_info" | grep "Battery" | cut -d ' ' -f 3)
 
                     if [ $counter -gt 0 ]; then
-                        printf ", %s" "$device_alias"
+                        printf ", %s (%d%%)" "$device_alias" "$device_bat_hex"
                     else
-                        printf " %s" "$device_alias"
+                        printf " %s (%d%%)" "$device_alias" "$device_bat_hex"
                     fi
 
                     counter=$((counter + 1))
