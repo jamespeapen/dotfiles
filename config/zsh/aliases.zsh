@@ -31,6 +31,7 @@ alias -g NUL="> /dev/null 2>&1"
 # application
 alias Radian="nix-shell -p python311Packages.radian R --command radian"
 alias play="nix-shell -p $1 --command zsh"
+alias tsview="csview -t"
 
 # config editing
 alias zshconfig="$EDITOR ~/.config/zsh/.zshrc"
