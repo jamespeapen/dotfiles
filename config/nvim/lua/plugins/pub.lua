@@ -43,4 +43,15 @@ return {
       vim.g.bullets_enabled_file_types = {'markdown', 'rmd',  'gitcommit'}
     end
   },
+  {
+    'nvimtools/none-ls.nvim',
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.vale,
+        },
+      })
+    end
+  },
 }
