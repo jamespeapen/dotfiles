@@ -7,7 +7,8 @@ return {
     end
   },
   {
-    'simrat39/rust-tools.nvim',
-    ft = {'rust'}
+    'mrcjkb/rustaceanvim',
+    version = '^7',
+    lazy = false,
   },
 }

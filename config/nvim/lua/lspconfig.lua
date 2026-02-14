@@ -107,39 +107,6 @@ vim.lsp.config("jedi_language_server", {
 -- })
 
 -- Rust
-local rt = require("rust-tools")
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<Leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-    settings = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      checkOnSave = {
-        command = "clippy",
-        extraArgs = {
-          { "--target-dir", "/tmp/rust-analyzer-check" }
-        }
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true
-      },
-    }
-  },
-})
 
 -- R
 vim.lsp.config("air", ({
