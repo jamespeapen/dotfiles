@@ -4,6 +4,7 @@ return {
     ft = {'tex', 'plaintex'},
     init = function()
       vim.g.tex_flavor = "latex"
+      vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
       vim.g.vimtex_quickfix_open_on_warning = 0
       vim.opt.conceallevel = 2
       vim.g.vimtex_syntax_custom_cmds = {
