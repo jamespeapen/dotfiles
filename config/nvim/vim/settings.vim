@@ -1,5 +1,6 @@
 " title
 set title
+set titlestring=%f
 
 " show commands
 set showcmd
