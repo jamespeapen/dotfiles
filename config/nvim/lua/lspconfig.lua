@@ -120,3 +120,9 @@ vim.lsp.config("air", ({
     })
   end,
 }))
+
+vim.lsp.enable("jarl")
+vim.lsp.config("jarl", ({
+  cmd = { "jarl", "server" },
+  filetypes = { "r", "rmd", "quarto"},
+}))
