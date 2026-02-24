@@ -71,3 +71,6 @@ let g:markdown_fenced_languages = ['r', 'python', 'sh', 'bash=sh', 'rust', 'vim'
 
 " so vim fugitive is quicker to load (tpope/vim-fugitive#1492)
 set shell=bash
+
+" borders
+set winborder=rounded
