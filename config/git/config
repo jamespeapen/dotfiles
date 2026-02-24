@@ -1,7 +1,7 @@
 [user]
 	email = james.eapen@vai.org
 	name = James Eapen
-	signingkey = B1BF05766D0B704C
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEouUX8YpVvuEeIt9LV0LA1iY91IASRGIBDM7vPU82/m
 [commit]
 	gpgsign = true
 [credential]
@@ -20,3 +20,7 @@
 [diff]
 	srcPrefix = SRC/
 	dstPrefix = DST/
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/james.eapen/.ssh/allowed_signers
