@@ -109,6 +109,7 @@ vim.lsp.config("jedi_language_server", {
 -- Rust
 
 -- R
+vim.lsp.enable('air')
 vim.lsp.config("air", ({
   on_attach = function(_, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
