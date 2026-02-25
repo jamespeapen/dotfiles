@@ -1,5 +1,5 @@
 {
-  "R.nvim": { "branch": "main", "commit": "b5e2b36450c89a670f30b4a1f2c9eed1deac9c8a" },
+  "R.nvim": { "branch": "devtools", "commit": "e2c43786afcb6cc5c64fd4923921f69791e84864" },
   "bullets.vim": { "branch": "master", "commit": "89294b8930e660936374fb763ac48a1ac51dd29c" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-cmdline": { "branch": "main", "commit": "d126061b624e0af6c3a556428712dd4d4194ec6d" },
