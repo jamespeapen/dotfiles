@@ -61,6 +61,16 @@ return {
     end
   },
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    init = function()
+      vim.cmd([[hi TreesitterContextBottom gui=underline guisp=Grey]])
+      vim.cmd([[hi TreesitterContextLineNumberBottom gui=underline guisp=Grey]])
+    end,
+    opts = {
+      multiwindow = true,
+      max_lines = 5,
+      multiline_threshold = 2,
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter-locals",
