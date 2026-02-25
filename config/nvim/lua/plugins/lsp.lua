@@ -19,7 +19,6 @@ return {
           { name = 'orgmode' },
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
-          { name = 'cmp_r' },
           { name = 'buffer' },
           { name = 'path' },
           { name = 'nvim_lsp_signature_help' },
