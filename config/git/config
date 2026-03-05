@@ -23,4 +23,4 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /Users/james.eapen/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
