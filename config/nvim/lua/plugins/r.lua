@@ -2,6 +2,7 @@ return {
   {
     "jamespeapen/R.nvim",
     branch = "devtools",
+    build = 'git submodule update --init --recursive',
     config = function ()
       -- Create a table with the options to be passed to setup()
       local opts = {
