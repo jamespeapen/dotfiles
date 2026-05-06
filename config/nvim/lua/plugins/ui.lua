@@ -12,6 +12,10 @@ return {
     end,
   },
   {
+    "e-ink-colorscheme/e-ink.nvim",
+    priority = 1000,
+  },
+  {
     'ap/vim-css-color',
     ft = {
       'css',
