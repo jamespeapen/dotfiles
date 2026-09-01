@@ -76,6 +76,7 @@ bindsym Mod1+Shift+n [class="kitty" title="neomutt"] focus
 bindsym Mod1+Shift+o [class="kitty" title="weechat"] focus
 
 # settings
+for_window [class="Bitwarden"] floating enable
 for_window [class="URxvt"] floating enable, border pixel 0
 for_window [class="R_x11"] floating enable
 for_window [class="flykitty"] floating enable, border pixel 0
