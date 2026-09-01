@@ -81,6 +81,7 @@ for_window [class="URxvt"] floating enable, border pixel 0
 for_window [class="R_x11"] floating enable
 for_window [class="flykitty"] floating enable, border pixel 0
 for_window [class="zenity"] floating enable, border pixel 0
+for_window [class="zenity"] floating enable, border pixel 0
 
 for_window [title="neomutt"] layout splitv
 assign [title="neomutt"] $ws7
