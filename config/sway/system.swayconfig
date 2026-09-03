@@ -1,10 +1,12 @@
 ### Idle configuration
 bindsym $mod+Shift+Escape exec swaylock -f -c 000000
 exec swayidle -w \
+         timeout 60 'playerctl pause' \
          timeout 60 'swaylock -f -c 000000' \
          timeout 60 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f -c 000000' \
+         lock 'playerctl pause; swaylock -f -c 000000'
 
 ### Input configuration
 input "type:keyboard" {
