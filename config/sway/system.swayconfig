@@ -21,8 +21,8 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
 }
 
 ### Screen Brightness
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 
 ### Volume control
 bindsym XF86AudioMute exec amixer sset 'Master' 0% -c 0
