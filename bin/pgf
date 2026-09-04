@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/env zsh
 
 ZOTERO_LIB_PATH="$HOME/Documents/.Zotero/storage"
 RGA_COMMAND="rga --files-with-matches --glob \"*.pdf\""
