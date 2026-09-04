@@ -37,7 +37,7 @@ files=$(fzf \
     --bind "$DELETE:execute(rm -i {})+reload($FD_COMMAND)" \
     --bind "$XDRAGON:become(setsid -f dragon -x -a {+} && kill \"$$\")" \
     --bind "$TOGGLE_SORT:toggle-sort" \
-    --bind "$COPY_PATH:execute-silent(timeout 1s xclip -se c <(echo {}))" \
+    --bind "$COPY_PATH:become(timeout 1s xclip -se c <(realpath {}) && kill \"$$\")" \
     --bind "$TOGGLE_PREVIEW:toggle-preview+execute(kitty icat --clear)" \
     --bind "$PREVIEW_DOWN:preview-down" \
     --bind "$PREVIEW_UP:preview-up" \
