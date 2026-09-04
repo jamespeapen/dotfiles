@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
-rxvt -geometry 80x30 \
-    -e nvim \
-    -c 'set laststatus=0' \
-    -c 'set spell' \
-    -c 'source ~/.config/nvim/autocorrect.vim' /tmp/temp_buffer 
-    #&& \ cat /tmp/temp_buffer | perl -pe 'chomp if eof' | xdotool type --delay 1 --clearmodifiers -file -
+kitty --class flykitty \
+nvim \
+  -c 'set laststatus=0' \
+  -c 'set spell' \
+  -c 'source ~/.config/nvim/vim/autocorrect.vim' /tmp/temp_buffer
+
+perl -pe 'chomp if eof' /tmp/temp_buffer | tr \\n \\r | xdotool type --delay 0.5 -file -
