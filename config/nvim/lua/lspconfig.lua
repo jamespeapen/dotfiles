@@ -132,8 +132,12 @@ vim.lsp.config("air", ({
   end,
 }))
 
-vim.lsp.enable("jarl")
 vim.lsp.config("jarl", ({
-  cmd = { "jarl", "server" },
-  filetypes = { "r", "rmd", "quarto"},
+  cmd = { 'jarl', 'server' },
+  filetypes = { 'r', 'rmd', 'quarto'},
+  -- root_markers = { '.git' },
+  root_dir = function(bufnr, on_dir)
+    on_dir(vim.fs.root(bufnr, '.git') or vim.uv.os_homedir())
+  end
 }))
+vim.lsp.enable("jarl")
