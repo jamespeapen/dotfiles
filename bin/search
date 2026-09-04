@@ -26,5 +26,6 @@ elif [ -n "$QUERY" ]; then
     URL="${SEARCH}${QUERY}"
 fi
 
-urlhandler "${URL}"
-
+if [[ -n "$URL" ]]; then
+   urlhandler "${URL}"
+fi
