@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 export FD_COMMAND="fd -L --no-ignore-vcs"
 export FD_NOIGNORE="fd -L --no-ignore"
-export FZF_DEFAULT_COMMAND="$FD_COMMAND | sed 's/^.\///'"
+export FZF_DEFAULT_COMMAND="$FD_COMMAND"
 
 # bindings
 export RELOAD="ctrl-r"
