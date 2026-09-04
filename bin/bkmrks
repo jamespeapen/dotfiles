@@ -15,9 +15,10 @@ while getopts ':c' OPTION; do
             ;;
         esac
 done
+
 url=$(fzf \
     --with-nth=1..-3 \
-    --delimiter=';' |\
+    --delimiter=';' | \
     awk -F';' '{print $2}'
 )
 
