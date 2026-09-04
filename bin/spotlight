@@ -24,6 +24,7 @@ files=$(fzf \
     --extended \
     --multi \
     --prompt "Search> " \
+    --ghost "filename .ext 'exact " \
     --bind change:first \
     --bind "$RELOAD:change-prompt(Search> )+reload($FD_COMMAND)" \
     --bind "$IGNORE:reload($FD_NOIGNORE)" \
